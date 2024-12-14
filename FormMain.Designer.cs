@@ -226,7 +226,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
-            this.Text = "HỆ THỐNG QUẢN LÝ THƯ VIỆN";
+            this.Text = "QUẢN LÝ THƯ VIỆN";
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
