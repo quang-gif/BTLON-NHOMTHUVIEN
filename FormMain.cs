@@ -32,5 +32,71 @@ namespace BTLON_NHOMTHUVIEN
         {
             Close();
         }
+
+        private void độcGiảToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new FormDocgia();
+            f.Show();
+        }
+
+        private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new FormNhanvien();
+            f.Show();
+        }
+
+        private void quảnLýSáchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new FormQuanlysach();
+            f.Show();
+        }
+
+        private void thểLoạiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new FormTheloai();
+            f.Show();
+        }
+
+        private void tácGiảToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new FormTacgia();
+            f.Show();
+        }
+
+        private void nhàXuấtBảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new FormNhaxuatban();
+            f.Show();
+        }
+
+        private void mượnSáchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new FormMuonsach();
+            f.Show();
+        }
+
+        private void tìmSáchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new FormTimsach();
+            f.Show();
+        }
+
+        private void tìmĐộcGiảToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new FormTimdocgia();
+            f.Show();
+        }
+
+        private void sáchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new FormBCsach();
+            f.Show();
+        }
+
+        private void độcGiảToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form f = new FormBCdocgia();
+            f.Show();
+        }
     }
 }

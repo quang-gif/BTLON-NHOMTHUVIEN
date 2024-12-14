@@ -126,11 +126,44 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBCdocgia.resx">
+      <DependentUpon>FormBCdocgia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBCsach.resx">
+      <DependentUpon>FormBCsach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDocgia.resx">
+      <DependentUpon>FormDocgia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formlogin.resx">
       <DependentUpon>Formlogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMuonsach.resx">
+      <DependentUpon>FormMuonsach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNhanvien.resx">
+      <DependentUpon>FormNhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNhaxuatban.resx">
+      <DependentUpon>FormNhaxuatban.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQuanlysach.resx">
+      <DependentUpon>FormQuanlysach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTacgia.resx">
+      <DependentUpon>FormTacgia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTheloai.resx">
+      <DependentUpon>FormTheloai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTimdocgia.resx">
+      <DependentUpon>FormTimdocgia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTimsach.resx">
+      <DependentUpon>FormTimsach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
