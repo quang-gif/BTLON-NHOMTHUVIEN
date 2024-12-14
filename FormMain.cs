@@ -16,5 +16,21 @@ namespace BTLON_NHOMTHUVIEN
         {
             InitializeComponent();
         }
+
+        private void danhMụcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new Formlogin();
+            f.Show();
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

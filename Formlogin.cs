@@ -26,5 +26,11 @@ namespace BTLON_NHOMTHUVIEN
         {
             Close();
         }
+
+        private void btnlogin_Click(object sender, EventArgs e)
+        {
+            Form f = new FormMain();
+            f.Show();
+        }
     }
 }
