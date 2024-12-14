@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormBCdocgia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBCdocgia.Designer.cs">
+      <DependentUpon>FormBCdocgia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBCsach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBCsach.Designer.cs">
+      <DependentUpon>FormBCsach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDocgia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDocgia.Designer.cs">
+      <DependentUpon>FormDocgia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formlogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +75,54 @@
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMuonsach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMuonsach.Designer.cs">
+      <DependentUpon>FormMuonsach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNhanvien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNhanvien.Designer.cs">
+      <DependentUpon>FormNhanvien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNhaxuatban.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNhaxuatban.Designer.cs">
+      <DependentUpon>FormNhaxuatban.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQuanlysach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQuanlysach.Designer.cs">
+      <DependentUpon>FormQuanlysach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTacgia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTacgia.Designer.cs">
+      <DependentUpon>FormTacgia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTheloai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTheloai.Designer.cs">
+      <DependentUpon>FormTheloai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTimdocgia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTimdocgia.Designer.cs">
+      <DependentUpon>FormTimdocgia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTimsach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTimsach.Designer.cs">
+      <DependentUpon>FormTimsach.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
