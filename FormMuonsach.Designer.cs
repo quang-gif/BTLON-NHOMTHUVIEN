@@ -33,11 +33,12 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(337, 134);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(245, 90);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(359, 217);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Bấm vào để quang ko bị gay";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // FormMuonsach
