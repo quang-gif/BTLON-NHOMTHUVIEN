@@ -71,7 +71,7 @@ namespace BTLON_NHOMTHUVIEN
 
         private void mượnSáchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form f = new FormMuonsach();
+            Form f = new FornLapphieumuon();
             f.Show();
         }
 
@@ -96,6 +96,12 @@ namespace BTLON_NHOMTHUVIEN
         private void độcGiảToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form f = new FormBCdocgia();
+            f.Show();
+        }
+
+        private void chiTiếtMượnTrảToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new FormChitietmuontra();
             f.Show();
         }
     }

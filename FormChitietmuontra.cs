@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace BTLON_NHOMTHUVIEN
 {
-    public partial class FormMuonsach : Form
+    public partial class FormChitietmuontra : Form
     {
-        public FormMuonsach()
+        public FormChitietmuontra()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
         }
     }
 }
