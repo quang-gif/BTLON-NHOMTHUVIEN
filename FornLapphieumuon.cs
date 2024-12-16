@@ -21,5 +21,15 @@ namespace BTLON_NHOMTHUVIEN
         {
            
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
