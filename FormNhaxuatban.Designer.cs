@@ -43,6 +43,10 @@
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.dgvCapNhatNhaXB = new System.Windows.Forms.DataGridView();
+            this.manhaxb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tennhaxb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diachi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sodienthoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCapNhatNhaXB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +56,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Location = new System.Drawing.Point(294, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(475, 39);
+            this.label1.Size = new System.Drawing.Size(458, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "CẬP NHẬT NHÀ XUẤT BẢN";
             // 
@@ -172,12 +176,45 @@
             // dgvCapNhatNhaXB
             // 
             this.dgvCapNhatNhaXB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCapNhatNhaXB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.manhaxb,
+            this.tennhaxb,
+            this.diachi,
+            this.sodienthoai});
             this.dgvCapNhatNhaXB.Location = new System.Drawing.Point(13, 260);
             this.dgvCapNhatNhaXB.Name = "dgvCapNhatNhaXB";
             this.dgvCapNhatNhaXB.RowHeadersWidth = 51;
             this.dgvCapNhatNhaXB.RowTemplate.Height = 24;
             this.dgvCapNhatNhaXB.Size = new System.Drawing.Size(1042, 231);
             this.dgvCapNhatNhaXB.TabIndex = 15;
+            // 
+            // manhaxb
+            // 
+            this.manhaxb.HeaderText = "Mã nhà xb";
+            this.manhaxb.MinimumWidth = 6;
+            this.manhaxb.Name = "manhaxb";
+            this.manhaxb.Width = 125;
+            // 
+            // tennhaxb
+            // 
+            this.tennhaxb.HeaderText = "Tên nhà xb";
+            this.tennhaxb.MinimumWidth = 6;
+            this.tennhaxb.Name = "tennhaxb";
+            this.tennhaxb.Width = 125;
+            // 
+            // diachi
+            // 
+            this.diachi.HeaderText = "Địa chỉ";
+            this.diachi.MinimumWidth = 6;
+            this.diachi.Name = "diachi";
+            this.diachi.Width = 125;
+            // 
+            // sodienthoai
+            // 
+            this.sodienthoai.HeaderText = "Số điện thoại";
+            this.sodienthoai.MinimumWidth = 6;
+            this.sodienthoai.Name = "sodienthoai";
+            this.sodienthoai.Width = 125;
             // 
             // FormNhaxuatban
             // 
@@ -199,7 +236,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormNhaxuatban";
             this.Text = "Nhà xuất bản";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCapNhatNhaXB)).EndInit();
@@ -225,5 +262,9 @@
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.DataGridView dgvCapNhatNhaXB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn manhaxb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tennhaxb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diachi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sodienthoai;
     }
 }

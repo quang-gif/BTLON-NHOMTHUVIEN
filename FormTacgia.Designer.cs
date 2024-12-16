@@ -38,8 +38,10 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvCapNhatTacGia = new System.Windows.Forms.DataGridView();
+            this.matacgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tentacgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCapNhatTacGia)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -48,7 +50,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(104, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(353, 39);
+            this.label1.Size = new System.Drawing.Size(340, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "CẬP NHẬT TÁC GIẢ";
             // 
@@ -131,22 +133,39 @@
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvCapNhatTacGia
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(43, 184);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(414, 278);
-            this.dataGridView1.TabIndex = 10;
+            this.dgvCapNhatTacGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCapNhatTacGia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.matacgia,
+            this.tentacgia});
+            this.dgvCapNhatTacGia.Location = new System.Drawing.Point(43, 184);
+            this.dgvCapNhatTacGia.Name = "dgvCapNhatTacGia";
+            this.dgvCapNhatTacGia.RowHeadersWidth = 51;
+            this.dgvCapNhatTacGia.RowTemplate.Height = 24;
+            this.dgvCapNhatTacGia.Size = new System.Drawing.Size(414, 278);
+            this.dgvCapNhatTacGia.TabIndex = 10;
+            // 
+            // matacgia
+            // 
+            this.matacgia.HeaderText = "Mã tác giả";
+            this.matacgia.MinimumWidth = 6;
+            this.matacgia.Name = "matacgia";
+            this.matacgia.Width = 125;
+            // 
+            // tentacgia
+            // 
+            this.tentacgia.HeaderText = "Tên tác giả";
+            this.tentacgia.MinimumWidth = 6;
+            this.tentacgia.Name = "tentacgia";
+            this.tentacgia.Width = 125;
             // 
             // FormTacgia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(587, 476);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvCapNhatTacGia);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnXoa);
@@ -157,10 +176,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormTacgia";
             this.Text = "Tác giả";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCapNhatTacGia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,6 +197,8 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnThoat;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCapNhatTacGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matacgia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tentacgia;
     }
 }

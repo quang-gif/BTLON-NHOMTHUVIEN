@@ -39,12 +39,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.matheloai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tentheloai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCapNhatTheLoai)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvCapNhatTheLoai
             // 
             this.dgvCapNhatTheLoai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCapNhatTheLoai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.matheloai,
+            this.tentheloai});
             this.dgvCapNhatTheLoai.Location = new System.Drawing.Point(24, 178);
             this.dgvCapNhatTheLoai.Name = "dgvCapNhatTheLoai";
             this.dgvCapNhatTheLoai.RowHeadersWidth = 51;
@@ -137,9 +142,23 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(85, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(373, 39);
+            this.label1.Size = new System.Drawing.Size(359, 38);
             this.label1.TabIndex = 11;
             this.label1.Text = "CẬP NHẬT THỂ LOẠI";
+            // 
+            // matheloai
+            // 
+            this.matheloai.HeaderText = "Mã thể loại";
+            this.matheloai.MinimumWidth = 6;
+            this.matheloai.Name = "matheloai";
+            this.matheloai.Width = 125;
+            // 
+            // tentheloai
+            // 
+            this.tentheloai.HeaderText = "Tên thể loại";
+            this.tentheloai.MinimumWidth = 6;
+            this.tentheloai.Name = "tentheloai";
+            this.tentheloai.Width = 125;
             // 
             // FormTheloai
             // 
@@ -157,7 +176,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormTheloai";
             this.Text = "Thể loại";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCapNhatTheLoai)).EndInit();
@@ -179,5 +198,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matheloai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tentheloai;
     }
 }
