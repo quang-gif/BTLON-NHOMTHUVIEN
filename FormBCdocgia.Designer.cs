@@ -28,19 +28,141 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnexit = new System.Windows.Forms.Button();
+            this.btnthongke = new System.Windows.Forms.Button();
+            this.cbothongke = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnexit);
+            this.groupBox1.Controls.Add(this.btnthongke);
+            this.groupBox1.Controls.Add(this.cbothongke);
+            this.groupBox1.Location = new System.Drawing.Point(26, 76);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(809, 100);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tùy chọn thống kê";
+            // 
+            // btnexit
+            // 
+            this.btnexit.Location = new System.Drawing.Point(653, 39);
+            this.btnexit.Name = "btnexit";
+            this.btnexit.Size = new System.Drawing.Size(75, 23);
+            this.btnexit.TabIndex = 1;
+            this.btnexit.Text = "Thoát";
+            this.btnexit.UseVisualStyleBackColor = true;
+            this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
+            // 
+            // btnthongke
+            // 
+            this.btnthongke.Location = new System.Drawing.Point(530, 39);
+            this.btnthongke.Name = "btnthongke";
+            this.btnthongke.Size = new System.Drawing.Size(75, 23);
+            this.btnthongke.TabIndex = 1;
+            this.btnthongke.Text = "Thống kê";
+            this.btnthongke.UseVisualStyleBackColor = true;
+            // 
+            // cbothongke
+            // 
+            this.cbothongke.FormattingEnabled = true;
+            this.cbothongke.Items.AddRange(new object[] {
+            "Tất cả độc giả",
+            "Độc giả trễ hạn"});
+            this.cbothongke.Location = new System.Drawing.Point(62, 39);
+            this.cbothongke.Name = "cbothongke";
+            this.cbothongke.Size = new System.Drawing.Size(174, 21);
+            this.cbothongke.TabIndex = 0;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.dataGridView1.Location = new System.Drawing.Point(26, 195);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(809, 243);
+            this.dataGridView1.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(257, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(339, 25);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "BÁO CÁO THỐNG KÊ ĐỘC GIẢ";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã độc giả";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên độc giả";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Ngày sinh";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Giới tính";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Lớp";
+            this.Column5.Name = "Column5";
             // 
             // FormBCdocgia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(880, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.groupBox1);
             this.Name = "FormBCdocgia";
             this.Text = "Báo cáo độc giả";
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnexit;
+        private System.Windows.Forms.Button btnthongke;
+        private System.Windows.Forms.ComboBox cbothongke;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Label label1;
     }
 }

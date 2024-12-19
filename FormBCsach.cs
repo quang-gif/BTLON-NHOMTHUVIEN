@@ -16,5 +16,15 @@ namespace BTLON_NHOMTHUVIEN
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnexit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
