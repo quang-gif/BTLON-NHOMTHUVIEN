@@ -104,5 +104,10 @@ namespace BTLON_NHOMTHUVIEN
             Form f = new FormChitietmuontra();
             f.Show();
         }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
