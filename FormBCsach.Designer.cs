@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnexit = new System.Windows.Forms.Button();
+            this.btnthongke = new System.Windows.Forms.Button();
+            this.cbothongke = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cbothongke = new System.Windows.Forms.ComboBox();
-            this.btnthongke = new System.Windows.Forms.Button();
-            this.btnexit = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +54,37 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tùy chọn thống kê";
+            // 
+            // btnexit
+            // 
+            this.btnexit.Location = new System.Drawing.Point(690, 37);
+            this.btnexit.Name = "btnexit";
+            this.btnexit.Size = new System.Drawing.Size(75, 23);
+            this.btnexit.TabIndex = 1;
+            this.btnexit.Text = "Thoát";
+            this.btnexit.UseVisualStyleBackColor = true;
+            this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
+            // 
+            // btnthongke
+            // 
+            this.btnthongke.Location = new System.Drawing.Point(530, 37);
+            this.btnthongke.Name = "btnthongke";
+            this.btnthongke.Size = new System.Drawing.Size(75, 23);
+            this.btnthongke.TabIndex = 1;
+            this.btnthongke.Text = "Thống kê";
+            this.btnthongke.UseVisualStyleBackColor = true;
+            // 
+            // cbothongke
+            // 
+            this.cbothongke.FormattingEnabled = true;
+            this.cbothongke.Items.AddRange(new object[] {
+            "Tất cả sách",
+            "Sách đang mượn",
+            "Sách trễ hạn"});
+            this.cbothongke.Location = new System.Drawing.Point(62, 39);
+            this.cbothongke.Name = "cbothongke";
+            this.cbothongke.Size = new System.Drawing.Size(174, 21);
+            this.cbothongke.TabIndex = 0;
             // 
             // label1
             // 
@@ -79,37 +110,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(809, 243);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // cbothongke
-            // 
-            this.cbothongke.FormattingEnabled = true;
-            this.cbothongke.Items.AddRange(new object[] {
-            "Tất cả sách",
-            "Sách đang mượn",
-            "Sách trễ hạn"});
-            this.cbothongke.Location = new System.Drawing.Point(62, 39);
-            this.cbothongke.Name = "cbothongke";
-            this.cbothongke.Size = new System.Drawing.Size(174, 21);
-            this.cbothongke.TabIndex = 0;
-            // 
-            // btnthongke
-            // 
-            this.btnthongke.Location = new System.Drawing.Point(530, 37);
-            this.btnthongke.Name = "btnthongke";
-            this.btnthongke.Size = new System.Drawing.Size(75, 23);
-            this.btnthongke.TabIndex = 1;
-            this.btnthongke.Text = "Thống kê";
-            this.btnthongke.UseVisualStyleBackColor = true;
-            // 
-            // btnexit
-            // 
-            this.btnexit.Location = new System.Drawing.Point(690, 37);
-            this.btnexit.Name = "btnexit";
-            this.btnexit.Size = new System.Drawing.Size(75, 23);
-            this.btnexit.TabIndex = 1;
-            this.btnexit.Text = "Thoát";
-            this.btnexit.UseVisualStyleBackColor = true;
-            this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
             // 
             // Column1
             // 
@@ -145,6 +145,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormBCsach";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo cáo sách";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

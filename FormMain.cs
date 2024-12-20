@@ -25,7 +25,9 @@ namespace BTLON_NHOMTHUVIEN
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form f = new Formlogin();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,73 +38,97 @@ namespace BTLON_NHOMTHUVIEN
         private void độcGiảToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form f = new FormDocgia();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
         private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form f = new FormNhanvien();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
         private void quảnLýSáchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form f = new FormQuanlysach();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
         private void thểLoạiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form f = new FormTheloai();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
         private void tácGiảToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form f = new FormTacgia();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
         private void nhàXuấtBảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form f = new FormNhaxuatban();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
         private void mượnSáchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form f = new FornLapphieumuon();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show(); ;
         }
 
         private void tìmSáchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form f = new FormTimsach();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
         private void tìmĐộcGiảToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form f = new FormTimdocgia();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
         private void sáchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form f = new FormBCsach();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
         private void độcGiảToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form f = new FormBCdocgia();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
         private void chiTiếtMượnTrảToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form f = new FormChitietmuontra();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
         private void FormMain_Load(object sender, EventArgs e)

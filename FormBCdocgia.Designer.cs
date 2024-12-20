@@ -33,12 +33,12 @@
             this.btnthongke = new System.Windows.Forms.Button();
             this.cbothongke = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -99,16 +99,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(809, 243);
             this.dataGridView1.TabIndex = 3;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(257, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(339, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "BÁO CÁO THỐNG KÊ ĐỘC GIẢ";
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "Mã độc giả";
@@ -134,6 +124,16 @@
             this.Column5.HeaderText = "Lớp";
             this.Column5.Name = "Column5";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(257, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(339, 25);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "BÁO CÁO THỐNG KÊ ĐỘC GIẢ";
+            // 
             // FormBCdocgia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,6 +143,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormBCdocgia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo cáo độc giả";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

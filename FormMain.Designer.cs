@@ -224,6 +224,7 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.Color.Lime;
             this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(610, 40);
@@ -231,6 +232,7 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(251, 20);
             this.dateTimePicker1.TabIndex = 1;
             this.dateTimePicker1.Value = new System.DateTime(2024, 12, 19, 19, 46, 51, 0);
+            this.dateTimePicker1.Visible = false;
             // 
             // FormMain
             // 
@@ -241,6 +243,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÝ THƯ VIỆN";
             this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
