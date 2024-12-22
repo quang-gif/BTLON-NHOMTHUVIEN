@@ -16,5 +16,10 @@ namespace BTLON_NHOMTHUVIEN
         {
             InitializeComponent();
         }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

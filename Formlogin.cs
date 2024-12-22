@@ -12,6 +12,8 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class Formlogin : Form
     {
+        string tentk = "nhomthuvien";
+        string mk = "123456";
         public Formlogin()
         {
             InitializeComponent();
@@ -29,10 +31,32 @@ namespace BTLON_NHOMTHUVIEN
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
-            Form f = new FormMain();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            if (kiemtradangnhap(txttaikhoan.Text,txtmk.Text))
+            {
+                Form f = new FormMain();
+                this.Hide();
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Sai tài khoản hoặc mật khẩu hoặc chưa nhập dữ liệu", "Lỗi");
+                txttaikhoan.Focus();
+            }    
+            
+        }
+
+        private void Formlogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+        bool kiemtradangnhap(string tentk, string mk)
+        {
+            if(tentk==this.tentk && mk == this.mk) 
+            { 
+                return true; 
+            } 
+                
+            return false;
         }
     }
 }

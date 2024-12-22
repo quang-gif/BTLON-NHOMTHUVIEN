@@ -135,5 +135,15 @@ namespace BTLON_NHOMTHUVIEN
         {
 
         }
+
+        private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void hệThốngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
