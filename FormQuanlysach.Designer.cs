@@ -163,6 +163,7 @@
             this.btnThoat.TabIndex = 3;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnImport
             // 
@@ -393,6 +394,7 @@
             this.Name = "FormQuanlysach";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sách";
+            this.Load += new System.EventHandler(this.FormQuanlysach_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCapnhatsach)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
