@@ -138,7 +138,7 @@ namespace BTLON_NHOMTHUVIEN
 
             if (pm == "")
             {
-                MessageBox.Show("Không được để trống thông tin! ");
+                MessageBox.Show("Mã mượn đang còn trống! ");
                 txtphieumuon.Focus();
                 return;
             }
@@ -146,14 +146,14 @@ namespace BTLON_NHOMTHUVIEN
 
             if (dg == "---Chọn mã độc giả---")
             {
-                MessageBox.Show("Không được để trống thông tin! ");
+                MessageBox.Show("Bạn chưa chọn thông tin! ");
                 txtphieumuon.Focus();
                 return;
             }
 
             if (nv == "---Chọn mã nhân viên---")
             {
-                MessageBox.Show("Không được để trống thông tin! ");
+                MessageBox.Show("Bạn chưa chọn thông tin! ");
                 txtphieumuon.Focus();
                 return;
             }
