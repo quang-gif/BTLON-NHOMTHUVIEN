@@ -39,12 +39,14 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btExcel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btExcel);
             this.groupBox1.Controls.Add(this.btnexit);
             this.groupBox1.Controls.Add(this.btnthongke);
             this.groupBox1.Controls.Add(this.cbothongke);
@@ -136,6 +138,15 @@
             this.Column5.HeaderText = "Thể loại";
             this.Column5.Name = "Column5";
             // 
+            // btExcel
+            // 
+            this.btExcel.Location = new System.Drawing.Point(611, 37);
+            this.btExcel.Name = "btExcel";
+            this.btExcel.Size = new System.Drawing.Size(75, 23);
+            this.btExcel.TabIndex = 2;
+            this.btExcel.Text = "Xuất Excel";
+            this.btExcel.UseVisualStyleBackColor = true;
+            // 
             // FormBCsach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,5 +178,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Button btExcel;
     }
 }
