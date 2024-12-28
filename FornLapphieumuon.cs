@@ -245,5 +245,10 @@ namespace BTLON_NHOMTHUVIEN
             load_docgia();
             load_nhanvien();
         }
+
+        private void txtphieumuon_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
