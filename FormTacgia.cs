@@ -14,6 +14,7 @@ namespace BTLON_NHOMTHUVIEN
     public partial class FormTacgia : Form
     {
         SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+
         public FormTacgia()
         {
             InitializeComponent();
