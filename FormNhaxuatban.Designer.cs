@@ -47,6 +47,7 @@
             this.tennhaxb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diachi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sodienthoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCapNhatNhaXB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,6 +147,7 @@
             this.btnThem.TabIndex = 10;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -156,36 +158,40 @@
             this.btnSua.TabIndex = 11;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(334, 414);
+            this.btnXoa.Location = new System.Drawing.Point(320, 414);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(56, 19);
             this.btnXoa.TabIndex = 12;
             this.btnXoa.Text = "Xoá";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(486, 414);
+            this.btnLuu.Location = new System.Drawing.Point(442, 414);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(2);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(56, 19);
             this.btnLuu.TabIndex = 13;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(639, 414);
+            this.btnThoat.Location = new System.Drawing.Point(569, 414);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(56, 19);
             this.btnThoat.TabIndex = 14;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // dgvCapNhatNhaXB
             // 
@@ -202,9 +208,11 @@
             this.dgvCapNhatNhaXB.RowTemplate.Height = 24;
             this.dgvCapNhatNhaXB.Size = new System.Drawing.Size(782, 188);
             this.dgvCapNhatNhaXB.TabIndex = 15;
+            this.dgvCapNhatNhaXB.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCapNhatNhaXB_CellClick);
             // 
             // manhaxb
             // 
+            this.manhaxb.DataPropertyName = "manxb";
             this.manhaxb.HeaderText = "Mã nhà xb";
             this.manhaxb.MinimumWidth = 6;
             this.manhaxb.Name = "manhaxb";
@@ -212,6 +220,7 @@
             // 
             // tennhaxb
             // 
+            this.tennhaxb.DataPropertyName = "tennxb";
             this.tennhaxb.HeaderText = "Tên nhà xb";
             this.tennhaxb.MinimumWidth = 6;
             this.tennhaxb.Name = "tennhaxb";
@@ -219,6 +228,7 @@
             // 
             // diachi
             // 
+            this.diachi.DataPropertyName = "diachi";
             this.diachi.HeaderText = "Địa chỉ";
             this.diachi.MinimumWidth = 6;
             this.diachi.Name = "diachi";
@@ -226,16 +236,28 @@
             // 
             // sodienthoai
             // 
+            this.sodienthoai.DataPropertyName = "phone";
             this.sodienthoai.HeaderText = "Số điện thoại";
             this.sodienthoai.MinimumWidth = 6;
             this.sodienthoai.Name = "sodienthoai";
             this.sodienthoai.Width = 125;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(686, 412);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(51, 23);
+            this.btnReset.TabIndex = 16;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // FormNhaxuatban
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.dgvCapNhatNhaXB);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnLuu);
@@ -282,5 +304,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tennhaxb;
         private System.Windows.Forms.DataGridViewTextBoxColumn diachi;
         private System.Windows.Forms.DataGridViewTextBoxColumn sodienthoai;
+        private System.Windows.Forms.Button btnReset;
     }
 }
