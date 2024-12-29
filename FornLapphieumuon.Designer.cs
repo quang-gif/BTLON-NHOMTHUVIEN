@@ -44,6 +44,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnreset = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -225,7 +226,7 @@
             // btnreset
             // 
             this.btnreset.Location = new System.Drawing.Point(478, 167);
-            this.btnreset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnreset.Margin = new System.Windows.Forms.Padding(2);
             this.btnreset.Name = "btnreset";
             this.btnreset.Size = new System.Drawing.Size(57, 23);
             this.btnreset.TabIndex = 6;
@@ -233,11 +234,22 @@
             this.btnreset.UseVisualStyleBackColor = true;
             this.btnreset.Click += new System.EventHandler(this.btnreset_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(678, 16);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Chi tiết mượn trả";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FornLapphieumuon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnreset);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -278,5 +290,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn madocgia;
         private System.Windows.Forms.DataGridViewTextBoxColumn manhanvien;
         private System.Windows.Forms.Button btnreset;
+        private System.Windows.Forms.Button button1;
     }
 }

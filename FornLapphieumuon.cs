@@ -158,6 +158,18 @@ namespace BTLON_NHOMTHUVIEN
                 return;
             }
 
+            string checkSql = "SELECT COUNT(*) FROM muontra WHERE mamuon = @mamuon";
+            SqlCommand checkCmd = new SqlCommand(checkSql, con);
+            checkCmd.Parameters.Add("@mamuon", SqlDbType.NVarChar, 50).Value = pm;
+
+            int exists = (int)checkCmd.ExecuteScalar();
+            if (exists > 0)
+            {
+                MessageBox.Show("Mã phiếu mượn đã tồn tại, vui lòng nhập mã khác!");
+                txtphieumuon.Focus();
+                return;
+            }
+
             //b3: tao doi tuong command de thuc hien cau lenh sql
             string sql = "insert muontra values (@mamuon, @madg, @manhanvien)";
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -166,6 +178,8 @@ namespace BTLON_NHOMTHUVIEN
             cmd.Parameters.Add("@mamuon", SqlDbType.NVarChar, 50).Value = pm;
             cmd.Parameters.Add("@manhanvien", SqlDbType.NVarChar, 50).Value = nv;
             cmd.Parameters.Add("@madg", SqlDbType.NVarChar, 50).Value = dg;
+
+
             
             cmd.ExecuteNonQuery();
             cmd.Dispose();
@@ -249,6 +263,13 @@ namespace BTLON_NHOMTHUVIEN
         private void txtphieumuon_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form f = new FormChitietmuontra();
+            f.Show();
+            this.Hide();
         }
     }
 }
