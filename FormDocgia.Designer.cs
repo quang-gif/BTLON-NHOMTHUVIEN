@@ -29,17 +29,13 @@
         private void InitializeComponent()
         {
             this.dgvThongTinDocGia = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.dtNgaysinh = new System.Windows.Forms.DateTimePicker();
             this.cboGioitinh = new System.Windows.Forms.ComboBox();
             this.txtHoten = new System.Windows.Forms.TextBox();
             this.txtLop = new System.Windows.Forms.TextBox();
@@ -50,13 +46,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtNgaysinh = new System.Windows.Forms.DateTimePicker();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongTinDocGia)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvThongTinDocGia
             // 
+            this.dgvThongTinDocGia.AllowUserToAddRows = false;
             this.dgvThongTinDocGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvThongTinDocGia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -71,41 +72,7 @@
             this.dgvThongTinDocGia.RowTemplate.Height = 24;
             this.dgvThongTinDocGia.Size = new System.Drawing.Size(543, 206);
             this.dgvThongTinDocGia.TabIndex = 5;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mã độc giả";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Họ và tên";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 200;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Ngày sinh";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 130;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Giới tính";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Lớp";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 125;
+            this.dgvThongTinDocGia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThongTinDocGia_CellClick);
             // 
             // groupBox1
             // 
@@ -153,6 +120,7 @@
             this.btnThoat.TabIndex = 4;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnXoa
             // 
@@ -163,6 +131,7 @@
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -185,6 +154,15 @@
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // dtNgaysinh
+            // 
+            this.dtNgaysinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNgaysinh.Location = new System.Drawing.Point(123, 95);
+            this.dtNgaysinh.Margin = new System.Windows.Forms.Padding(2);
+            this.dtNgaysinh.Name = "dtNgaysinh";
+            this.dtNgaysinh.Size = new System.Drawing.Size(151, 20);
+            this.dtNgaysinh.TabIndex = 3;
             // 
             // cboGioitinh
             // 
@@ -289,14 +267,45 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "CẬP NHẬT THÔNG TIN ĐỘC GIẢ";
             // 
-            // dtNgaysinh
+            // Column1
             // 
-            this.dtNgaysinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtNgaysinh.Location = new System.Drawing.Point(123, 95);
-            this.dtNgaysinh.Margin = new System.Windows.Forms.Padding(2);
-            this.dtNgaysinh.Name = "dtNgaysinh";
-            this.dtNgaysinh.Size = new System.Drawing.Size(151, 20);
-            this.dtNgaysinh.TabIndex = 3;
+            this.Column1.DataPropertyName = "madg";
+            this.Column1.HeaderText = "Mã độc giả";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "htdocgia";
+            this.Column2.HeaderText = "Họ và tên";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "ngaysinh";
+            this.Column3.HeaderText = "Ngày sinh";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 130;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "gioitinh";
+            this.Column4.HeaderText = "Giới tính";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "lop";
+            this.Column5.HeaderText = "Lớp";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
             // 
             // FormDocgia
             // 
@@ -337,11 +346,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dtNgaysinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DateTimePicker dtNgaysinh;
     }
 }
