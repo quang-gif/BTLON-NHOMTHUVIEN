@@ -71,7 +71,7 @@ namespace BTLON_NHOMTHUVIEN
             }
             if (checktrungmnv(mxb))
             {
-                MessageBox.Show("Mã nhân viên đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Mã nhà xuất bản đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMaNhaXB.Focus();
                 return;
             }
