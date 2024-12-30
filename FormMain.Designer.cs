@@ -85,7 +85,7 @@
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -203,21 +203,21 @@
             // sáchToolStripMenuItem
             // 
             this.sáchToolStripMenuItem.Name = "sáchToolStripMenuItem";
-            this.sáchToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.sáchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sáchToolStripMenuItem.Text = "Sách";
             this.sáchToolStripMenuItem.Click += new System.EventHandler(this.sáchToolStripMenuItem_Click);
             // 
             // độcGiảToolStripMenuItem1
             // 
             this.độcGiảToolStripMenuItem1.Name = "độcGiảToolStripMenuItem1";
-            this.độcGiảToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
+            this.độcGiảToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.độcGiảToolStripMenuItem1.Text = "Độc giả";
             this.độcGiảToolStripMenuItem1.Click += new System.EventHandler(this.độcGiảToolStripMenuItem1_Click);
             // 
             // monthCalendar1
             // 
             this.monthCalendar1.Location = new System.Drawing.Point(648, 30);
-            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(7);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 2;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);

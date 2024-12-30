@@ -35,12 +35,27 @@ namespace BTLON_NHOMTHUVIEN
         private void btnthem2_Click(object sender, EventArgs e)
         {
             btnluu2.Enabled = true;
+            cbbphieumuon.Enabled = true;
+            cbbmasach.Enabled = true;
+            btntrasach.Enabled = true;
+            dtmuon.Enabled = true;
+            dttra.Enabled = true;
+            txttinhtrang.Enabled = true;
             btnluu2.Text = "Lưu";
+            load2();
+            load3();
         }
 
         private void FormChitietmuontra_Load(object sender, EventArgs e)
         {
             btnluu2.Enabled = false;
+            cbbphieumuon.Enabled = false;
+            cbbmasach.Enabled = false;
+            btntrasach.Enabled = false;
+            dtmuon.Enabled = false;
+            dttra.Enabled = false;
+            txttinhtrang.Enabled = false;
+
             load1();
             load2();
             load3();
@@ -53,75 +68,107 @@ namespace BTLON_NHOMTHUVIEN
             cbbmasach.Enabled = false;
             cbbphieumuon.Enabled = false;
             dtmuon.Enabled = false;
-
+            dttra.Enabled = true;
+            txttinhtrang.Enabled = true;
         }
 
         private void btnluu2_Click(object sender, EventArgs e)
         {
-            string mm = cbbphieumuon.SelectedValue.ToString();
-            string ms = cbbmasach.SelectedValue.ToString();
+            // Kiểm tra giá trị trống
+            if (cbbphieumuon.Text == "---Chọn mã phiếu mượn---" ||
+                cbbmasach.Text == "---Chọn mã sách---" ||
+                string.IsNullOrWhiteSpace(txttinhtrang.Text))
+            {
+                MessageBox.Show("Không được để trống thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Lấy dữ liệu từ các control
+            string mm = cbbphieumuon.SelectedValue?.ToString();
+            string ms = cbbmasach.SelectedValue?.ToString();
             DateTime nmuon = dtmuon.Value;
             DateTime ntra = dttra.Value;
-            string tt = txttinhtrang.Text.ToString();
+            string tt = txttinhtrang.Text.Trim();
 
-            if (btnluu2.Text == "Cập nhật")
-            {              
-
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-
-                if (ntra < nmuon)
-                {
-                    MessageBox.Show("Ngày trả phải lớn hơn ngày mượn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                string sql1 = "Update chitietmuontra set ngaytra = @ngaytra, tinhtrangsach = N'"+tt+ "' where masach = '"+ms+"'";
-                SqlCommand cmd1 = new SqlCommand(sql1, con);
-                cmd1.Parameters.Add("@ngaytra", SqlDbType.Date).Value = ntra;
-
-                cmd1.ExecuteNonQuery();
-                cmd1.Dispose();
-                con.Close();
-
-                MessageBox.Show("Đã cập nhật thành công!");      
-                btnluu2.Enabled=false; 
-                load1();
-            }
-
-            if (btnluu2.Text == "Lưu")
+            // Kiểm tra logic ngày mượn và ngày trả
+            if (ntra < nmuon)
             {
+                MessageBox.Show("Ngày trả phải sau ngày mượn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+
+            try
+            {
+                // Mở kết nối nếu chưa mở
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
                 }
 
-                string sql = "Insert chitietmuontra values (@mamuon, @masach, @ngaymuon, @ngaytra, @tinhtrangsach)";
-                SqlCommand cmd = new SqlCommand(sql, con);
+                if (btnluu2.Text == "Cập nhật")
+                {
+                    string sql1 = "UPDATE chitietmuontra SET ngaytra = @ngaytra, tinhtrangsach = @tinhtrangsach WHERE masach = @masach";
+                    using (SqlCommand cmd1 = new SqlCommand(sql1, con))
+                    {
+                        cmd1.Parameters.Add("@ngaytra", SqlDbType.Date).Value = ntra;
+                        cmd1.Parameters.Add("@tinhtrangsach", SqlDbType.NVarChar, 50).Value = tt;
+                        cmd1.Parameters.Add("@masach", SqlDbType.NVarChar, 50).Value = ms;
 
-                cmd.Parameters.Add("@mamuon", SqlDbType.NVarChar, 50).Value = mm;
-                cmd.Parameters.Add("@masach", SqlDbType.NVarChar, 50).Value = ms;
-                cmd.Parameters.Add("@ngaymuon", SqlDbType.Date).Value = nmuon;
-                cmd.Parameters.Add("@ngaytra", SqlDbType.Date).Value = ntra;
-                cmd.Parameters.Add("@tinhtrangsach", SqlDbType.NVarChar, 50).Value = tt;
+                        cmd1.ExecuteNonQuery();
+                    }
 
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-                con.Close();
+                    MessageBox.Show("Đã cập nhật thành công!");
+                    btnluu2.Enabled = false;
+                    
+                }
+                else if (btnluu2.Text == "Lưu")
+                {
+                    string checkSql = "SELECT COUNT(*) FROM chitietmuontra WHERE masach = '" + ms + "'";
+                    SqlCommand checkCmd = new SqlCommand(checkSql, con);
 
-                MessageBox.Show("Lưu thành công!");
+                    int exists = (int)checkCmd.ExecuteScalar();
+                    if (exists > 0)
+                    {
+                        MessageBox.Show("Sách đã được mượn, vui lòng chọn sách khác!");
+                        return;
+                    }
+
+                    string sql = "INSERT INTO chitietmuontra (mamuon, masach, ngaymuon, ngaytra, tinhtrangsach) VALUES (@mamuon, @masach, @ngaymuon, @ngaytra, @tinhtrangsach)";
+                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    {
+                        cmd.Parameters.Add("@mamuon", SqlDbType.NVarChar, 50).Value = mm;
+                        cmd.Parameters.Add("@masach", SqlDbType.NVarChar, 50).Value = ms;
+                        cmd.Parameters.Add("@ngaymuon", SqlDbType.Date).Value = nmuon;
+                        cmd.Parameters.Add("@ngaytra", SqlDbType.Date).Value = ntra;
+                        cmd.Parameters.Add("@tinhtrangsach", SqlDbType.NVarChar, 50).Value = tt;
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Lưu thành công!");
+                }
+
                 load1();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
 
+            // Bật lại các control
             cbbmasach.Enabled = true;
             cbbphieumuon.Enabled = true;
             dtmuon.Enabled = true;
-
-
         }
+
 
         private void btntrasach_Click(object sender, EventArgs e)
         {
@@ -129,10 +176,10 @@ namespace BTLON_NHOMTHUVIEN
             if (tl == DialogResult.Yes)
             {
 
-                string pm = cbbphieumuon.SelectedValue.ToString();
+                string ms = cbbmasach.SelectedValue.ToString();
                 if (con.State == ConnectionState.Closed)
                     con.Open();
-                string sql = "Delete chitietmuontra Where mamuon ='" + pm + "'";
+                string sql = "Delete chitietmuontra Where masach ='" + ms + "'";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
