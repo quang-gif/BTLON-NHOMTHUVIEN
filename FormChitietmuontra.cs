@@ -72,9 +72,13 @@ namespace BTLON_NHOMTHUVIEN
                     con.Open();
                 }
 
+                if (ntra < nmuon)
+                {
+                    MessageBox.Show("Ngày trả phải lớn hơn ngày mượn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-
-                string sql1 = "Update chitietmuontra set ngaytra = @ngaytra, tinhtrangsach = '"+tt+ "' where masach = '"+ms+"'";
+                string sql1 = "Update chitietmuontra set ngaytra = @ngaytra, tinhtrangsach = N'"+tt+ "' where masach = '"+ms+"'";
                 SqlCommand cmd1 = new SqlCommand(sql1, con);
                 cmd1.Parameters.Add("@ngaytra", SqlDbType.Date).Value = ntra;
 
