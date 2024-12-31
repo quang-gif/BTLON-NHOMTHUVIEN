@@ -16,5 +16,10 @@ namespace BTLON_NHOMTHUVIEN
         {
             InitializeComponent();
         }
+
+        private void FormTimsach_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
