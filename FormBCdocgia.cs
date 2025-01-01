@@ -89,7 +89,7 @@ namespace BTLON_NHOMTHUVIEN
             oSheet = (e_excel.Worksheet)oSheets.get_Item(1);
             oSheet.Name = sheetname;
 
-            e_excel.Range head = oSheet.get_Range("A1", "H1");
+            e_excel.Range head = oSheet.get_Range("A1", "E1");
             head.MergeCells = true; //trộn nhiều ô thành 1 ô
             head.Value2 = "BÁO CÁO THỐNG KÊ ĐỘC GIẢ";
             head.Font.Bold = true;
@@ -113,7 +113,7 @@ namespace BTLON_NHOMTHUVIEN
             cl5.Value2 = "LỚP";
             cl5.ColumnWidth = 40.0;
    
-            e_excel.Range rowHead = oSheet.get_Range("A3", "H3");
+            e_excel.Range rowHead = oSheet.get_Range("A3", "E3");
             rowHead.Font.Bold = true;
             rowHead.Borders.LineStyle = e_excel.Constants.xlSolid;
             rowHead.Interior.ColorIndex = 15;
