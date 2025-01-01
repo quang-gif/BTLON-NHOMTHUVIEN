@@ -33,6 +33,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txttinhtrang = new System.Windows.Forms.TextBox();
             this.dgv2 = new System.Windows.Forms.DataGridView();
+            this.maphieumuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.masach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaymuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaytra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ghichu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbbmasach = new System.Windows.Forms.ComboBox();
             this.dttra = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,11 +49,7 @@
             this.btnluu2 = new System.Windows.Forms.Button();
             this.dtmuon = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
-            this.maphieumuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.masach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaymuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaytra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ghichu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnexcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             // 
             // btnthem2
             // 
-            this.btnthem2.Location = new System.Drawing.Point(162, 181);
+            this.btnthem2.Location = new System.Drawing.Point(95, 181);
             this.btnthem2.Name = "btnthem2";
             this.btnthem2.Size = new System.Drawing.Size(82, 31);
             this.btnthem2.TabIndex = 1;
@@ -107,6 +108,46 @@
             this.dgv2.Size = new System.Drawing.Size(697, 204);
             this.dgv2.TabIndex = 4;
             this.dgv2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv2_CellClick);
+            // 
+            // maphieumuon
+            // 
+            this.maphieumuon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.maphieumuon.DataPropertyName = "mamuon";
+            this.maphieumuon.HeaderText = "Mã phiếu ";
+            this.maphieumuon.MinimumWidth = 8;
+            this.maphieumuon.Name = "maphieumuon";
+            // 
+            // masach
+            // 
+            this.masach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.masach.DataPropertyName = "masach";
+            this.masach.HeaderText = "Mã sách";
+            this.masach.MinimumWidth = 8;
+            this.masach.Name = "masach";
+            // 
+            // ngaymuon
+            // 
+            this.ngaymuon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ngaymuon.DataPropertyName = "ngaymuon";
+            this.ngaymuon.HeaderText = "Ngày mượn";
+            this.ngaymuon.MinimumWidth = 8;
+            this.ngaymuon.Name = "ngaymuon";
+            // 
+            // ngaytra
+            // 
+            this.ngaytra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ngaytra.DataPropertyName = "ngaytra";
+            this.ngaytra.HeaderText = "Ngày trả";
+            this.ngaytra.MinimumWidth = 8;
+            this.ngaytra.Name = "ngaytra";
+            // 
+            // ghichu
+            // 
+            this.ghichu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ghichu.DataPropertyName = "tinhtrangsach";
+            this.ghichu.HeaderText = "Ghi chú";
+            this.ghichu.MinimumWidth = 8;
+            this.ghichu.Name = "ghichu";
             // 
             // cbbmasach
             // 
@@ -166,7 +207,7 @@
             // 
             // btngiahan
             // 
-            this.btngiahan.Location = new System.Drawing.Point(289, 181);
+            this.btngiahan.Location = new System.Drawing.Point(223, 181);
             this.btngiahan.Name = "btngiahan";
             this.btngiahan.Size = new System.Drawing.Size(83, 31);
             this.btngiahan.TabIndex = 1;
@@ -176,7 +217,7 @@
             // 
             // btntrasach
             // 
-            this.btntrasach.Location = new System.Drawing.Point(424, 181);
+            this.btntrasach.Location = new System.Drawing.Point(354, 181);
             this.btntrasach.Name = "btntrasach";
             this.btntrasach.Size = new System.Drawing.Size(82, 31);
             this.btntrasach.TabIndex = 1;
@@ -186,7 +227,7 @@
             // 
             // btnluu2
             // 
-            this.btnluu2.Location = new System.Drawing.Point(563, 181);
+            this.btnluu2.Location = new System.Drawing.Point(475, 181);
             this.btnluu2.Name = "btnluu2";
             this.btnluu2.Size = new System.Drawing.Size(78, 31);
             this.btnluu2.TabIndex = 1;
@@ -212,51 +253,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // maphieumuon
+            // btnexcel
             // 
-            this.maphieumuon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.maphieumuon.DataPropertyName = "mamuon";
-            this.maphieumuon.HeaderText = "Mã phiếu ";
-            this.maphieumuon.MinimumWidth = 8;
-            this.maphieumuon.Name = "maphieumuon";
-            // 
-            // masach
-            // 
-            this.masach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.masach.DataPropertyName = "masach";
-            this.masach.HeaderText = "Mã sách";
-            this.masach.MinimumWidth = 8;
-            this.masach.Name = "masach";
-            // 
-            // ngaymuon
-            // 
-            this.ngaymuon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ngaymuon.DataPropertyName = "ngaymuon";
-            this.ngaymuon.HeaderText = "Ngày mượn";
-            this.ngaymuon.MinimumWidth = 8;
-            this.ngaymuon.Name = "ngaymuon";
-            // 
-            // ngaytra
-            // 
-            this.ngaytra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ngaytra.DataPropertyName = "ngaytra";
-            this.ngaytra.HeaderText = "Ngày trả";
-            this.ngaytra.MinimumWidth = 8;
-            this.ngaytra.Name = "ngaytra";
-            // 
-            // ghichu
-            // 
-            this.ghichu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ghichu.DataPropertyName = "tinhtrangsach";
-            this.ghichu.HeaderText = "Ghi chú";
-            this.ghichu.MinimumWidth = 8;
-            this.ghichu.Name = "ghichu";
+            this.btnexcel.Location = new System.Drawing.Point(588, 181);
+            this.btnexcel.Name = "btnexcel";
+            this.btnexcel.Size = new System.Drawing.Size(79, 31);
+            this.btnexcel.TabIndex = 7;
+            this.btnexcel.Text = "Xuất Excel";
+            this.btnexcel.UseVisualStyleBackColor = true;
+            this.btnexcel.Click += new System.EventHandler(this.btnexcel_Click);
             // 
             // FormChitietmuontra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnexcel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dtmuon);
             this.Controls.Add(this.dttra);
@@ -306,5 +318,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ngaymuon;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngaytra;
         private System.Windows.Forms.DataGridViewTextBoxColumn ghichu;
+        private System.Windows.Forms.Button btnexcel;
     }
 }
