@@ -36,16 +36,15 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtMatacgia = new System.Windows.Forms.TextBox();
+            this.txtTheloaisach = new System.Windows.Forms.TextBox();
+            this.txtManxb = new System.Windows.Forms.TextBox();
+            this.dtnamxb = new System.Windows.Forms.DateTimePicker();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.btnImport = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.cboTheloaisach = new System.Windows.Forms.ComboBox();
-            this.cboManxb = new System.Windows.Forms.ComboBox();
-            this.cboMatacgia = new System.Windows.Forms.ComboBox();
-            this.txtNhaxb = new System.Windows.Forms.TextBox();
             this.txtTensach = new System.Windows.Forms.TextBox();
             this.txtMasach = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -75,16 +74,18 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dgvCapnhatsach.Location = new System.Drawing.Point(13, 306);
+            this.dgvCapnhatsach.Location = new System.Drawing.Point(24, 325);
             this.dgvCapnhatsach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCapnhatsach.Name = "dgvCapnhatsach";
             this.dgvCapnhatsach.RowHeadersWidth = 51;
             this.dgvCapnhatsach.RowTemplate.Height = 24;
             this.dgvCapnhatsach.Size = new System.Drawing.Size(937, 214);
-            this.dgvCapnhatsach.TabIndex = 8;
+            this.dgvCapnhatsach.TabIndex = 14;
+            this.dgvCapnhatsach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCapnhatsach_CellClick);
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "masach";
             this.Column1.HeaderText = "Mã sách";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -92,6 +93,7 @@
             // 
             // Column2
             // 
+            this.Column2.DataPropertyName = "tensach";
             this.Column2.HeaderText = "Tên sách";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -99,6 +101,7 @@
             // 
             // Column3
             // 
+            this.Column3.DataPropertyName = "namxb";
             this.Column3.HeaderText = "Năm xuất bản ";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
@@ -106,6 +109,7 @@
             // 
             // Column4
             // 
+            this.Column4.DataPropertyName = "manxb";
             this.Column4.HeaderText = "Mã nhà xuất bản";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -113,6 +117,7 @@
             // 
             // Column5
             // 
+            this.Column5.DataPropertyName = "matheloai";
             this.Column5.HeaderText = "Mã thể loại";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -120,6 +125,7 @@
             // 
             // Column6
             // 
+            this.Column6.DataPropertyName = "matg";
             this.Column6.HeaderText = "Mã tác giả";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
@@ -127,16 +133,15 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtMatacgia);
+            this.groupBox2.Controls.Add(this.txtTheloaisach);
+            this.groupBox2.Controls.Add(this.txtManxb);
+            this.groupBox2.Controls.Add(this.dtnamxb);
             this.groupBox2.Controls.Add(this.btnThoat);
-            this.groupBox2.Controls.Add(this.btnImport);
             this.groupBox2.Controls.Add(this.btnLuu);
             this.groupBox2.Controls.Add(this.btnXoa);
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.btnThem);
-            this.groupBox2.Controls.Add(this.cboTheloaisach);
-            this.groupBox2.Controls.Add(this.cboManxb);
-            this.groupBox2.Controls.Add(this.cboMatacgia);
-            this.groupBox2.Controls.Add(this.txtNhaxb);
             this.groupBox2.Controls.Add(this.txtTensach);
             this.groupBox2.Controls.Add(this.txtMasach);
             this.groupBox2.Controls.Add(this.label6);
@@ -145,15 +150,43 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 134);
+            this.groupBox2.Location = new System.Drawing.Point(23, 153);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Size = new System.Drawing.Size(939, 166);
-            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cập nhật sách";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // txtMatacgia
+            // 
+            this.txtMatacgia.Location = new System.Drawing.Point(673, 65);
+            this.txtMatacgia.Name = "txtMatacgia";
+            this.txtMatacgia.Size = new System.Drawing.Size(121, 22);
+            this.txtMatacgia.TabIndex = 5;
+            // 
+            // txtTheloaisach
+            // 
+            this.txtTheloaisach.Location = new System.Drawing.Point(673, 31);
+            this.txtTheloaisach.Name = "txtTheloaisach";
+            this.txtTheloaisach.Size = new System.Drawing.Size(121, 22);
+            this.txtTheloaisach.TabIndex = 5;
+            // 
+            // txtManxb
+            // 
+            this.txtManxb.Location = new System.Drawing.Point(417, 65);
+            this.txtManxb.Name = "txtManxb";
+            this.txtManxb.Size = new System.Drawing.Size(121, 22);
+            this.txtManxb.TabIndex = 5;
+            // 
+            // dtnamxb
+            // 
+            this.dtnamxb.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtnamxb.Location = new System.Drawing.Point(417, 30);
+            this.dtnamxb.Name = "dtnamxb";
+            this.dtnamxb.Size = new System.Drawing.Size(121, 22);
+            this.dtnamxb.TabIndex = 4;
             // 
             // btnThoat
             // 
@@ -166,16 +199,6 @@
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // btnImport
-            // 
-            this.btnImport.Location = new System.Drawing.Point(591, 117);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(75, 23);
-            this.btnImport.TabIndex = 3;
-            this.btnImport.Text = "Import";
-            this.btnImport.UseVisualStyleBackColor = true;
-            // 
             // btnLuu
             // 
             this.btnLuu.Location = new System.Drawing.Point(463, 117);
@@ -185,6 +208,7 @@
             this.btnLuu.TabIndex = 3;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
@@ -195,6 +219,7 @@
             this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -205,6 +230,7 @@
             this.btnSua.TabIndex = 3;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click_1);
             // 
             // btnThem
             // 
@@ -215,41 +241,7 @@
             this.btnThem.TabIndex = 3;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
-            // 
-            // cboTheloaisach
-            // 
-            this.cboTheloaisach.FormattingEnabled = true;
-            this.cboTheloaisach.Location = new System.Drawing.Point(672, 30);
-            this.cboTheloaisach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cboTheloaisach.Name = "cboTheloaisach";
-            this.cboTheloaisach.Size = new System.Drawing.Size(121, 24);
-            this.cboTheloaisach.TabIndex = 2;
-            // 
-            // cboManxb
-            // 
-            this.cboManxb.FormattingEnabled = true;
-            this.cboManxb.Location = new System.Drawing.Point(417, 65);
-            this.cboManxb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cboManxb.Name = "cboManxb";
-            this.cboManxb.Size = new System.Drawing.Size(121, 24);
-            this.cboManxb.TabIndex = 2;
-            // 
-            // cboMatacgia
-            // 
-            this.cboMatacgia.FormattingEnabled = true;
-            this.cboMatacgia.Location = new System.Drawing.Point(672, 65);
-            this.cboMatacgia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cboMatacgia.Name = "cboMatacgia";
-            this.cboMatacgia.Size = new System.Drawing.Size(121, 24);
-            this.cboMatacgia.TabIndex = 2;
-            // 
-            // txtNhaxb
-            // 
-            this.txtNhaxb.Location = new System.Drawing.Point(417, 31);
-            this.txtNhaxb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNhaxb.Name = "txtNhaxb";
-            this.txtNhaxb.Size = new System.Drawing.Size(121, 22);
-            this.txtNhaxb.TabIndex = 1;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // txtTensach
             // 
@@ -327,12 +319,12 @@
             this.groupBox1.Controls.Add(this.txtTimkiem);
             this.groupBox1.Controls.Add(this.rdbtnTensach);
             this.groupBox1.Controls.Add(this.rdbtnMasach);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(23, 31);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Size = new System.Drawing.Size(939, 116);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm kiếm sách";
             // 
@@ -386,7 +378,7 @@
             this.Controls.Add(this.dgvCapnhatsach);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormQuanlysach";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sách";
@@ -410,16 +402,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtMatacgia;
+        private System.Windows.Forms.TextBox txtTheloaisach;
+        private System.Windows.Forms.TextBox txtManxb;
+        private System.Windows.Forms.DateTimePicker dtnamxb;
         private System.Windows.Forms.Button btnThoat;
-        private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.ComboBox cboTheloaisach;
-        private System.Windows.Forms.ComboBox cboManxb;
-        private System.Windows.Forms.ComboBox cboMatacgia;
-        private System.Windows.Forms.TextBox txtNhaxb;
         private System.Windows.Forms.TextBox txtTensach;
         private System.Windows.Forms.TextBox txtMasach;
         private System.Windows.Forms.Label label6;
