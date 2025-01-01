@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnExcel = new System.Windows.Forms.Button();
             this.btnexit = new System.Windows.Forms.Button();
             this.btnthongke = new System.Windows.Forms.Button();
             this.cbothongke = new System.Windows.Forms.ComboBox();
@@ -39,7 +40,6 @@
             this.gioitinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnExcel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTKDG)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +58,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tùy chọn thống kê";
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Location = new System.Drawing.Point(548, 48);
+            this.btnExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(100, 28);
+            this.btnExcel.TabIndex = 2;
+            this.btnExcel.Text = "Xuất Excel";
+            this.btnExcel.UseVisualStyleBackColor = true;
             // 
             // btnexit
             // 
@@ -94,6 +104,7 @@
             // 
             // dgvTKDG
             // 
+            this.dgvTKDG.AllowUserToAddRows = false;
             this.dgvTKDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTKDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.madg,
@@ -159,21 +170,11 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "BÁO CÁO THỐNG KÊ ĐỘC GIẢ";
             // 
-            // btnExcel
-            // 
-            this.btnExcel.Location = new System.Drawing.Point(548, 48);
-            this.btnExcel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(100, 28);
-            this.btnExcel.TabIndex = 2;
-            this.btnExcel.Text = "Xuất Excel";
-            this.btnExcel.UseVisualStyleBackColor = true;
-            // 
             // FormBCdocgia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1173, 554);
+            this.ClientSize = new System.Drawing.Size(1154, 554);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvTKDG);
             this.Controls.Add(this.groupBox1);
