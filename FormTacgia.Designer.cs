@@ -39,9 +39,9 @@
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.dgvCapNhatTacGia = new System.Windows.Forms.DataGridView();
-            this.btnReset = new System.Windows.Forms.Button();
             this.matg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.httacgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCapNhatTacGia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,6 +148,7 @@
             // 
             // dgvCapNhatTacGia
             // 
+            this.dgvCapNhatTacGia.AllowUserToAddRows = false;
             this.dgvCapNhatTacGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCapNhatTacGia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.matg,
@@ -160,17 +161,6 @@
             this.dgvCapNhatTacGia.Size = new System.Drawing.Size(413, 278);
             this.dgvCapNhatTacGia.TabIndex = 10;
             this.dgvCapNhatTacGia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCapNhatTacGia_CellClick);
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(483, 273);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 11;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // matg
             // 
@@ -187,6 +177,17 @@
             this.httacgia.MinimumWidth = 6;
             this.httacgia.Name = "httacgia";
             this.httacgia.Width = 125;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(483, 273);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 11;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // FormTacgia
             // 
@@ -205,7 +206,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormTacgia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tác giả";

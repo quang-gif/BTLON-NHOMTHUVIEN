@@ -60,6 +60,7 @@
             // 
             // dgvThongtin
             // 
+            this.dgvThongtin.AllowUserToAddRows = false;
             this.dgvThongtin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvThongtin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
