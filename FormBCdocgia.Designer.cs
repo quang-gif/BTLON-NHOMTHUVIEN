@@ -30,9 +30,9 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnExcel = new System.Windows.Forms.Button();
-            this.btnexit = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.btnthongke = new System.Windows.Forms.Button();
-            this.cbothongke = new System.Windows.Forms.ComboBox();
+            this.cbothongkedocgia = new System.Windows.Forms.ComboBox();
             this.dgvTKDG = new System.Windows.Forms.DataGridView();
             this.madg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.htdocgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,9 +47,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnExcel);
-            this.groupBox1.Controls.Add(this.btnexit);
+            this.groupBox1.Controls.Add(this.btnThoat);
             this.groupBox1.Controls.Add(this.btnthongke);
-            this.groupBox1.Controls.Add(this.cbothongke);
+            this.groupBox1.Controls.Add(this.cbothongkedocgia);
             this.groupBox1.Location = new System.Drawing.Point(35, 94);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -68,17 +68,18 @@
             this.btnExcel.TabIndex = 2;
             this.btnExcel.Text = "Xuất Excel";
             this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
-            // btnexit
+            // btnThoat
             // 
-            this.btnexit.Location = new System.Drawing.Point(871, 48);
-            this.btnexit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnexit.Name = "btnexit";
-            this.btnexit.Size = new System.Drawing.Size(100, 28);
-            this.btnexit.TabIndex = 1;
-            this.btnexit.Text = "Thoát";
-            this.btnexit.UseVisualStyleBackColor = true;
-            this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
+            this.btnThoat.Location = new System.Drawing.Point(871, 48);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(100, 28);
+            this.btnThoat.TabIndex = 1;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnexit_Click);
             // 
             // btnthongke
             // 
@@ -89,18 +90,16 @@
             this.btnthongke.TabIndex = 1;
             this.btnthongke.Text = "Thống kê";
             this.btnthongke.UseVisualStyleBackColor = true;
+            this.btnthongke.Click += new System.EventHandler(this.btnthongke_Click);
             // 
-            // cbothongke
+            // cbothongkedocgia
             // 
-            this.cbothongke.FormattingEnabled = true;
-            this.cbothongke.Items.AddRange(new object[] {
-            "Tất cả độc giả",
-            "Độc giả trễ hạn"});
-            this.cbothongke.Location = new System.Drawing.Point(83, 48);
-            this.cbothongke.Margin = new System.Windows.Forms.Padding(4);
-            this.cbothongke.Name = "cbothongke";
-            this.cbothongke.Size = new System.Drawing.Size(231, 24);
-            this.cbothongke.TabIndex = 0;
+            this.cbothongkedocgia.FormattingEnabled = true;
+            this.cbothongkedocgia.Location = new System.Drawing.Point(77, 52);
+            this.cbothongkedocgia.Margin = new System.Windows.Forms.Padding(4);
+            this.cbothongkedocgia.Name = "cbothongkedocgia";
+            this.cbothongkedocgia.Size = new System.Drawing.Size(306, 24);
+            this.cbothongkedocgia.TabIndex = 0;
             // 
             // dgvTKDG
             // 
@@ -182,6 +181,7 @@
             this.Name = "FormBCdocgia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo cáo độc giả";
+            this.Load += new System.EventHandler(this.FormBCdocgia_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTKDG)).EndInit();
             this.ResumeLayout(false);
@@ -192,9 +192,9 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnexit;
+        private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnthongke;
-        private System.Windows.Forms.ComboBox cbothongke;
+        private System.Windows.Forms.ComboBox cbothongkedocgia;
         private System.Windows.Forms.DataGridView dgvTKDG;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn madg;
