@@ -13,7 +13,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormTheloai : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-5985LPQ\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         public FormTheloai()
         {
             InitializeComponent();

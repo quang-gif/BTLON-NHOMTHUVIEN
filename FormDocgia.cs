@@ -14,7 +14,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormDocgia : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-F4RS79DJ\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         private void load_dg()
         {
             if (con.State == ConnectionState.Closed)
@@ -31,6 +31,7 @@ namespace BTLON_NHOMTHUVIEN
         private void btnThem_Click(object sender, EventArgs e)
         {
             btnLuu.Enabled = true;
+            txtMadocgia.Enabled = true;
         }
         public FormDocgia()
         {
@@ -113,6 +114,7 @@ namespace BTLON_NHOMTHUVIEN
             cmd.Dispose();
             con.Close();
             MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnLuu.Enabled = false;
             load_dg();
         }
 
