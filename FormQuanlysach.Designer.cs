@@ -320,7 +320,7 @@
             this.txtExcel.TabIndex = 6;
             this.txtExcel.Text = "Excel";
             this.txtExcel.UseVisualStyleBackColor = true;
-            this.txtExcel.Click += new System.EventHandler(this.txtExcel_Click);
+          
             // 
             // FormQuanlysach
             // 
