@@ -68,10 +68,7 @@ namespace BTLON_NHOMTHUVIEN
                  MessageBox.Show("Vui lòng nhập thông tin tìm kiếm");
                 txtMadocgia.Focus();
             }
-
-           
         }
-
         private void dgvdocgia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = e.RowIndex;
