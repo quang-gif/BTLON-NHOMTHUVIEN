@@ -133,8 +133,7 @@ namespace BTLON_NHOMTHUVIEN
             btnLuu.Enabled = true;
             load_Quanlysach();
             txtMasach.Enabled = true;
-            txtMasach.Text = "";
-            txtTensach.Text = "";
+           
             dtnamxb.Value = DateTime.Now;
             load_Nhaxuatban();
             load_theloai();
@@ -186,6 +185,13 @@ namespace BTLON_NHOMTHUVIEN
                 cmd.Dispose();
                 con.Close();
                 load_Quanlysach();
+                txtMasach.Text = "";
+                txtTensach.Text = "";
+                load_Nhaxuatban();
+                load_theloai();
+                load_tacgia();
+                txtMasach.Enabled = true;
+                btnThem.Focus();
             }
         }
 
@@ -194,9 +200,10 @@ namespace BTLON_NHOMTHUVIEN
             string ms = txtMasach.Text.Trim();
             string ts = txtTensach.Text.Trim();
             DateTime nxb = dtnamxb.Value;
-            string manxb = cboManxb.SelectedItem.ToString();
-            string tls = cboTheloai.SelectedItem.ToString();
-            string mtg = cboMatg.SelectedItem.ToString();
+            string manxb = cboManxb.SelectedValue.ToString();
+            string tls = cboTheloai.SelectedValue.ToString();
+            string mtg = cboMatg.SelectedValue.ToString();
+           
             if (checktrung(ms) == true)
             {
                 MessageBox.Show("Mã sách đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -221,22 +228,22 @@ namespace BTLON_NHOMTHUVIEN
                 dtnamxb.Focus();
                 return;
             }
-            if (manxb == "")
+            if (manxb == "---Chọn mã nhà xuất bản---")
             {
                 MessageBox.Show("Bạn chưa chọn nhà xuất bản", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cboManxb.Focus();
+                txtMasach.Focus();
                 return;
             }
-            if (tls == "")
+            if (tls == "---Chọn mã thể loại---")
             {
                 MessageBox.Show("Bạn chưa chọn thể loại sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cboTheloai.Focus();
+                txtMasach.Focus();
                 return;
             }
-            if (mtg == "")
+            if (mtg == "---Chọn mã tác giả---")
             {
                 MessageBox.Show("Bạn chưa chọn tác giả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cboMatg.Focus();
+                txtMasach.Focus();
                 return;
             }
             // ket noi csdl
@@ -257,6 +264,8 @@ namespace BTLON_NHOMTHUVIEN
             con.Close();
             MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             load_Quanlysach();
+            btnLuu.Enabled = false;
+            btnThem.Focus();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -276,9 +285,5 @@ namespace BTLON_NHOMTHUVIEN
             txtMasach.Enabled = false;
         }
 
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

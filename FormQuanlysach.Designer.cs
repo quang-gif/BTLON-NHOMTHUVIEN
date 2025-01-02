@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvCapnhatsach = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cboMatg = new System.Windows.Forms.ComboBox();
             this.cboTheloai = new System.Windows.Forms.ComboBox();
@@ -53,14 +47,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnTim = new System.Windows.Forms.Button();
-            this.txtTimkiem = new System.Windows.Forms.TextBox();
-            this.rdbtnTensach = new System.Windows.Forms.RadioButton();
-            this.rdbtnMasach = new System.Windows.Forms.RadioButton();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCapnhatsach)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvCapnhatsach
@@ -74,7 +68,7 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dgvCapnhatsach.Location = new System.Drawing.Point(24, 325);
+            this.dgvCapnhatsach.Location = new System.Drawing.Point(36, 191);
             this.dgvCapnhatsach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCapnhatsach.Name = "dgvCapnhatsach";
             this.dgvCapnhatsach.RowHeadersWidth = 51;
@@ -82,54 +76,6 @@
             this.dgvCapnhatsach.Size = new System.Drawing.Size(937, 214);
             this.dgvCapnhatsach.TabIndex = 14;
             this.dgvCapnhatsach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCapnhatsach_CellClick);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "masach";
-            this.Column1.HeaderText = "Mã sách";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "tensach";
-            this.Column2.HeaderText = "Tên sách";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "namxb";
-            this.Column3.HeaderText = "Năm xuất bản ";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "manxb";
-            this.Column4.HeaderText = "Mã nhà xuất bản";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "matheloai";
-            this.Column5.HeaderText = "Mã thể loại";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 125;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "matg";
-            this.Column6.HeaderText = "Mã tác giả";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 125;
             // 
             // groupBox2
             // 
@@ -150,11 +96,11 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(23, 153);
+            this.groupBox2.Location = new System.Drawing.Point(53, 21);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(939, 166);
+            this.groupBox2.Size = new System.Drawing.Size(901, 157);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cập nhật sách";
@@ -316,72 +262,57 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã sách";
             // 
-            // groupBox1
+            // Column1
             // 
-            this.groupBox1.Controls.Add(this.btnTim);
-            this.groupBox1.Controls.Add(this.txtTimkiem);
-            this.groupBox1.Controls.Add(this.rdbtnTensach);
-            this.groupBox1.Controls.Add(this.rdbtnMasach);
-            this.groupBox1.Location = new System.Drawing.Point(23, 31);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(939, 116);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tìm kiếm sách";
+            this.Column1.DataPropertyName = "masach";
+            this.Column1.HeaderText = "Mã sách";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
             // 
-            // btnTim
+            // Column2
             // 
-            this.btnTim.Location = new System.Drawing.Point(730, 50);
-            this.btnTim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(75, 23);
-            this.btnTim.TabIndex = 2;
-            this.btnTim.Text = "Tìm";
-            this.btnTim.UseVisualStyleBackColor = true;
-            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            this.Column2.DataPropertyName = "tensach";
+            this.Column2.HeaderText = "Tên sách";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
             // 
-            // txtTimkiem
+            // Column3
             // 
-            this.txtTimkiem.Location = new System.Drawing.Point(281, 51);
-            this.txtTimkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTimkiem.Name = "txtTimkiem";
-            this.txtTimkiem.Size = new System.Drawing.Size(339, 22);
-            this.txtTimkiem.TabIndex = 1;
+            this.Column3.DataPropertyName = "namxb";
+            this.Column3.HeaderText = "Năm xuất bản ";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
             // 
-            // rdbtnTensach
+            // Column4
             // 
-            this.rdbtnTensach.AutoSize = true;
-            this.rdbtnTensach.Location = new System.Drawing.Point(57, 66);
-            this.rdbtnTensach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rdbtnTensach.Name = "rdbtnTensach";
-            this.rdbtnTensach.Size = new System.Drawing.Size(84, 20);
-            this.rdbtnTensach.TabIndex = 0;
-            this.rdbtnTensach.TabStop = true;
-            this.rdbtnTensach.Text = "Tên sách";
-            this.rdbtnTensach.UseVisualStyleBackColor = true;
+            this.Column4.DataPropertyName = "manxb";
+            this.Column4.HeaderText = "Mã nhà xuất bản";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
             // 
-            // rdbtnMasach
+            // Column5
             // 
-            this.rdbtnMasach.AutoSize = true;
-            this.rdbtnMasach.Location = new System.Drawing.Point(57, 28);
-            this.rdbtnMasach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rdbtnMasach.Name = "rdbtnMasach";
-            this.rdbtnMasach.Size = new System.Drawing.Size(79, 20);
-            this.rdbtnMasach.TabIndex = 0;
-            this.rdbtnMasach.TabStop = true;
-            this.rdbtnMasach.Text = "Mã sách";
-            this.rdbtnMasach.UseVisualStyleBackColor = true;
+            this.Column5.DataPropertyName = "matheloai";
+            this.Column5.HeaderText = "Mã thể loại";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "matg";
+            this.Column6.HeaderText = "Mã tác giả";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
             // 
             // FormQuanlysach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1115, 592);
+            this.ClientSize = new System.Drawing.Size(1039, 477);
             this.Controls.Add(this.dgvCapnhatsach);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormQuanlysach";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -390,8 +321,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCapnhatsach)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -399,12 +328,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvCapnhatsach;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DateTimePicker dtnamxb;
         private System.Windows.Forms.Button btnThoat;
@@ -420,13 +343,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.TextBox txtTimkiem;
-        private System.Windows.Forms.RadioButton rdbtnTensach;
-        private System.Windows.Forms.RadioButton rdbtnMasach;
         private System.Windows.Forms.ComboBox cboManxb;
         private System.Windows.Forms.ComboBox cboMatg;
         private System.Windows.Forms.ComboBox cboTheloai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }
