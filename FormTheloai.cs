@@ -19,11 +19,9 @@ namespace BTLON_NHOMTHUVIEN
             InitializeComponent();
         }
 
-
         DataTable tb1;
         private void load_theloai(string ml, string tl)
         {
-
             if (con.State == ConnectionState.Closed)
                 con.Open();
             string sql = "select * from theloai where " +
@@ -53,22 +51,10 @@ namespace BTLON_NHOMTHUVIEN
                 return true;
             else return false;
         }
-        private void btnReset_Click_1(object sender, EventArgs e)
-        {
-            txtMaTheLoai.Enabled = true;
-            txtMaTheLoai.Text = "";
-            txtTenTheLoai.Text = "";
-            btnXoa.Enabled = true;
-            btnSua.Enabled = true;
-            btnLuu.Enabled = false;
-            load_theloai("", "");
-        }
-
         private void btnThoat_Click_1(object sender, EventArgs e)
         {
             Close();
         }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             DialogResult tl = MessageBox.Show("Bạn có muốn xoá hay không?", "Detele Box", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -83,13 +69,24 @@ namespace BTLON_NHOMTHUVIEN
                 cmd.Dispose();
                 con.Close();
             }
-            load_theloai("", "");
-        }
+            txtMaTheLoai.Enabled = true;
+            txtMaTheLoai.Text = "";
+            txtTenTheLoai.Text = "";
+            txtMaTheLoai.Focus();
 
+            load_theloai("", "");
+            
+        }
         private void btnSua_Click(object sender, EventArgs e)
         {
             string ml = txtMaTheLoai.Text.Trim();
             string tl = txtTenTheLoai.Text.Trim();
+            if (tl == "")
+            {
+                MessageBox.Show("Tên thể loại không được rỗng!");
+                txtTenTheLoai.Focus();
+                return;
+            }
             if (con.State == ConnectionState.Closed)
                 con.Open();
             string sql = "update theloai Set tentheloai=N'" + tl + "' where matheloai='" + ml + "'";
@@ -97,11 +94,12 @@ namespace BTLON_NHOMTHUVIEN
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             con.Close();
-            MessageBox.Show("Sửa thành công!");
+            MessageBox.Show("Cập nhật thành công!");
+            txtMaTheLoai.Enabled=true;
+            txtMaTheLoai.Clear();
+            txtTenTheLoai.Clear();
             load_theloai("", "");
-
         }
-
         private void dgvCapNhatTheLoai_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = e.RowIndex;
@@ -109,14 +107,13 @@ namespace BTLON_NHOMTHUVIEN
             txtTenTheLoai.Text = dgvCapNhatTheLoai.Rows[i].Cells[1].Value.ToString();
             txtMaTheLoai.Enabled = false; //để không sửa được mã loại
         }
-
         private void btnLuu_Click(object sender, EventArgs e)
         {
             string ml = txtMaTheLoai.Text.Trim();
             string tl = txtTenTheLoai.Text.Trim();
             if (ml == "")
             {
-                MessageBox.Show("Mã thể loại rỗng");
+                MessageBox.Show("Mã thể loại không được rỗng");
                 txtMaTheLoai.Focus();
                 return;
             }
@@ -141,13 +138,13 @@ namespace BTLON_NHOMTHUVIEN
             con.Close();
             MessageBox.Show("Thêm mới thành công");
             load_theloai("", "");
-
+            txtMaTheLoai.Clear();
+            txtTenTheLoai.Clear();
             btnXoa.Enabled = true;
             btnSua.Enabled = true;
+            btnTimkiem.Enabled = true;
             btnLuu.Enabled = false;
-            
         }
-
         private void FormTheloai_Load(object sender, EventArgs e)
         {
             btnLuu.Enabled = false;
@@ -157,8 +154,30 @@ namespace BTLON_NHOMTHUVIEN
         private void btnThem_Click(object sender, EventArgs e)
         {
             btnLuu.Enabled=true;
+            btnTimkiem.Enabled=false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
+            load_theloai("", "");
+        }
+
+        private void btnTimkiem_Click(object sender, EventArgs e)
+        {
+            string ml = txtMaTheLoai.Text.Trim();
+            string tl = txtTenTheLoai.Text.Trim();
+            load_theloai(ml, tl);
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtMaTheLoai.Clear();
+            txtTenTheLoai.Clear();
+            txtMaTheLoai.Enabled=true;
+            txtTenTheLoai.Enabled = true;
+            btnThem.Enabled=true;
+            btnSua.Enabled=true;
+            btnXoa.Enabled=true;
+            btnLuu.Enabled=false;
+            btnTimkiem.Enabled =true;
             load_theloai("", "");
         }
     }
