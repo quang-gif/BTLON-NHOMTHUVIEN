@@ -36,9 +36,9 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtMatacgia = new System.Windows.Forms.TextBox();
-            this.txtTheloaisach = new System.Windows.Forms.TextBox();
-            this.txtManxb = new System.Windows.Forms.TextBox();
+            this.cboMatg = new System.Windows.Forms.ComboBox();
+            this.cboTheloai = new System.Windows.Forms.ComboBox();
+            this.cboManxb = new System.Windows.Forms.ComboBox();
             this.dtnamxb = new System.Windows.Forms.DateTimePicker();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
@@ -133,9 +133,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtMatacgia);
-            this.groupBox2.Controls.Add(this.txtTheloaisach);
-            this.groupBox2.Controls.Add(this.txtManxb);
+            this.groupBox2.Controls.Add(this.cboMatg);
+            this.groupBox2.Controls.Add(this.cboTheloai);
+            this.groupBox2.Controls.Add(this.cboManxb);
             this.groupBox2.Controls.Add(this.dtnamxb);
             this.groupBox2.Controls.Add(this.btnThoat);
             this.groupBox2.Controls.Add(this.btnLuu);
@@ -159,38 +159,41 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cập nhật sách";
             // 
-            // txtMatacgia
+            // cboMatg
             // 
-            this.txtMatacgia.Location = new System.Drawing.Point(673, 65);
-            this.txtMatacgia.Name = "txtMatacgia";
-            this.txtMatacgia.Size = new System.Drawing.Size(121, 22);
-            this.txtMatacgia.TabIndex = 5;
+            this.cboMatg.FormattingEnabled = true;
+            this.cboMatg.Location = new System.Drawing.Point(730, 65);
+            this.cboMatg.Name = "cboMatg";
+            this.cboMatg.Size = new System.Drawing.Size(170, 24);
+            this.cboMatg.TabIndex = 5;
             // 
-            // txtTheloaisach
+            // cboTheloai
             // 
-            this.txtTheloaisach.Location = new System.Drawing.Point(673, 31);
-            this.txtTheloaisach.Name = "txtTheloaisach";
-            this.txtTheloaisach.Size = new System.Drawing.Size(121, 22);
-            this.txtTheloaisach.TabIndex = 5;
+            this.cboTheloai.FormattingEnabled = true;
+            this.cboTheloai.Location = new System.Drawing.Point(730, 28);
+            this.cboTheloai.Name = "cboTheloai";
+            this.cboTheloai.Size = new System.Drawing.Size(170, 24);
+            this.cboTheloai.TabIndex = 5;
             // 
-            // txtManxb
+            // cboManxb
             // 
-            this.txtManxb.Location = new System.Drawing.Point(417, 65);
-            this.txtManxb.Name = "txtManxb";
-            this.txtManxb.Size = new System.Drawing.Size(121, 22);
-            this.txtManxb.TabIndex = 5;
+            this.cboManxb.FormattingEnabled = true;
+            this.cboManxb.Location = new System.Drawing.Point(417, 62);
+            this.cboManxb.Name = "cboManxb";
+            this.cboManxb.Size = new System.Drawing.Size(174, 24);
+            this.cboManxb.TabIndex = 5;
             // 
             // dtnamxb
             // 
             this.dtnamxb.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtnamxb.Location = new System.Drawing.Point(417, 30);
             this.dtnamxb.Name = "dtnamxb";
-            this.dtnamxb.Size = new System.Drawing.Size(121, 22);
+            this.dtnamxb.Size = new System.Drawing.Size(174, 22);
             this.dtnamxb.TabIndex = 4;
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(717, 117);
+            this.btnThoat.Location = new System.Drawing.Point(809, 117);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
@@ -248,7 +251,7 @@
             this.txtTensach.Location = new System.Drawing.Point(121, 65);
             this.txtTensach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTensach.Name = "txtTensach";
-            this.txtTensach.Size = new System.Drawing.Size(128, 22);
+            this.txtTensach.Size = new System.Drawing.Size(165, 22);
             this.txtTensach.TabIndex = 1;
             // 
             // txtMasach
@@ -256,7 +259,7 @@
             this.txtMasach.Location = new System.Drawing.Point(121, 31);
             this.txtMasach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMasach.Name = "txtMasach";
-            this.txtMasach.Size = new System.Drawing.Size(128, 22);
+            this.txtMasach.Size = new System.Drawing.Size(165, 22);
             this.txtMasach.TabIndex = 1;
             // 
             // label6
@@ -271,7 +274,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(579, 71);
+            this.label4.Location = new System.Drawing.Point(616, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 16);
             this.label4.TabIndex = 0;
@@ -289,7 +292,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(579, 37);
+            this.label3.Location = new System.Drawing.Point(616, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 16);
             this.label3.TabIndex = 0;
@@ -327,21 +330,21 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm kiếm sách";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(657, 49);
+            this.btnTim.Location = new System.Drawing.Point(730, 50);
             this.btnTim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 23);
             this.btnTim.TabIndex = 2;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // txtTimkiem
             // 
-            this.txtTimkiem.Location = new System.Drawing.Point(269, 50);
+            this.txtTimkiem.Location = new System.Drawing.Point(281, 51);
             this.txtTimkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTimkiem.Name = "txtTimkiem";
             this.txtTimkiem.Size = new System.Drawing.Size(339, 22);
@@ -375,7 +378,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 571);
+            this.ClientSize = new System.Drawing.Size(1115, 592);
             this.Controls.Add(this.dgvCapnhatsach);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -403,9 +406,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtMatacgia;
-        private System.Windows.Forms.TextBox txtTheloaisach;
-        private System.Windows.Forms.TextBox txtManxb;
         private System.Windows.Forms.DateTimePicker dtnamxb;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnLuu;
@@ -425,5 +425,8 @@
         private System.Windows.Forms.TextBox txtTimkiem;
         private System.Windows.Forms.RadioButton rdbtnTensach;
         private System.Windows.Forms.RadioButton rdbtnMasach;
+        private System.Windows.Forms.ComboBox cboManxb;
+        private System.Windows.Forms.ComboBox cboMatg;
+        private System.Windows.Forms.ComboBox cboTheloai;
     }
 }
