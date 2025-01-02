@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using e_excel = Microsoft.Office.Interop.Excel;
 
 namespace BTLON_NHOMTHUVIEN
 {
@@ -190,6 +191,7 @@ namespace BTLON_NHOMTHUVIEN
             }
         }
         //load chi tiet muon tra
+        DataTable dt1;
         private void load1()
         {
             if (con.State != ConnectionState.Open)
@@ -203,12 +205,12 @@ namespace BTLON_NHOMTHUVIEN
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
 
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            dt1 = new DataTable();
+            da.Fill(dt1);
             cmd.Dispose();
             con.Close();
 
-            dgv2.DataSource = dt;
+            dgv2.DataSource = dt1;
             dgv2.Refresh();
         }
         //load muon tra
@@ -276,5 +278,120 @@ namespace BTLON_NHOMTHUVIEN
             dttra.Value = DateTime.Parse(dgv2.Rows[i].Cells[3].Value.ToString());
             txttinhtrang.Text = dgv2.Rows[i].Cells[4].Value.ToString();
         }
+
+        private void Excel(DataTable tb1, string sheetname)
+        {
+            e_excel.Application oExcel = new e_excel.Application();
+            e_excel.Workbooks oBooks;
+            e_excel.Sheets oSheets;
+            e_excel.Workbook oBook;
+            e_excel.Worksheet oSheet;
+            //Tạo mới một Excel WorkBook 
+            oExcel.Visible = true;
+            oExcel.DisplayAlerts = false;
+            oExcel.Application.SheetsInNewWorkbook = 1;
+            oBooks = oExcel.Workbooks;
+            oBook = (e_excel.Workbook)(oExcel.Workbooks.Add(Type.Missing));
+            oSheets = oBook.Worksheets;
+            oSheet = (e_excel.Worksheet)oSheets.get_Item(1);
+            oSheet.Name = sheetname;
+            // Tạo phần đầu nếu muốn
+
+            e_excel.Range head = oSheet.get_Range("A1", "E1");
+            head.MergeCells = true;
+            head.Value2 = "DANH SÁCH PHIẾU MƯỢN";
+            head.Font.Bold = true;
+            head.Font.Name = "Aptos Narrow";
+            head.Font.Size = "16";
+            head.HorizontalAlignment = e_excel.XlHAlign.xlHAlignCenter;
+            // Tạo tiêu đề cột 
+            e_excel.Range cl1 = oSheet.get_Range("A3", "A3");
+            cl1.Value2 = "MÃ PHIẾU";
+            cl1.ColumnWidth = 10.0;
+            e_excel.Range cl2 = oSheet.get_Range("B3", "B3");
+            cl2.Value2 = "MÃ SÁCH";
+            cl2.ColumnWidth = 25.0;
+            e_excel.Range cl3 = oSheet.get_Range("C3", "C3");
+            cl3.Value2 = "NGÀY MƯỢN";
+            cl3.ColumnWidth = 20.0;
+            e_excel.Range cl4 = oSheet.get_Range("D3", "D3");
+            cl4.Value2 = "NGÀY TRẢ";
+            cl4.ColumnWidth = 20.0;
+            e_excel.Range cl5 = oSheet.get_Range("E3", "E3");
+            cl5.Value2 = "GHI CHÚ";
+            cl5.ColumnWidth = 40.0;
+
+            //Microsoft.Office.Interop.Excel.Range cl6 = oSheet.get_Range("F3", "F3");
+            //cl6.Value2 = "NGÀY THI";
+            //cl6.ColumnWidth = 15.0;
+            //Microsoft.Office.Interop.Excel.Range cl6_1 = oSheet.get_Range("F4", "F1000");
+            //cl6_1.Columns.NumberFormat = "dd/mm/yyyy";
+
+            e_excel.Range rowHead = oSheet.get_Range("A3", "E3");
+            //
+            rowHead.Font.Bold = true;
+
+            // Kẻ viền
+            rowHead.Borders.LineStyle = e_excel.Constants.xlSolid;
+
+            // Thiết lập màu nền
+            rowHead.Interior.ColorIndex = 15;
+            rowHead.HorizontalAlignment = e_excel.XlHAlign.xlHAlignCenter;
+            // Tạo mảng đối tượng để lưu dữ toàn bồ dữ liệu trong DataTable,
+            // vì dữ liệu được được gán vào các Cell trong Excel phải thông qua object thuần.
+            object[,] arr = new object[tb1.Rows.Count, tb1.Columns.Count];
+            //Chuyển dữ liệu từ DataTable vào mảng đối tượng
+            for (int r = 0; r < tb1.Rows.Count; r++)
+            {
+                DataRow dr = tb1.Rows[r];
+                for (int c = 0; c < tb1.Columns.Count; c++)
+
+                {
+                    if (c == 2 || c == 3)
+                        arr[r, c] = "'" + dr[c].ToString();
+                    else
+                        arr[r, c] = dr[c];
+                }
+            }
+            //Thiết lập vùng điền dữ liệu
+            int rowStart = 4;
+            int columnStart = 1;
+            int rowEnd = rowStart + tb1.Rows.Count - 1;
+            int columnEnd = tb1.Columns.Count;
+            // Ô bắt đầu điền dữ liệu
+            e_excel.Range c1 = (e_excel.Range)oSheet.Cells[rowStart, columnStart];
+            // Ô kết thúc điền dữ liệu
+            e_excel.Range c2 = (e_excel.Range)oSheet.Cells[rowEnd, columnEnd];
+            // Lấy về vùng điền dữ liệu
+            e_excel.Range range = oSheet.get_Range(c1, c2);
+            //Điền dữ liệu vào vùng đã thiết lập
+            range.Value2 = arr;
+            // Kẻ viền
+            range.Borders.LineStyle = e_excel.Constants.xlSolid;
+            // Căn giữa cột STT
+            e_excel.Range c3 = (e_excel.Range)oSheet.Cells[rowEnd, columnStart];
+            e_excel.Range c4 = oSheet.get_Range(c1, c3);
+            oSheet.get_Range(c3, c4).HorizontalAlignment = e_excel.XlHAlign.xlHAlignCenter;
+
+        }
+
+        private void btnexcel_Click(object sender, EventArgs e)
+        {
+            string mm = cbbphieumuon.SelectedValue?.ToString();
+            string ms = cbbmasach.SelectedValue?.ToString();
+            DateTime nmuon = dtmuon.Value;
+            DateTime ntra = dttra.Value;
+            string tt = txttinhtrang.Text.Trim();
+
+            if (dt1 == null || dt1.Rows.Count == 0 || dt1.Columns.Count == 0)
+            {
+                MessageBox.Show("Dữ liệu không hợp lệ hoặc trống!");
+                return;
+            }
+
+            load1();
+            Excel(dt1, "DSPhieuMuon");
+        }
+
     }
 }
