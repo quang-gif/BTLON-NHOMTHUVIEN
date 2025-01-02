@@ -52,18 +52,6 @@ namespace BTLON_NHOMTHUVIEN
                 return true;
             else return false;
         }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            txtMaTacGia.Enabled = true;
-            txtMaTacGia.Text = "";
-            txtHoTen.Text = "";
-            btnXoa.Enabled = true;
-            btnSua.Enabled = true;
-            btnLuu.Enabled = false;
-            load_tacgia("", "");
-        }
-
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Close();
@@ -90,6 +78,12 @@ namespace BTLON_NHOMTHUVIEN
         {
             string mtg = txtMaTacGia.Text.Trim();
             string ttg = txtHoTen.Text.Trim();
+            if (ttg == "")
+            {
+                MessageBox.Show("Tên tác giả không được rỗng!");
+                txtHoTen.Focus();
+                return;
+            }
             if (con.State == ConnectionState.Closed)
                 con.Open();
             string sql = "update tacgia Set httacgia=N'" + ttg + "' where matg='" + mtg + "'";
@@ -97,8 +91,13 @@ namespace BTLON_NHOMTHUVIEN
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             con.Close();
-            MessageBox.Show("Sửa thành công!");
+            MessageBox.Show("Cập nhật dữ liệu thành công!");
             load_tacgia("", "");
+            txtMaTacGia.Enabled = true;
+            txtMaTacGia.Clear();
+            txtHoTen.Enabled = true;
+            txtHoTen.Clear();
+            txtMaTacGia.Focus();
         }
 
         private void dgvCapNhatTacGia_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -115,7 +114,7 @@ namespace BTLON_NHOMTHUVIEN
             string ttg = txtHoTen.Text.Trim();
             if (mtg == "")
             {
-                MessageBox.Show("Mã tác giả rỗng");
+                MessageBox.Show("Mã tác giả không được rỗng");
                 txtMaTacGia.Focus();
                 return;
             }
@@ -140,7 +139,9 @@ namespace BTLON_NHOMTHUVIEN
             con.Close();
             MessageBox.Show("Thêm mới thành công");
             load_tacgia("", "");
-
+            txtMaTacGia.Clear();
+            txtHoTen.Clear();
+            txtMaTacGia.Focus();
             btnXoa.Enabled = true;
             btnSua.Enabled = true;
             btnLuu.Enabled = false;
@@ -158,6 +159,27 @@ namespace BTLON_NHOMTHUVIEN
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
             load_tacgia("", "");
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtMaTacGia.Enabled = true;
+            txtMaTacGia.Clear();
+            txtHoTen.Clear();
+            txtMaTacGia.Focus();
+            btnXoa.Enabled = true;
+            btnSua.Enabled = true;
+            btnLuu.Enabled = false;
+            btnTimkiem.Enabled = true;
+            btnThem.Enabled = true;
+            load_tacgia("", "");
+        }
+
+        private void btnTimkiem_Click(object sender, EventArgs e)
+        {
+            string mtg = txtMaTacGia.Text.Trim();
+            string ttg = txtHoTen.Text.Trim();
+            load_tacgia(mtg, ttg);
         }
     }
 }

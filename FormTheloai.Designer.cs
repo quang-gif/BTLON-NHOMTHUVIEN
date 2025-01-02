@@ -41,6 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnTimkiem = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCapNhatTheLoai)).BeginInit();
             this.SuspendLayout();
@@ -79,10 +80,10 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(463, 315);
+            this.btnThoat.Location = new System.Drawing.Point(463, 362);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(75, 23);
+            this.btnThoat.Size = new System.Drawing.Size(84, 23);
             this.btnThoat.TabIndex = 20;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -93,7 +94,7 @@
             this.btnLuu.Location = new System.Drawing.Point(463, 225);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(75, 23);
+            this.btnLuu.Size = new System.Drawing.Size(84, 23);
             this.btnLuu.TabIndex = 19;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
@@ -104,7 +105,7 @@
             this.btnXoa.Location = new System.Drawing.Point(463, 178);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXoa.Size = new System.Drawing.Size(84, 23);
             this.btnXoa.TabIndex = 18;
             this.btnXoa.Text = "Xoá";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -115,7 +116,7 @@
             this.btnSua.Location = new System.Drawing.Point(463, 129);
             this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 23);
+            this.btnSua.Size = new System.Drawing.Size(84, 23);
             this.btnSua.TabIndex = 17;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
@@ -123,10 +124,10 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(463, 76);
+            this.btnThem.Location = new System.Drawing.Point(463, 80);
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 23);
+            this.btnThem.Size = new System.Drawing.Size(84, 23);
             this.btnThem.TabIndex = 16;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -178,23 +179,35 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "CẬP NHẬT THỂ LOẠI";
             // 
+            // btnTimkiem
+            // 
+            this.btnTimkiem.Location = new System.Drawing.Point(463, 273);
+            this.btnTimkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTimkiem.Name = "btnTimkiem";
+            this.btnTimkiem.Size = new System.Drawing.Size(84, 23);
+            this.btnTimkiem.TabIndex = 23;
+            this.btnTimkiem.Text = "Tìm kiếm";
+            this.btnTimkiem.UseVisualStyleBackColor = true;
+            this.btnTimkiem.Click += new System.EventHandler(this.btnTimkiem_Click);
+            // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(463, 272);
+            this.btnReset.Location = new System.Drawing.Point(463, 320);
             this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 22;
+            this.btnReset.Size = new System.Drawing.Size(84, 23);
+            this.btnReset.TabIndex = 24;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click_1);
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // FormTheloai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 491);
+            this.ClientSize = new System.Drawing.Size(572, 491);
             this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.btnTimkiem);
             this.Controls.Add(this.dgvCapNhatTheLoai);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnLuu);
@@ -232,6 +245,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn matheloai;
         private System.Windows.Forms.DataGridViewTextBoxColumn tentheloai;
+        private System.Windows.Forms.Button btnTimkiem;
         private System.Windows.Forms.Button btnReset;
     }
 }

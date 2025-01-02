@@ -41,6 +41,7 @@
             this.dgvCapNhatTacGia = new System.Windows.Forms.DataGridView();
             this.matg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.httacgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnTimkiem = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCapNhatTacGia)).BeginInit();
             this.SuspendLayout();
@@ -137,7 +138,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(483, 315);
+            this.btnThoat.Location = new System.Drawing.Point(483, 352);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
@@ -178,13 +179,24 @@
             this.httacgia.Name = "httacgia";
             this.httacgia.Width = 125;
             // 
+            // btnTimkiem
+            // 
+            this.btnTimkiem.Location = new System.Drawing.Point(483, 273);
+            this.btnTimkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTimkiem.Name = "btnTimkiem";
+            this.btnTimkiem.Size = new System.Drawing.Size(75, 23);
+            this.btnTimkiem.TabIndex = 11;
+            this.btnTimkiem.Text = "Tìm kiếm";
+            this.btnTimkiem.UseVisualStyleBackColor = true;
+            this.btnTimkiem.Click += new System.EventHandler(this.btnTimkiem_Click);
+            // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(483, 273);
+            this.btnReset.Location = new System.Drawing.Point(483, 314);
             this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 11;
+            this.btnReset.TabIndex = 12;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -195,6 +207,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(587, 476);
             this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.btnTimkiem);
             this.Controls.Add(this.dgvCapNhatTacGia);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnLuu);
@@ -230,8 +243,9 @@
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.DataGridView dgvCapNhatTacGia;
-        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnTimkiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn matg;
         private System.Windows.Forms.DataGridViewTextBoxColumn httacgia;
+        private System.Windows.Forms.Button btnReset;
     }
 }
