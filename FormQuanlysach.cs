@@ -13,10 +13,106 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormQuanlysach : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-FU9S3VB\\SQLEXPRESS01;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         public FormQuanlysach()
         {
             InitializeComponent();
+        }
+        private void load_Nhaxuatban()
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+
+            string sql = "select * from nhaxuatban ";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataAdapter ad = new SqlDataAdapter();
+            ad.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            cmd.Dispose();
+            con.Close();
+
+            DataRow r = dt.NewRow();
+
+            r["manxb"] = "---Chọn mã nhà xuất bản---";
+            dt.Rows.InsertAt(r, 0);
+
+            cboManxb.DataSource = dt;
+            cboManxb.DisplayMember = "manxb";
+            cboManxb.ValueMember = "manxb";
+
+        }
+        private void load_theloai()
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+
+            string sql = "select * from theloai ";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataAdapter ad = new SqlDataAdapter();
+            ad.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            cmd.Dispose();
+            con.Close();
+
+            DataRow r = dt.NewRow();
+
+            r["matheloai"] = "---Chọn mã thể loại---";
+            dt.Rows.InsertAt(r, 0);
+
+            cboTheloai.DataSource = dt;
+            cboTheloai.DisplayMember = "matheloai";
+            cboTheloai.ValueMember = "matheloai";
+
+        }
+        private void load_tacgia()
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+
+            string sql = "select * from tacgia ";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataAdapter ad = new SqlDataAdapter();
+            ad.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            cmd.Dispose();
+            con.Close();
+
+            DataRow r = dt.NewRow();
+
+            r["matg"] = "---Chọn mã tác giả---";
+            dt.Rows.InsertAt(r, 0);
+
+            cboMatg.DataSource = dt;
+            cboMatg.DisplayMember = "matg";
+            cboMatg.ValueMember = "matg";
+
+        }
+        private bool checktrung(string ms)
+        {
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            string sql = "Select count(*) From quanlysach where masach = '" + ms + "'";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            int kq = int.Parse(cmd.ExecuteScalar().ToString());
+            if (kq > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         private void load_Quanlysach()
         {
@@ -31,27 +127,18 @@ namespace BTLON_NHOMTHUVIEN
             dgvCapnhatsach.DataSource = dt;
             dgvCapnhatsach.Refresh();
         }
-        private void checktrungmasach(string ms)
-        {
-            if (con.State == ConnectionState.Closed)
-                con.Open();
-            string sql = "select * from quanlysach where masach='" + txtMasach.Text.Trim() + "'";
-            SqlCommand cmd = new SqlCommand(sql, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.Read())
-            {
-                MessageBox.Show("Mã sách đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtMasach.Focus();
-                dr.Close();
-                return;
-            }
-            dr.Close();
-            con.Close();
-        }
+        
         private void btnThem_Click_1(object sender, EventArgs e)
         {
             btnLuu.Enabled = true;
             load_Quanlysach();
+            txtMasach.Enabled = true;
+            txtMasach.Text = "";
+            txtTensach.Text = "";
+            dtnamxb.Value = DateTime.Now;
+            load_Nhaxuatban();
+            load_theloai();
+            load_tacgia();
         }
 
         private void btnSua_Click_1(object sender, EventArgs e)
@@ -59,14 +146,14 @@ namespace BTLON_NHOMTHUVIEN
             string ms = txtMasach.Text.Trim();
             string ts = txtTensach.Text.Trim();
             DateTime nxb = dtnamxb.Value;
-            string manxb = txtManxb.Text.Trim();
-            string tls = txtTheloaisach.Text.Trim();
-            string mtg = txtMatacgia.Text.Trim();
+            string manxb = cboManxb.SelectedItem.ToString();
+            string tls = cboTheloai.SelectedItem.ToString();
+            string mtg = cboMatg.SelectedItem.ToString();
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
             }
-            string sql = "Update quanlysach Set tensach=N'" + ts + "',namxb=@namxb,manxb=N'" + manxb + "',matheloai=N'" + tls + "',matacgia=N'" + mtg + "' Where masach=N'" + ms + "'";
+            string sql = "Update quanlysach Set tensach=N'" + ts + "',namxb=@namxb,manxb=N'" + manxb + "',matheloai=N'" + tls + "',matg=N'" + mtg + "' Where masach=N'" + ms + "'";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.Add(@"namxb", SqlDbType.Date).Value = nxb;
             cmd.ExecuteNonQuery();
@@ -80,6 +167,9 @@ namespace BTLON_NHOMTHUVIEN
         {
             btnLuu.Enabled = false;
             load_Quanlysach();
+            load_Nhaxuatban();
+            load_theloai();
+            load_tacgia();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -104,9 +194,15 @@ namespace BTLON_NHOMTHUVIEN
             string ms = txtMasach.Text.Trim();
             string ts = txtTensach.Text.Trim();
             DateTime nxb = dtnamxb.Value;
-            string manxb = txtManxb.Text.Trim();
-            string tls = txtTheloaisach.Text.Trim();
-            string mtg = txtMatacgia.Text.Trim();
+            string manxb = cboManxb.SelectedItem.ToString();
+            string tls = cboTheloai.SelectedItem.ToString();
+            string mtg = cboMatg.SelectedItem.ToString();
+            if (checktrung(ms) == true)
+            {
+                MessageBox.Show("Mã sách đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMasach.Focus();
+                return;
+            }
             if (ms == "")
             {
                 MessageBox.Show("Bạn chưa nhập mã sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -128,19 +224,19 @@ namespace BTLON_NHOMTHUVIEN
             if (manxb == "")
             {
                 MessageBox.Show("Bạn chưa chọn nhà xuất bản", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtManxb.Focus();
+                cboManxb.Focus();
                 return;
             }
             if (tls == "")
             {
                 MessageBox.Show("Bạn chưa chọn thể loại sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTheloaisach.Focus();
+                cboTheloai.Focus();
                 return;
             }
             if (mtg == "")
             {
                 MessageBox.Show("Bạn chưa chọn tác giả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtMatacgia.Focus();
+                cboMatg.Focus();
                 return;
             }
             // ket noi csdl
@@ -148,14 +244,14 @@ namespace BTLON_NHOMTHUVIEN
             {
                 con.Open();
             }
-            string sql = "Insert quanlysach Values (@masach,@tensach,@namxb,@manxb,@matheloai,@matacgia)";
+            string sql = "Insert quanlysach Values (@masach,@tensach,@namxb,@manxb,@matheloai,@matg)";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.Add(@"masach", SqlDbType.NVarChar, 50).Value = ms;
             cmd.Parameters.Add(@"tensach", SqlDbType.NVarChar, 50).Value = ts;
             cmd.Parameters.Add(@"namxb", SqlDbType.Date).Value = nxb;
             cmd.Parameters.Add(@"manxb", SqlDbType.NVarChar, 50).Value = manxb;
             cmd.Parameters.Add(@"matheloai", SqlDbType.NVarChar, 50).Value = tls;
-            cmd.Parameters.Add(@"matacgia", SqlDbType.NVarChar, 50).Value = mtg;
+            cmd.Parameters.Add(@"matg", SqlDbType.NVarChar, 50).Value = mtg;
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             con.Close();
@@ -174,13 +270,13 @@ namespace BTLON_NHOMTHUVIEN
             txtMasach.Text = dgvCapnhatsach.Rows[i].Cells[0].Value.ToString();
             txtTensach.Text = dgvCapnhatsach.Rows[i].Cells[1].Value.ToString();
             dtnamxb.Value = DateTime.Parse(dgvCapnhatsach.Rows[i].Cells[2].Value.ToString());
-            txtManxb.Text = dgvCapnhatsach.Rows[i].Cells[3].Value.ToString();
-            txtTheloaisach.Text = dgvCapnhatsach.Rows[i].Cells[4].Value.ToString();
-            txtMatacgia.Text = dgvCapnhatsach.Rows[i].Cells[5].Value.ToString();
+            cboManxb.Text = dgvCapnhatsach.Rows[i].Cells[3].Value.ToString();
+            cboTheloai.Text = dgvCapnhatsach.Rows[i].Cells[4].Value.ToString();
+            cboMatg.Text = dgvCapnhatsach.Rows[i].Cells[5].Value.ToString();
             txtMasach.Enabled = false;
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void btnTim_Click(object sender, EventArgs e)
         {
 
         }
