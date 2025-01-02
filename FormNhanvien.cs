@@ -13,7 +13,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormNhanvien : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-FU9S3VB\\SQLEXPRESS01;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         public FormNhanvien()
         {
             InitializeComponent();
@@ -34,6 +34,7 @@ namespace BTLON_NHOMTHUVIEN
         private void btnThem_Click(object sender, EventArgs e)
         {
             btnLuu.Enabled = true;
+            txtManhanvien.Enabled = true;
         }
 
         private void FormNhanvien_Load(object sender, EventArgs e)
@@ -120,6 +121,7 @@ namespace BTLON_NHOMTHUVIEN
             cmd.Dispose();
             con.Close();
             MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnLuu.Enabled = false;
             load_Nhanvien();
         }
 
@@ -180,7 +182,10 @@ namespace BTLON_NHOMTHUVIEN
             txtManhanvien.Enabled = false;
         }
 
-        
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

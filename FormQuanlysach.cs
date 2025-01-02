@@ -13,7 +13,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormQuanlysach : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-FU9S3VB\\SQLEXPRESS01;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         public FormQuanlysach()
         {
             InitializeComponent();
@@ -178,6 +178,11 @@ namespace BTLON_NHOMTHUVIEN
             txtTheloaisach.Text = dgvCapnhatsach.Rows[i].Cells[4].Value.ToString();
             txtMatacgia.Text = dgvCapnhatsach.Rows[i].Cells[5].Value.ToString();
             txtMasach.Enabled = false;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

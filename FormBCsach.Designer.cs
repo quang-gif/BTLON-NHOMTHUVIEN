@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btExcel = new System.Windows.Forms.Button();
             this.btnexit = new System.Windows.Forms.Button();
             this.btnthongke = new System.Windows.Forms.Button();
             this.cbothongke = new System.Windows.Forms.ComboBox();
@@ -39,7 +40,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btExcel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +56,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tùy chọn thống kê";
+            // 
+            // btExcel
+            // 
+            this.btExcel.Location = new System.Drawing.Point(611, 37);
+            this.btExcel.Name = "btExcel";
+            this.btExcel.Size = new System.Drawing.Size(75, 23);
+            this.btExcel.TabIndex = 2;
+            this.btExcel.Text = "Xuất Excel";
+            this.btExcel.UseVisualStyleBackColor = true;
+            this.btExcel.Click += new System.EventHandler(this.btExcel_Click);
             // 
             // btnexit
             // 
@@ -137,15 +147,6 @@
             // 
             this.Column5.HeaderText = "Thể loại";
             this.Column5.Name = "Column5";
-            // 
-            // btExcel
-            // 
-            this.btExcel.Location = new System.Drawing.Point(611, 37);
-            this.btExcel.Name = "btExcel";
-            this.btExcel.Size = new System.Drawing.Size(75, 23);
-            this.btExcel.TabIndex = 2;
-            this.btExcel.Text = "Xuất Excel";
-            this.btExcel.UseVisualStyleBackColor = true;
             // 
             // FormBCsach
             // 
