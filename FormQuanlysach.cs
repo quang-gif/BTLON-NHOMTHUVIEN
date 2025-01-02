@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using e_excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
 
 namespace BTLON_NHOMTHUVIEN
@@ -130,10 +131,9 @@ namespace BTLON_NHOMTHUVIEN
 
         private void btnThem_Click_1(object sender, EventArgs e)
         {
-                btnLuu.Enabled = true;
+            btnLuu.Enabled = true;
             load_Quanlysach();
             txtMasach.Enabled = true;
-
             dtnamxb.Value = DateTime.Now;
             load_Nhaxuatban();
             load_theloai();
@@ -286,7 +286,7 @@ namespace BTLON_NHOMTHUVIEN
                 cboMatg.Text = dgvCapnhatsach.Rows[i].Cells["Column6"].Value.ToString();
                 txtMasach.Enabled = false;
             }
-         
+
         }
 
     }

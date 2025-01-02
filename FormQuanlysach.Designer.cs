@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.dgvCapnhatsach = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cboMatg = new System.Windows.Forms.ComboBox();
             this.cboTheloai = new System.Windows.Forms.ComboBox();
@@ -47,12 +53,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCapnhatsach)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -77,8 +78,57 @@
             this.dgvCapnhatsach.TabIndex = 14;
             this.dgvCapnhatsach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCapnhatsach_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "masach";
+            this.Column1.HeaderText = "Mã sách";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "tensach";
+            this.Column2.HeaderText = "Tên sách";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "namxb";
+            this.Column3.HeaderText = "Năm xuất bản ";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "manxb";
+            this.Column4.HeaderText = "Mã nhà xuất bản";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "matheloai";
+            this.Column5.HeaderText = "Mã thể loại";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "matg";
+            this.Column6.HeaderText = "Mã tác giả";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 125;
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtExcel);
             this.groupBox2.Controls.Add(this.cboMatg);
             this.groupBox2.Controls.Add(this.cboTheloai);
             this.groupBox2.Controls.Add(this.cboManxb);
@@ -104,7 +154,6 @@
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cập nhật sách";
-           
             // 
             // cboMatg
             // 
@@ -263,49 +312,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã sách";
             // 
-            // Column1
+            // txtExcel
             // 
-            this.Column1.DataPropertyName = "masach";
-            this.Column1.HeaderText = "Mã sách";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "tensach";
-            this.Column2.HeaderText = "Tên sách";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "namxb";
-            this.Column3.HeaderText = "Năm xuất bản ";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "manxb";
-            this.Column4.HeaderText = "Mã nhà xuất bản";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "matheloai";
-            this.Column5.HeaderText = "Mã thể loại";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 125;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "matg";
-            this.Column6.HeaderText = "Mã tác giả";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
+            this.txtExcel.Location = new System.Drawing.Point(586, 116);
+            this.txtExcel.Name = "txtExcel";
+            this.txtExcel.Size = new System.Drawing.Size(75, 23);
+            this.txtExcel.TabIndex = 6;
+            this.txtExcel.Text = "Excel";
+            this.txtExcel.UseVisualStyleBackColor = true;
+            this.txtExcel.Click += new System.EventHandler(this.txtExcel_Click);
             // 
             // FormQuanlysach
             // 
@@ -353,5 +368,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Button txtExcel;
     }
 }
