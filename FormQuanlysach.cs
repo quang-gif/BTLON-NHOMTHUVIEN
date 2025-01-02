@@ -127,13 +127,13 @@ namespace BTLON_NHOMTHUVIEN
             dgvCapnhatsach.DataSource = dt;
             dgvCapnhatsach.Refresh();
         }
-        
+
         private void btnThem_Click_1(object sender, EventArgs e)
         {
-            btnLuu.Enabled = true;
+                btnLuu.Enabled = true;
             load_Quanlysach();
             txtMasach.Enabled = true;
-           
+
             dtnamxb.Value = DateTime.Now;
             load_Nhaxuatban();
             load_theloai();
@@ -203,7 +203,7 @@ namespace BTLON_NHOMTHUVIEN
             string manxb = cboManxb.SelectedValue.ToString();
             string tls = cboTheloai.SelectedValue.ToString();
             string mtg = cboMatg.SelectedValue.ToString();
-           
+
             if (checktrung(ms) == true)
             {
                 MessageBox.Show("Mã sách đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -276,13 +276,17 @@ namespace BTLON_NHOMTHUVIEN
         private void dgvCapnhatsach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = e.RowIndex;
-            txtMasach.Text = dgvCapnhatsach.Rows[i].Cells[0].Value.ToString();
-            txtTensach.Text = dgvCapnhatsach.Rows[i].Cells[1].Value.ToString();
-            dtnamxb.Value = DateTime.Parse(dgvCapnhatsach.Rows[i].Cells[2].Value.ToString());
-            cboManxb.Text = dgvCapnhatsach.Rows[i].Cells[3].Value.ToString();
-            cboTheloai.Text = dgvCapnhatsach.Rows[i].Cells[4].Value.ToString();
-            cboMatg.Text = dgvCapnhatsach.Rows[i].Cells[5].Value.ToString();
-            txtMasach.Enabled = false;
+            if (i >= 0)
+            {
+                txtMasach.Text = dgvCapnhatsach.Rows[i].Cells["Column1"].Value.ToString();
+                txtTensach.Text = dgvCapnhatsach.Rows[i].Cells["Column2"].Value.ToString();
+                dtnamxb.Value = DateTime.Parse(dgvCapnhatsach.Rows[i].Cells["Column3"].Value.ToString());
+                cboManxb.Text = dgvCapnhatsach.Rows[i].Cells["Column4"].Value.ToString();
+                cboTheloai.Text = dgvCapnhatsach.Rows[i].Cells["Column5"].Value.ToString();
+                cboMatg.Text = dgvCapnhatsach.Rows[i].Cells["Column6"].Value.ToString();
+                txtMasach.Enabled = false;
+            }
+         
         }
 
     }
