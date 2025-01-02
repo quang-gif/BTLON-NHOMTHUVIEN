@@ -149,19 +149,19 @@ namespace BTLON_NHOMTHUVIEN
         private void btnExcel_Click(object sender, EventArgs e)
         {
             {
-                string selectedOption = cbothongkedocgia.SelectedItem.ToString();
-                if (selectedOption == "Tất cả độc giả")
+                string excel = cbothongkedocgia.SelectedItem.ToString();
+                if (excel== "Tất cả độc giả")
                 {
                     DataTable tb1 = new DataTable();
                   
                 }
-                else if (selectedOption == "Độc giả trễ hạn")
+                else if (excel == "Độc giả trễ hạn")
                 {
                     DataTable tb1= new DataTable();
                 }
                 if (tb1.Rows.Count > 0)
                 {
-                    Excel(tb1, selectedOption);
+                    Excel(tb1, excel);
                 }
                 else
                 {
