@@ -14,12 +14,12 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormQuanlysach : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-FU9S3VB\\SQLEXPRESS01;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         public FormQuanlysach()
         {
             InitializeComponent();
         }
-        DataTable dt1 = new DataTable();
+        DataTable dt1;
         private void load_Nhaxuatban()
         {
             if (con.State != ConnectionState.Open)
@@ -123,10 +123,10 @@ namespace BTLON_NHOMTHUVIEN
             string sql = "select * from quanlysach";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
+            dt1 = new DataTable();
+            adapter.Fill(dt1);
             con.Close();
-            dgvCapnhatsach.DataSource = dt;
+            dgvCapnhatsach.DataSource = dt1;
             dgvCapnhatsach.Refresh();
         }
 
@@ -379,20 +379,19 @@ namespace BTLON_NHOMTHUVIEN
             e_excel.Range c4 = oSheet.get_Range(c1, c3);
             oSheet.get_Range(c3, c4).HorizontalAlignment = e_excel.XlHAlign.xlHAlignCenter;
         }
-        
+
         private void txtExcel_Click(object sender, EventArgs e)
         {
-                if(dgvCapnhatsach.Rows.Count > 0)
+            if (dt1 == null || dt1.Rows.Count == 0 || dt1.Columns.Count == 0)
             {
-                 
-                    Excel(dt1, "Danh sách các đầu sách");
+                MessageBox.Show("Dữ liệu không hợp lệ hoặc trống!");
+                return;
             }
-                else
-                {
-                    MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
+
+            load_Quanlysach();
+            Excel(dt1, "DSQuanlysach");
         }
     }
+}
 
 
