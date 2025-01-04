@@ -42,6 +42,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdocgia)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +59,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnThoat);
             this.groupBox1.Controls.Add(this.btnreset);
             this.groupBox1.Controls.Add(this.btnTimkiem);
             this.groupBox1.Controls.Add(this.txtTendocgia);
@@ -180,6 +182,16 @@
             this.Column6.Name = "Column6";
             this.Column6.Width = 50;
             // 
+            // btnThoat
+            // 
+            this.btnThoat.Location = new System.Drawing.Point(525, 103);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(108, 23);
+            this.btnThoat.TabIndex = 4;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // FormTimdocgia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -217,5 +229,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.Button btnreset;
+        private System.Windows.Forms.Button btnThoat;
     }
 }
