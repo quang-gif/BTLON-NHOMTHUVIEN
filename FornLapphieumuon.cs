@@ -187,6 +187,7 @@ namespace BTLON_NHOMTHUVIEN
 
             MessageBox.Show("Lưu mới thành công!");
             load_muonsach();
+            Capnhatsoluong();
         }
 
         private void btnsua_Click(object sender, EventArgs e)
@@ -237,7 +238,7 @@ namespace BTLON_NHOMTHUVIEN
                 con.Close();
             }
             load_muonsach();
-
+            Capnhatsoluong();
         }
 
 
@@ -270,6 +271,17 @@ namespace BTLON_NHOMTHUVIEN
             Form f = new FormChitietmuontra();
             f.Show();
             this.Hide();
+        }
+
+        private void Capnhatsoluong()
+        {
+            int sl = dgv1.Rows.Count;
+            label4.Text = $"Tổng số lượng sách đã mượn: {sl}";
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
