@@ -85,6 +85,7 @@
             this.btnthongke.TabIndex = 1;
             this.btnthongke.Text = "Thống kê";
             this.btnthongke.UseVisualStyleBackColor = true;
+            this.btnthongke.Click += new System.EventHandler(this.btnthongke_Click);
             // 
             // cbothongke
             // 
@@ -125,26 +126,31 @@
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "masach";
             this.Column1.HeaderText = "Mã sách";
             this.Column1.Name = "Column1";
             // 
             // Column2
             // 
+            this.Column2.DataPropertyName = "tensach";
             this.Column2.HeaderText = "Tên sách";
             this.Column2.Name = "Column2";
             // 
             // Column3
             // 
+            this.Column3.DataPropertyName = "tennxb";
             this.Column3.HeaderText = "Nhà xuất bản";
             this.Column3.Name = "Column3";
             // 
             // Column4
             // 
+            this.Column4.DataPropertyName = "namxb";
             this.Column4.HeaderText = "Năm xuất bản";
             this.Column4.Name = "Column4";
             // 
             // Column5
             // 
+            this.Column5.DataPropertyName = "tentheloai";
             this.Column5.HeaderText = "Thể loại";
             this.Column5.Name = "Column5";
             // 
@@ -159,6 +165,7 @@
             this.Name = "FormBCsach";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo cáo sách";
+            this.Load += new System.EventHandler(this.FormBCsach_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -174,11 +181,11 @@
         private System.Windows.Forms.ComboBox cbothongke;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btExcel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.Button btExcel;
     }
 }
