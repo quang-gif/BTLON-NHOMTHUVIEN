@@ -46,7 +46,7 @@ namespace BTLON_NHOMTHUVIEN
                 con.Open();
             }
             tb1.Clear();
-            string sql = "Select docgia.* FROM docgia INNER JOIN muontra ON docgia.madg = muontra.madg INNER JOIN chitietmuontra ON muontra.mamuon = chitietmuontra.mamuon WHERE chitietmuontra.ngaytra < GETDATE()";
+            string sql = "Select docgia.* FROM docgia JOIN chitietmuontra ON docgia.madg = chitietmuontra.madg WHERE chitietmuontra.ngaytra < GETDATE()";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
