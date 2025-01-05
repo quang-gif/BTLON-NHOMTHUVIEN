@@ -16,7 +16,11 @@ namespace BTLON_NHOMTHUVIEN
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormChitietmuontra());
+
+
+
+            Application.Run(new FormBCsach());
+
         }
     }
 }
