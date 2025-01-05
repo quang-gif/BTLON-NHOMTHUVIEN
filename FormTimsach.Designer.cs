@@ -65,6 +65,7 @@
             this.txtTS.Name = "txtTS";
             this.txtTS.Size = new System.Drawing.Size(252, 20);
             this.txtTS.TabIndex = 1;
+            this.txtTS.TextChanged += new System.EventHandler(this.txtTS_TextChanged);
             // 
             // txtTNXB
             // 

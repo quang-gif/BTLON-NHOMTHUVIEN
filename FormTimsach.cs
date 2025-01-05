@@ -68,5 +68,10 @@ namespace BTLON_NHOMTHUVIEN
             string namxb = dateTimePicker1.Value.ToString();
             load_timsach("","","","","");
         }
+
+        private void txtTS_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FornLapphieumuon : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
  
         public FornLapphieumuon()
         {
@@ -78,7 +78,7 @@ namespace BTLON_NHOMTHUVIEN
                 con.Open();
             }
 
-            string sql = "select * from muontra";
+            string sql = "select * from chitietmuontra";
             SqlCommand cmd = new SqlCommand(sql, con);
 
             SqlDataAdapter da = new SqlDataAdapter();
@@ -115,11 +115,14 @@ namespace BTLON_NHOMTHUVIEN
             load_docgia();
             load_nhanvien();
             load_muonsach();
+            load_masach();
         }
 
         private void btnthoat_Click(object sender, EventArgs e)
         {
-            Close();
+            Form f = new FormMain();
+            f.Show();
+            this.Hide();
         }
 
         private void btnluu_Click(object sender, EventArgs e)
@@ -128,7 +131,9 @@ namespace BTLON_NHOMTHUVIEN
             string pm = txtphieumuon.Text.Trim();
             string nv = cbbnhanvien.SelectedValue.ToString();
             string dg = cbbdocgia.SelectedValue.ToString();
-            
+            DateTime nmuon = dtmuon.Value;
+            DateTime ntra = dttra.Value;
+            string ms = cbbmasach.SelectedValue.ToString();
 
             //b2: ket noi db
             if (con.State == ConnectionState.Closed)
@@ -158,7 +163,14 @@ namespace BTLON_NHOMTHUVIEN
                 return;
             }
 
-            string checkSql = "SELECT COUNT(*) FROM muontra WHERE mamuon = @mamuon";
+            if (ms == "---Chọn mã sách---")
+            {
+                MessageBox.Show("Bạn chưa chọn thông tin! ");
+                txtphieumuon.Focus();
+                return;
+            }
+
+            string checkSql = "SELECT COUNT(*) FROM chitietmuontra WHERE mamuon = @mamuon";
             SqlCommand checkCmd = new SqlCommand(checkSql, con);
             checkCmd.Parameters.Add("@mamuon", SqlDbType.NVarChar, 50).Value = pm;
 
@@ -171,16 +183,17 @@ namespace BTLON_NHOMTHUVIEN
             }
 
             //b3: tao doi tuong command de thuc hien cau lenh sql
-            string sql = "insert muontra values (@mamuon, @madg, @manhanvien)";
+            string sql = "insert chitietmuontra values (@mamuon, @masach, @ngaymuon, @ngaytra, @madg, @manhanvien)";
             SqlCommand cmd = new SqlCommand(sql, con);
 
             //b4
             cmd.Parameters.Add("@mamuon", SqlDbType.NVarChar, 50).Value = pm;
             cmd.Parameters.Add("@manhanvien", SqlDbType.NVarChar, 50).Value = nv;
             cmd.Parameters.Add("@madg", SqlDbType.NVarChar, 50).Value = dg;
+            cmd.Parameters.Add("@ngaymuon", SqlDbType.Date).Value = nmuon;
+            cmd.Parameters.Add("@ngaytra", SqlDbType.Date).Value = ntra;
+            cmd.Parameters.Add("@masach", SqlDbType.NVarChar, 50).Value = ms;
 
-
-            
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             con.Close();
@@ -195,6 +208,9 @@ namespace BTLON_NHOMTHUVIEN
             string pm = txtphieumuon.Text.Trim();
             string nv = cbbnhanvien.SelectedValue.ToString();
             string dg = cbbdocgia.SelectedValue.ToString();
+            DateTime nmuon = dtmuon.Value;
+            DateTime ntra = dttra.Value;
+            string ms = cbbmasach.SelectedValue.ToString();
 
             if (con.State == ConnectionState.Closed)
             {
@@ -207,8 +223,11 @@ namespace BTLON_NHOMTHUVIEN
                 return;
             }
 
-            string sql = "Update muontra set manhanvien = '" + nv + "', madg =  '"+dg+"' where mamuon = '"+pm+"'";
+            string sql = "Update chitietmuontra set manhanvien = '" + nv + "', madg =  '" + dg + "', masach = '"+ms+"', ngaytra = @ngaytra where mamuon = '"+pm+"'";
+            
+
             SqlCommand cmd = new SqlCommand(@sql, con);
+            cmd.Parameters.Add("@ngaytra", SqlDbType.Date).Value = ntra;
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             con.Close();
@@ -231,7 +250,7 @@ namespace BTLON_NHOMTHUVIEN
                 string pm = txtphieumuon.Text.Trim();
                 if (con.State == ConnectionState.Closed)
                     con.Open();
-                string sql = "Delete muontra Where mamuon ='" + pm + "'";
+                string sql = "Delete chitietmuontra Where mamuon ='" + pm + "'";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -248,17 +267,20 @@ namespace BTLON_NHOMTHUVIEN
             int i = e.RowIndex;
            
             txtphieumuon.Text = dgv1.Rows[i].Cells[0].Value.ToString();
-            cbbdocgia.SelectedValue = dgv1.Rows[i].Cells[1].Value.ToString();
-            cbbnhanvien.SelectedValue = dgv1.Rows[i].Cells[2].Value.ToString();
-            txtphieumuon.Enabled = false;
+            cbbmasach.SelectedValue = dgv1.Rows[i].Cells[1].Value.ToString();
+            dtmuon.Value = DateTime.Parse(dgv1.Rows[i].Cells[2].Value.ToString());
+            dttra.Value = DateTime.Parse(dgv1.Rows[i].Cells[3].Value.ToString());
+            cbbdocgia.SelectedValue = dgv1.Rows[i].Cells[4].Value.ToString();
+            cbbnhanvien.SelectedValue = dgv1.Rows[i].Cells[5].Value.ToString();
+            
+            
         }
 
         private void btnreset_Click(object sender, EventArgs e)
         {
-            txtphieumuon.Enabled = true;
-            txtphieumuon.Text = "";
             load_docgia();
             load_nhanvien();
+            load_masach();
         }
 
         private void txtphieumuon_TextChanged(object sender, EventArgs e)
@@ -276,12 +298,39 @@ namespace BTLON_NHOMTHUVIEN
         private void Capnhatsoluong()
         {
             int sl = dgv1.Rows.Count;
-            label4.Text = $"Tổng số lượng sách đã mượn: {sl}";
+            label8.Text = "{sl}";
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void load_masach()
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+
+            string sql = "select * from quanlysach";
+            SqlCommand cmd = new SqlCommand(sql, con);
+
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            cmd.Dispose();
+            con.Close();
+
+            DataRow r = dt.NewRow();
+            r["masach"] = "---Chọn mã sách---";
+            dt.Rows.InsertAt(r, 0);
+
+            cbbmasach.DataSource = dt;
+            cbbmasach.DisplayMember = "masach";
+            cbbmasach.ValueMember = "masach";
         }
     }
 }
