@@ -111,11 +111,23 @@ namespace BTLON_NHOMTHUVIEN
 
         private void FornLapphieumuon_Load(object sender, EventArgs e)
         {
+            txtphieumuon.Enabled = false;
+            cbbdocgia.Enabled = false;
+            cbbnhanvien.Enabled = false;
+            dtmuon.Enabled = false;
+            dttra.Enabled = false;
+            cbbmasach.Enabled = false;
+
             btnluu.Enabled = false;
+            btnsua.Enabled = false;
+            btnxoa.Enabled = false;
+            btnreset.Enabled = false;
+
             load_docgia();
             load_nhanvien();
             load_muonsach();
             load_masach();
+            Capnhatsoluong();
         }
 
         private void btnthoat_Click(object sender, EventArgs e)
@@ -238,7 +250,16 @@ namespace BTLON_NHOMTHUVIEN
 
         private void btnthem_Click(object sender, EventArgs e)
         {
+            txtphieumuon.Enabled = true;
+            cbbnhanvien.Enabled = true;
+            cbbdocgia.Enabled = true;
+            cbbmasach.Enabled = true;
+            dttra.Enabled = true;
+
             btnluu.Enabled = true;
+            btnsua.Enabled = true;
+            btnxoa.Enabled = true;
+            btnreset.Enabled = true;
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
@@ -278,6 +299,16 @@ namespace BTLON_NHOMTHUVIEN
 
         private void btnreset_Click(object sender, EventArgs e)
         {
+            txtphieumuon.Enabled = false;
+            cbbnhanvien.Enabled = false;
+            cbbdocgia.Enabled = false;
+            dttra.Enabled = false;
+            cbbmasach.Enabled = false;
+
+            btnluu.Enabled = false;
+            btnsua.Enabled = false;
+            btnxoa.Enabled = false;
+            btnreset.Enabled = false;
             load_docgia();
             load_nhanvien();
             load_masach();
@@ -298,7 +329,8 @@ namespace BTLON_NHOMTHUVIEN
         private void Capnhatsoluong()
         {
             int sl = dgv1.Rows.Count;
-            label8.Text = "{sl}";
+            label4.Text = sl.ToString();
+            label4.ForeColor = Color.Red;
         }
 
         private void label4_Click(object sender, EventArgs e)

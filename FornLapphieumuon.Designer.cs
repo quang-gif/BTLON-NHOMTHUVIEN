@@ -34,6 +34,12 @@
             this.btnthoat = new System.Windows.Forms.Button();
             this.btnxoa = new System.Windows.Forms.Button();
             this.dgv1 = new System.Windows.Forms.DataGridView();
+            this.mamuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.masach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaymuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaytra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.madocgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manhanvien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnreset = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,12 +57,6 @@
             this.txtphieumuon = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.mamuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.masach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaymuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaytra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.madocgia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.manhanvien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -153,6 +153,51 @@
             this.dgv1.Size = new System.Drawing.Size(704, 155);
             this.dgv1.TabIndex = 4;
             this.dgv1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellClick);
+            // 
+            // mamuon
+            // 
+            this.mamuon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.mamuon.DataPropertyName = "mamuon";
+            this.mamuon.HeaderText = "Mã phiếu ";
+            this.mamuon.MinimumWidth = 8;
+            this.mamuon.Name = "mamuon";
+            // 
+            // masach
+            // 
+            this.masach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.masach.DataPropertyName = "masach";
+            this.masach.HeaderText = "Mã sách";
+            this.masach.Name = "masach";
+            // 
+            // ngaymuon
+            // 
+            this.ngaymuon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ngaymuon.DataPropertyName = "ngaymuon";
+            this.ngaymuon.HeaderText = "Ngày mượn";
+            this.ngaymuon.Name = "ngaymuon";
+            // 
+            // ngaytra
+            // 
+            this.ngaytra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ngaytra.DataPropertyName = "ngaytra";
+            this.ngaytra.HeaderText = "Ngày trả";
+            this.ngaytra.Name = "ngaytra";
+            // 
+            // madocgia
+            // 
+            this.madocgia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.madocgia.DataPropertyName = "madg";
+            this.madocgia.HeaderText = "Mã độc giả";
+            this.madocgia.MinimumWidth = 8;
+            this.madocgia.Name = "madocgia";
+            // 
+            // manhanvien
+            // 
+            this.manhanvien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.manhanvien.DataPropertyName = "manhanvien";
+            this.manhanvien.HeaderText = "Mã nhân viên";
+            this.manhanvien.MinimumWidth = 8;
+            this.manhanvien.Name = "manhanvien";
             // 
             // btnreset
             // 
@@ -313,66 +358,20 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(49, 251);
+            this.label4.Location = new System.Drawing.Point(176, 250);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 13);
+            this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Số lượng sách cho mượn";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.label4.Text = "label4";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(185, 251);
+            this.label8.Location = new System.Drawing.Point(49, 250);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.Size = new System.Drawing.Size(126, 13);
             this.label8.TabIndex = 10;
-            this.label8.Text = "label8";
-            // 
-            // mamuon
-            // 
-            this.mamuon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.mamuon.DataPropertyName = "mamuon";
-            this.mamuon.HeaderText = "Mã phiếu ";
-            this.mamuon.MinimumWidth = 8;
-            this.mamuon.Name = "mamuon";
-            // 
-            // masach
-            // 
-            this.masach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.masach.DataPropertyName = "masach";
-            this.masach.HeaderText = "Mã sách";
-            this.masach.Name = "masach";
-            // 
-            // ngaymuon
-            // 
-            this.ngaymuon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ngaymuon.DataPropertyName = "ngaymuon";
-            this.ngaymuon.HeaderText = "Ngày mượn";
-            this.ngaymuon.Name = "ngaymuon";
-            // 
-            // ngaytra
-            // 
-            this.ngaytra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ngaytra.DataPropertyName = "ngaytra";
-            this.ngaytra.HeaderText = "Ngày trả";
-            this.ngaytra.Name = "ngaytra";
-            // 
-            // madocgia
-            // 
-            this.madocgia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.madocgia.DataPropertyName = "madg";
-            this.madocgia.HeaderText = "Mã độc giả";
-            this.madocgia.MinimumWidth = 8;
-            this.madocgia.Name = "madocgia";
-            // 
-            // manhanvien
-            // 
-            this.manhanvien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.manhanvien.DataPropertyName = "manhanvien";
-            this.manhanvien.HeaderText = "Mã nhân viên";
-            this.manhanvien.MinimumWidth = 8;
-            this.manhanvien.Name = "manhanvien";
+            this.label8.Text = "Số lượng sách đã mượn: ";
             // 
             // FornLapphieumuon
             // 
@@ -380,8 +379,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgv1);
             this.Name = "FornLapphieumuon";
@@ -418,13 +417,13 @@
         private System.Windows.Forms.DateTimePicker dttra;
         private System.Windows.Forms.ComboBox cbbmasach;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn mamuon;
         private System.Windows.Forms.DataGridViewTextBoxColumn masach;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngaymuon;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngaytra;
         private System.Windows.Forms.DataGridViewTextBoxColumn madocgia;
         private System.Windows.Forms.DataGridViewTextBoxColumn manhanvien;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -28,35 +28,23 @@ namespace BTLON_NHOMTHUVIEN
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-        
+
         private void FormChitietmuontra_Load(object sender, EventArgs e)
-        {                                  
+        {
             load1();
             load2();
             load3();
-        }        
+            Capnhatsoluong();
+        }
+
+
 
         private void btntrasach_Click(object sender, EventArgs e)
         {
-            DialogResult tl = MessageBox.Show("Bạn có muốn xoá hay không?", "Detele Box", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (tl == DialogResult.Yes)
-            {
 
-                string ms = cbbmasach.SelectedValue.ToString();
-                if (con.State == ConnectionState.Closed)
-                    con.Open();
-                string sql = "Delete chitietmuontra Where masach ='" + ms + "'";
-                SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-                con.Close();
-
-                load1();
-                
-            }
         }
         //load chi tiet muon tra
         DataTable dt1;
@@ -67,7 +55,10 @@ namespace BTLON_NHOMTHUVIEN
                 con.Open();
             }
 
-            string sql = "select mamuon, masach, ngaytra from chitietmuontra";
+            string sql = "Select mamuon, tensach, htdocgia, ngaytra, hotennv FROM chitietmuontra " +
+                "INNER JOIN quanlysach ON quanlysach.masach = chitietmuontra.masach " +
+                "INNER JOIN docgia ON docgia.madg = chitietmuontra.madg " +
+                "INNER JOIN nhanvien ON nhanvien.manhanvien = chitietmuontra.manhanvien ";
             SqlCommand cmd = new SqlCommand(sql, con);
 
             SqlDataAdapter da = new SqlDataAdapter();
@@ -140,9 +131,28 @@ namespace BTLON_NHOMTHUVIEN
         {
             if (e.RowIndex >= 0 && e.RowIndex < dgv2.Rows.Count)
             {
-                cbbphieumuon.SelectedValue = dgv2.Rows[e.RowIndex].Cells[0].Value.ToString();
-                cbbmasach.SelectedValue = dgv2.Rows[e.RowIndex].Cells[1].Value.ToString();
-                dttra.Value = DateTime.Parse(dgv2.Rows[e.RowIndex].Cells[2].Value.ToString());
+
+                var cellMamuon = dgv2.Rows[e.RowIndex].Cells[0].Value;
+                var cellNgayTra = dgv2.Rows[e.RowIndex].Cells["ngaytra"].Value;
+
+                if (cellMamuon != null)
+                    cbbphieumuon.SelectedValue = cellMamuon.ToString();
+
+
+
+                if (cellNgayTra != null && DateTime.TryParse(cellNgayTra.ToString(), out DateTime ngayTra))
+                {
+                    dttra.Value = ngayTra;
+                }
+
+                else
+                {
+                    MessageBox.Show("Dữ liệu không hợp lệ hoặc dòng trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn dòng hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -166,7 +176,7 @@ namespace BTLON_NHOMTHUVIEN
 
             e_excel.Range head = oSheet.get_Range("A1", "E1");
             head.MergeCells = true;
-            head.Value2 = "DANH SÁCH PHIẾU MƯỢN";
+            head.Value2 = "DANH SÁCH MƯỢN TRẢ";
             head.Font.Bold = true;
             head.Font.Name = "Aptos Narrow";
             head.Font.Size = "16";
@@ -176,16 +186,18 @@ namespace BTLON_NHOMTHUVIEN
             cl1.Value2 = "MÃ PHIẾU";
             cl1.ColumnWidth = 10.0;
             e_excel.Range cl2 = oSheet.get_Range("B3", "B3");
-            cl2.Value2 = "MÃ SÁCH";
+            cl2.Value2 = "TÊN SÁCH";
             cl2.ColumnWidth = 25.0;
             e_excel.Range cl3 = oSheet.get_Range("C3", "C3");
-            cl3.Value2 = "NGÀY MƯỢN";
+            cl3.Value2 = "TÊN ĐỘC GIẢ";
             cl3.ColumnWidth = 20.0;
             e_excel.Range cl4 = oSheet.get_Range("D3", "D3");
             cl4.Value2 = "NGÀY TRẢ";
             cl4.ColumnWidth = 20.0;
+            e_excel.Range cl4_1 = oSheet.get_Range("D4", "D1000");
+            cl4_1.Columns.NumberFormat = "dd/mm/yyyy";
             e_excel.Range cl5 = oSheet.get_Range("E3", "E3");
-            cl5.Value2 = "GHI CHÚ";
+            cl5.Value2 = "NHÂN VIÊN";
             cl5.ColumnWidth = 40.0;
 
             //Microsoft.Office.Interop.Excel.Range cl6 = oSheet.get_Range("F3", "F3");
@@ -212,11 +224,7 @@ namespace BTLON_NHOMTHUVIEN
             {
                 DataRow dr = tb1.Rows[r];
                 for (int c = 0; c < tb1.Columns.Count; c++)
-
                 {
-                    if (c == 2 || c == 3)
-                        arr[r, c] = "'" + dr[c].ToString();
-                    else
                         arr[r, c] = dr[c];
                 }
             }
@@ -242,28 +250,9 @@ namespace BTLON_NHOMTHUVIEN
 
         }
 
-        private void btnexcel_Click(object sender, EventArgs e)
-        {
-            string mm = cbbphieumuon.SelectedValue?.ToString();
-            string ms = cbbmasach.SelectedValue?.ToString();
-            DateTime nmuon = dtmuon.Value;
-            DateTime ntra = dttra.Value;
-            
 
-            if (dt1 == null || dt1.Rows.Count == 0 || dt1.Columns.Count == 0)
-            {
-                MessageBox.Show("Dữ liệu không hợp lệ hoặc trống!");
-                return;
-            }
 
-            load1();
-            Excel(dt1, "DSPhieuMuon");
-        }
 
-        private void dttra_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -289,6 +278,7 @@ namespace BTLON_NHOMTHUVIEN
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
+
                 if (reader.Read())
                 {
                     // Gán dữ liệu vào các điều khiển
@@ -310,9 +300,126 @@ namespace BTLON_NHOMTHUVIEN
 
         private void btngiahan_Click_1(object sender, EventArgs e)
         {
+            DateTime ngayMuon = dtmuon.Value;
+            DateTime ngayTra = dttra.Value;
 
+            if (ngayTra <= ngayMuon)
+            {
+                MessageBox.Show("Ngày trả phải sau ngày mượn!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+
+            string sql = "UPDATE chitietmuontra SET ngaytra = @ngaytra WHERE mamuon = @mamuon";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            
+            cmd.Parameters.AddWithValue("@ngaytra", ngayTra);
+            cmd.Parameters.AddWithValue("@mamuon", cbbphieumuon.SelectedValue.ToString());
+
+            
+
+            
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Gia hạn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                load1();
+
+            }
+            else
+            {
+                MessageBox.Show("Không thể gia hạn!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            con.Close();
         }
 
 
+
+        private void btnexcel_Click_1(object sender, EventArgs e)
+        {
+            if (dt1 == null || dt1.Rows.Count == 0 || dt1.Columns.Count == 0)
+            {
+                MessageBox.Show("Dữ liệu không hợp lệ hoặc trống!");
+                return;
+            }
+
+            load1();
+            Excel(dt1, "DSPhieuMuon");
+        }
+
+        private void Capnhatsoluong()
+        {
+            int sl = dgv2.Rows.Count;
+            label6.Text = sl.ToString();
+            label6.ForeColor = Color.Red;
+        }
+
+        private void btntrasach_Click_1(object sender, EventArgs e)
+        {
+            DialogResult tl = MessageBox.Show("Bạn có muốn xoá hay không?", "Detele Box", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (tl == DialogResult.Yes)
+            {
+
+                string mm = cbbphieumuon.SelectedValue.ToString();
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+                string sql = "Delete chitietmuontra Where mamuon ='" + mm + "'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                con.Close();
+
+                load1();
+                Capnhatsoluong();
+            }
+        }
+
+        private void btntimkiem_Click(object sender, EventArgs e)
+        {
+            if (cbbphieumuon.SelectedIndex > 0)
+            {
+                string mp = cbbphieumuon.SelectedValue.ToString();
+
+                if (con.State != ConnectionState.Open)
+                {
+                    con.Open();
+                }
+
+                string sql = "SELECT mamuon, ngaytra, tensach, hotennv, htdocgia FROM chitietmuontra " +
+                             "INNER JOIN quanlysach ON quanlysach.masach = chitietmuontra.masach " +
+                             "INNER JOIN docgia ON docgia.madg = chitietmuontra.madg " +
+                             "INNER JOIN nhanvien ON nhanvien.manhanvien = chitietmuontra.manhanvien " +
+                             "WHERE mamuon = @mamuon";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@mamuon", mp);
+
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmd.Dispose();
+                con.Close();
+
+                dgv2.DataSource = dt;
+                dgv2.Refresh();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            load1();
+            load2();
+            load3();
+    
+        }
     }
 }
