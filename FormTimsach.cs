@@ -17,36 +17,23 @@ namespace BTLON_NHOMTHUVIEN
         {
             InitializeComponent();
         }
-        //select masach, tensach,tennxb, namxb, tentheloai from nhaxuatban,quanlysach,theloai where nhaxuatban.manxb=quanlysach.manxb and quanlysach.matheloai=theloai.matheloai and masach like '%'+@masach+'%' and tensach like '%'+@tensach+'%' and tennxb like '%'+@tennxb+'%' and namxb like '%'+@namxb+'%' and tentheloai like '%'+@tentheloai+'%'
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-F4RS79DJ\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+
+        //Data Source = LAPTOP - F4RS79DJ\SQLEXPRESS;Initial Catalog = DUANNHOMTHUVIEN; Integrated Security = True; Trust Server Certificate=True
+        //Data Source=LAPTOP-F4RS79DJ\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Trust Server Certificate=True
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-F4RS79DJ\\SQLEXPRESS;Initial Catalog = DUANNHOMTHUVIEN; Integrated Security=True;Encrypt=False");
         private void FormTimsach_Load(object sender, EventArgs e)
         {
-
+            load_timsach("", "");
         }
 
-        private void load_timsach(string tensach, string tennxb, string tentg, string theloai, string namxb)
+        private void load_timsach(string tensach, string masach)
         {
             if (con.State == ConnectionState.Closed)
                 con.Open();
-            string sql = "select masach, tensach,tennxb, namxb, tentheloai from nhaxuatban,quanlysach,theloai" +
-                " where nhaxuatban.manxb=quanlysach.manxb" +
-                " and quanlysach.matheloai=theloai.matheloai" +
-                " and masach like '%'+@masach+'%'" +
-                " and tensach like '%'+@tensach+'%'" +
-                " and tennxb like '%'+@tennxb+'%'" +
-                " and namxb like '%'+@namxb+'%'" +
-                " and tentheloai like '%'+@tentheloai+'%'";
+            string sql = "Select masach,tensach,namxb,tennxb,tentheloai,httacgia FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai";
             SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.Parameters.Add("@tensach", SqlDbType.NVarChar, 50).Value = tensach;
-            cmd.Parameters.Add("@tennxb", SqlDbType.NVarChar, 50).Value = tennxb;
-            cmd.Parameters.Add("@tentg", SqlDbType.NVarChar, 50).Value = tentg;
-            cmd.Parameters.Add("@theloai", SqlDbType.NVarChar, 50).Value = theloai;
-            cmd.Parameters.Add("@namxb", SqlDbType.Date).Value = namxb;
-            //B3: Tạo đối tượng dataAdapter để lấy kết quả từ cmd
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
-            //B4: Tạo đối tượng dataTable để lấy dữ liệu từ da
-            //DataTable tb = new DataTable();
             DataTable tb = new DataTable();
             da.Fill(tb);
             cmd.Dispose();
@@ -56,17 +43,44 @@ namespace BTLON_NHOMTHUVIEN
         }
         private void btTK_Click(object sender, EventArgs e)
         {
-            //B1: Lấy dữ liệu từ các control đưa vào biến
             string tensach = txtTS.Text.Trim();
-            string tennxb = txtTNXB.Text.Trim();
-            string tentg = txtTTG.Text.Trim();
-            string theloai;
-            if (cboTL.SelectedItem == null)
-                theloai = "";
-            else
-                theloai = cboTL.SelectedItem.ToString();
-            string namxb = dateTimePicker1.Value.ToString();
-            load_timsach("","","","","");
+            string masach = txtMS.Text.Trim();
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            string sql = "Select masach,tensach,namxb,tennxb,tentheloai,httacgia FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai where tensach like '%" + tensach + "%' and masach like '%" + masach + "%'";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            DataTable tb = new DataTable();
+            da.Fill(tb);
+            cmd.Dispose();
+            con.Close();
+            dataGridView1.DataSource = tb;
+            dataGridView1.Refresh();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = e.RowIndex;
+            if (i >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[i];
+                txtMS.Text = row.Cells[0].Value.ToString();
+                txtTS.Text = row.Cells[1].Value.ToString();
+            }
+        }
+
+        private void btRS_Click(object sender, EventArgs e)
+        {
+            load_timsach("", "");
+            txtTS.Clear();
+            txtMS.Clear();
+            txtTS.Focus();
+        }
+
+        private void btThoat_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void txtTS_TextChanged(object sender, EventArgs e)

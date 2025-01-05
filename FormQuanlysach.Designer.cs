@@ -36,6 +36,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnExcel = new System.Windows.Forms.Button();
             this.cboMatg = new System.Windows.Forms.ComboBox();
             this.cboTheloai = new System.Windows.Forms.ComboBox();
             this.cboManxb = new System.Windows.Forms.ComboBox();
@@ -53,7 +54,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCapnhatsach)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -128,7 +128,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtExcel);
+            this.groupBox2.Controls.Add(this.btnExcel);
             this.groupBox2.Controls.Add(this.cboMatg);
             this.groupBox2.Controls.Add(this.cboTheloai);
             this.groupBox2.Controls.Add(this.cboManxb);
@@ -154,6 +154,16 @@
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cập nhật sách";
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Location = new System.Drawing.Point(586, 116);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(75, 23);
+            this.btnExcel.TabIndex = 6;
+            this.btnExcel.Text = "Excel";
+            this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.txtExcel_Click);
             // 
             // cboMatg
             // 
@@ -312,16 +322,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã sách";
             // 
-            // txtExcel
-            // 
-            this.txtExcel.Location = new System.Drawing.Point(586, 116);
-            this.txtExcel.Name = "txtExcel";
-            this.txtExcel.Size = new System.Drawing.Size(75, 23);
-            this.txtExcel.TabIndex = 6;
-            this.txtExcel.Text = "Excel";
-            this.txtExcel.UseVisualStyleBackColor = true;
-          
-            // 
             // FormQuanlysach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -368,6 +368,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.Button txtExcel;
+        private System.Windows.Forms.Button btnExcel;
     }
 }

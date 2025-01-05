@@ -87,5 +87,10 @@ namespace BTLON_NHOMTHUVIEN
             txtTendocgia.Text = "";
             txtMadocgia.Focus();
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
