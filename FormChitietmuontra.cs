@@ -34,6 +34,8 @@ namespace BTLON_NHOMTHUVIEN
 
         private void FormChitietmuontra_Load(object sender, EventArgs e)
         {
+            cbbmasach.Enabled = false;
+            dtmuon.Enabled = false;
             load1();
             load2();
             load3();
