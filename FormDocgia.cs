@@ -172,5 +172,10 @@ namespace BTLON_NHOMTHUVIEN
             txtLop.Text = dgvThongTinDocGia.Rows[i].Cells[4].Value.ToString();
             txtMadocgia.Enabled = false;
         }
+
+        private void btRS_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
