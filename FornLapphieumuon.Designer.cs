@@ -152,6 +152,7 @@
             this.dgv1.Size = new System.Drawing.Size(704, 155);
             this.dgv1.TabIndex = 4;
             this.dgv1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellClick);
+            this.dgv1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellContentClick);
             // 
             // mamuon
             // 
@@ -353,6 +354,7 @@
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "label4";
+            this.label4.Click += new System.EventHandler(this.label4_Click_1);
             // 
             // label8
             // 
