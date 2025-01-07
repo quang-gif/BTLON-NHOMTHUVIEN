@@ -13,7 +13,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormNhanvien : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-FU9S3VB\\SQLEXPRESS01;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         public FormNhanvien()
         {
             InitializeComponent();
@@ -35,6 +35,8 @@ namespace BTLON_NHOMTHUVIEN
         private void btnThem_Click(object sender, EventArgs e)
         {
             btnLuu.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
             txtManhanvien.Enabled = true;
             txtManhanvien.Focus();
         }
@@ -42,7 +44,6 @@ namespace BTLON_NHOMTHUVIEN
         private void FormNhanvien_Load(object sender, EventArgs e)
         {
             btnLuu.Enabled = false;
-            txtManhanvien.Enabled = false;
             load_Nhanvien();
             btnThem.Focus();
         }
@@ -126,6 +127,9 @@ namespace BTLON_NHOMTHUVIEN
             MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnLuu.Enabled = false;
             load_Nhanvien();
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            btnLuu.Enabled = false;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -184,18 +188,24 @@ namespace BTLON_NHOMTHUVIEN
                 txtDiachi.Text = dgvThongtin.Rows[i].Cells[4].Value.ToString();
                 txtDienthoai.Text = dgvThongtin.Rows[i].Cells[5].Value.ToString();
                 txtManhanvien.Enabled = false;
+                btnSua.Enabled = true;
+                btnXoa.Enabled = true;
             }
         }
 
        
         private void btnReset_Click(object sender, EventArgs e)
         {
+            load_Nhanvien();
             txtManhanvien.Text = "";
             txtHoten.Text = "";
             dtNgaysinh.Value = DateTime.Now;
             cboGioitinh.SelectedIndex = 0;
             txtDiachi.Text = "";
             txtDienthoai.Text = "";
+            btnLuu.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
             txtManhanvien.Focus();
         }
     }
