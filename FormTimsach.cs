@@ -20,7 +20,7 @@ namespace BTLON_NHOMTHUVIEN
 
         //Data Source = LAPTOP - F4RS79DJ\SQLEXPRESS;Initial Catalog = DUANNHOMTHUVIEN; Integrated Security = True; Trust Server Certificate=True
         //Data Source=LAPTOP-F4RS79DJ\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Trust Server Certificate=True
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-F4RS79DJ\\SQLEXPRESS;Initial Catalog = DUANNHOMTHUVIEN; Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
         private void FormTimsach_Load(object sender, EventArgs e)
         {
             load_timsach("", "");

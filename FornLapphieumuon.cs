@@ -132,9 +132,7 @@ namespace BTLON_NHOMTHUVIEN
 
         private void btnthoat_Click(object sender, EventArgs e)
         {
-            Form f = new FormMain();
-            f.Show();
-            this.Close();
+           Close();
 
         }
 
@@ -322,9 +320,11 @@ namespace BTLON_NHOMTHUVIEN
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Form f = new FormChitietmuontra();
-            f.Show();
-            this.Close();
+        
+                Form fa = new FormChitietmuontra();
+                fa.Show();
+                this.Close();
+            
         }
 
         private void Capnhatsoluong()
@@ -369,6 +369,11 @@ namespace BTLON_NHOMTHUVIEN
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void FornLapphieumuon_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
         }
     }
 }

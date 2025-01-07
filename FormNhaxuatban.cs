@@ -13,7 +13,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormNhaxuatban : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
         public FormNhaxuatban()
         {
             InitializeComponent();

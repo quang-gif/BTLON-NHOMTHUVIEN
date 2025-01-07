@@ -215,7 +215,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 31);
             this.button1.TabIndex = 20;
-            this.button1.Text = "Lập phiếu mượn";
+            this.button1.Text = "Thoát";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -295,6 +295,7 @@
             this.Name = "FormChitietmuontra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi tiết mượn trả";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormChitietmuontra_FormClosed);
             this.Load += new System.EventHandler(this.FormChitietmuontra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv2)).EndInit();
             this.groupBox1.ResumeLayout(false);
