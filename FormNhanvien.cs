@@ -13,7 +13,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormNhanvien : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-FU9S3VB\\SQLEXPRESS01;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-F4RS79DJ\\SQLEXPRESS;Initial Catalog = DUANNHOMTHUVIEN; Integrated Security=True;Encrypt=False");
         public FormNhanvien()
         {
             InitializeComponent();
@@ -43,7 +43,12 @@ namespace BTLON_NHOMTHUVIEN
 
         private void FormNhanvien_Load(object sender, EventArgs e)
         {
+            cboGioitinh.Items.Add("- Lựa chọn -");
+            cboGioitinh.Items.Add("Nam");
+            cboGioitinh.Items.Add("Nữ");
+            cboGioitinh.Items.Add("Khác");
             btnLuu.Enabled = false;
+            cboGioitinh.SelectedIndex = 0;
             load_Nhanvien();
             btnThem.Focus();
         }
@@ -90,7 +95,7 @@ namespace BTLON_NHOMTHUVIEN
                 dtNgaysinh.Focus();
                 return;
             }
-            if (gt == "")
+            if (gt == "- Lựa chọn -")
             {
                 MessageBox.Show("Bạn chưa chọn giới tính", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cboGioitinh.Focus();
@@ -108,7 +113,7 @@ namespace BTLON_NHOMTHUVIEN
                 txtDienthoai.Focus();
                 return;
             }
-            // ket noi csdl
+
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
@@ -157,6 +162,36 @@ namespace BTLON_NHOMTHUVIEN
             string gt = cboGioitinh.SelectedItem.ToString();
             string dc = txtDiachi.Text.Trim();
             string dt = txtDienthoai.Text.Trim();
+            if (tnv == "")
+            {
+                MessageBox.Show("Bạn chưa nhập họ tên nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtHoten.Focus();
+                return;
+            }
+            if (ns == null)
+            {
+                MessageBox.Show("Bạn chưa chọn ngày sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtNgaysinh.Focus();
+                return;
+            }
+            if (gt == "- Lựa chọn -")
+            {
+                MessageBox.Show("Bạn chưa chọn giới tính", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cboGioitinh.Focus();
+                return;
+            }
+            if (dc == "")
+            {
+                MessageBox.Show("Bạn chưa nhập địa chỉ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDiachi.Focus();
+                return;
+            }
+            if (dt == "")
+            {
+                MessageBox.Show("Bạn chưa nhập số điện thoại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDienthoai.Focus();
+                return;
+            }
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
