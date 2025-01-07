@@ -13,7 +13,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormNhanvien : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-FU9S3VB\\SQLEXPRESS01;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         public FormNhanvien()
         {
             InitializeComponent();
@@ -30,18 +30,22 @@ namespace BTLON_NHOMTHUVIEN
             con.Close();
             dgvThongtin.DataSource = dt;
             dgvThongtin.Refresh();
+
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
             btnLuu.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
             txtManhanvien.Enabled = true;
+            txtManhanvien.Focus();
         }
 
         private void FormNhanvien_Load(object sender, EventArgs e)
         {
             btnLuu.Enabled = false;
-
             load_Nhanvien();
+            btnThem.Focus();
         }
         private bool checktrungmnv(string mnv)
         {
@@ -123,6 +127,9 @@ namespace BTLON_NHOMTHUVIEN
             MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnLuu.Enabled = false;
             load_Nhanvien();
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            btnLuu.Enabled = false;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -156,12 +163,11 @@ namespace BTLON_NHOMTHUVIEN
             }
             string sql = "Update nhanvien Set hotennv=N'" + tnv + "',ngaysinh=@ngaysinh,gioitinh=N'" + gt + "',diachi=N'" + dc + "',dienthoai=N'" + dt + "' Where manhanvien=N'" + mnv + "'";
             SqlCommand cmd = new SqlCommand(sql, con);
-
             cmd.Parameters.Add("@ngaysinh", SqlDbType.Date).Value = ns;
-            
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             con.Close();
+            MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             load_Nhanvien();
         }
 
@@ -173,16 +179,62 @@ namespace BTLON_NHOMTHUVIEN
         private void dgvThongtin_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = e.RowIndex;
-            txtManhanvien.Text = dgvThongtin.Rows[i].Cells[0].Value.ToString();
-            txtHoten.Text = dgvThongtin.Rows[i].Cells[1].Value.ToString();
-            dtNgaysinh.Value = DateTime.Parse( dgvThongtin.Rows[i].Cells[2].Value.ToString());
-            cboGioitinh.SelectedItem = dgvThongtin.Rows[i].Cells[3].Value.ToString();
-            txtDiachi.Text = dgvThongtin.Rows[i].Cells[4].Value.ToString();
-            txtDienthoai.Text = dgvThongtin.Rows[i].Cells[5].Value.ToString();
-            txtManhanvien.Enabled = false;
+            if (i >= 0)
+            {
+                txtManhanvien.Text = dgvThongtin.Rows[i].Cells[0].Value.ToString();
+                txtHoten.Text = dgvThongtin.Rows[i].Cells[1].Value.ToString();
+                dtNgaysinh.Value = DateTime.Parse(dgvThongtin.Rows[i].Cells[2].Value.ToString());
+                cboGioitinh.SelectedItem = dgvThongtin.Rows[i].Cells[3].Value.ToString();
+                txtDiachi.Text = dgvThongtin.Rows[i].Cells[4].Value.ToString();
+                txtDienthoai.Text = dgvThongtin.Rows[i].Cells[5].Value.ToString();
+                txtManhanvien.Enabled = false;
+                btnSua.Enabled = true;
+                btnXoa.Enabled = true;
+            }
+        }
+
+       
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            load_Nhanvien();
+            txtManhanvien.Text = "";
+            txtHoten.Text = "";
+            dtNgaysinh.Value = DateTime.Now;
+            cboGioitinh.SelectedIndex = 0;
+            txtDiachi.Text = "";
+            txtDienthoai.Text = "";
+            btnLuu.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            txtManhanvien.Focus();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtHoten_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtManhanvien_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }

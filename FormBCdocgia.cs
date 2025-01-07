@@ -14,7 +14,9 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormBCdocgia : Form
     {
-        SqlConnection con=new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+       
+
+        SqlConnection con=new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
         public FormBCdocgia()
         {
             InitializeComponent();
@@ -46,7 +48,7 @@ namespace BTLON_NHOMTHUVIEN
                 con.Open();
             }
             tb1.Clear();
-            string sql = "Select docgia.* FROM docgia INNER JOIN muontra ON docgia.madg = muontra.madg INNER JOIN chitietmuontra ON muontra.mamuon = chitietmuontra.mamuon WHERE chitietmuontra.ngaytra < GETDATE()";
+            string sql = "Select docgia.* FROM docgia JOIN chitietmuontra ON docgia.madg = chitietmuontra.madg WHERE chitietmuontra.ngaytra < GETDATE()";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;

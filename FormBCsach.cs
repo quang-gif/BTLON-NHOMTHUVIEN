@@ -16,7 +16,7 @@ namespace BTLON_NHOMTHUVIEN
     {
         //Select masach,tensach,namxb,tennxb,tentheloai FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai
         //Data Source=LAPTOP-F4RS79DJ\\SQLEXPRESS;Initial Catalog = DUANNHOMTHUVIEN; Integrated Security=True;Encrypt=False
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-F4RS79DJ\\SQLEXPRESS;Initial Catalog = DUANNHOMTHUVIEN; Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
         public FormBCsach()
         {
             InitializeComponent();

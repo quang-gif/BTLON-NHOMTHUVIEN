@@ -66,12 +66,13 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dgvThongTinDocGia.Location = new System.Drawing.Point(17, 249);
+            this.dgvThongTinDocGia.Location = new System.Drawing.Point(27, 249);
             this.dgvThongTinDocGia.Margin = new System.Windows.Forms.Padding(2);
             this.dgvThongTinDocGia.Name = "dgvThongTinDocGia";
+            this.dgvThongTinDocGia.RowHeadersVisible = false;
             this.dgvThongTinDocGia.RowHeadersWidth = 51;
             this.dgvThongTinDocGia.RowTemplate.Height = 24;
-            this.dgvThongTinDocGia.Size = new System.Drawing.Size(543, 206);
+            this.dgvThongTinDocGia.Size = new System.Drawing.Size(524, 206);
             this.dgvThongTinDocGia.TabIndex = 5;
             this.dgvThongTinDocGia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThongTinDocGia_CellClick);
             // 
@@ -309,22 +310,51 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "CẬP NHẬT THÔNG TIN ĐỘC GIẢ";
             // 
-            // btRS
+            // Column1
             // 
-            this.btRS.Location = new System.Drawing.Point(382, 59);
-            this.btRS.Margin = new System.Windows.Forms.Padding(2);
-            this.btRS.Name = "btRS";
-            this.btRS.Size = new System.Drawing.Size(56, 19);
-            this.btRS.TabIndex = 5;
-            this.btRS.Text = "Reset";
-            this.btRS.UseVisualStyleBackColor = true;
-            this.btRS.Click += new System.EventHandler(this.btRS_Click);
+            this.Column1.DataPropertyName = "madg";
+            this.Column1.HeaderText = "Mã độc giả";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 90;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "htdocgia";
+            this.Column2.HeaderText = "Họ và tên";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "ngaysinh";
+            this.Column3.HeaderText = "Ngày sinh";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 110;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "gioitinh";
+            this.Column4.HeaderText = "Giới tính";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 90;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "lop";
+            this.Column5.HeaderText = "Lớp";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
             // 
             // FormDocgia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 474);
+            this.ClientSize = new System.Drawing.Size(585, 474);
             this.Controls.Add(this.dgvThongTinDocGia);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);

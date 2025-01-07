@@ -121,6 +121,7 @@
             this.Column5});
             this.dataGridView1.Location = new System.Drawing.Point(38, 195);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(809, 243);
             this.dataGridView1.TabIndex = 2;
             // 
@@ -135,6 +136,7 @@
             this.Column2.DataPropertyName = "tensach";
             this.Column2.HeaderText = "Tên sách";
             this.Column2.Name = "Column2";
+            this.Column2.Width = 190;
             // 
             // Column3
             // 
@@ -153,6 +155,7 @@
             this.Column5.DataPropertyName = "tentheloai";
             this.Column5.HeaderText = "Thể loại";
             this.Column5.Name = "Column5";
+            this.Column5.Width = 130;
             // 
             // FormBCsach
             // 

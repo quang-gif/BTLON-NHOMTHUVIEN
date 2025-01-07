@@ -13,7 +13,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormNhaxuatban : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
         public FormNhaxuatban()
         {
             InitializeComponent();
@@ -42,6 +42,7 @@ namespace BTLON_NHOMTHUVIEN
             con.Close();
             dgvCapNhatNhaXB.DataSource = tb;
             dgvCapNhatNhaXB.Refresh();
+            txtMaNhaXB.Focus();
         }
         private void FormNhaxuatban_Load(object sender, EventArgs e)
         {
@@ -168,6 +169,7 @@ namespace BTLON_NHOMTHUVIEN
             btnXoa.Enabled = true;
             btnSua.Enabled = true;
             btnLuu.Enabled = false;
+            btnThem.Enabled = true;
             load_nhaxb() ;
         }
     }

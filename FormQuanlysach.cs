@@ -14,7 +14,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormQuanlysach : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-FU9S3VB\\SQLEXPRESS01;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         public FormQuanlysach()
         {
             InitializeComponent();
@@ -128,17 +128,27 @@ namespace BTLON_NHOMTHUVIEN
             con.Close();
             dgvCapnhatsach.DataSource = dt1;
             dgvCapnhatsach.Refresh();
+           
         }
-
-        private void btnThem_Click_1(object sender, EventArgs e)
+        private void FormQuanlysach_Load(object sender, EventArgs e)
         {
-            btnLuu.Enabled = true;
+            btnLuu.Enabled = false;
             load_Quanlysach();
-            txtMasach.Enabled = true;
-            dtnamxb.Value = DateTime.Now;
             load_Nhaxuatban();
             load_theloai();
             load_tacgia();
+            txtMasach.Enabled = true;
+            btnThem.Focus();
+        }
+        private void btnThem_Click_1(object sender, EventArgs e)
+        {
+            btnLuu.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            load_Quanlysach();
+            txtMasach.Enabled = true;
+            dtnamxb.Value = DateTime.Now;
+            txtMasach.Focus();
         }
 
         private void btnSua_Click_1(object sender, EventArgs e)
@@ -161,15 +171,6 @@ namespace BTLON_NHOMTHUVIEN
             con.Close();
             MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             load_Quanlysach();
-        }
-
-        private void FormQuanlysach_Load(object sender, EventArgs e)
-        {
-            btnLuu.Enabled = false;
-            load_Quanlysach();
-            load_Nhaxuatban();
-            load_theloai();
-            load_tacgia();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -286,6 +287,9 @@ namespace BTLON_NHOMTHUVIEN
                 cboTheloai.Text = dgvCapnhatsach.Rows[i].Cells["Column5"].Value.ToString();
                 cboMatg.Text = dgvCapnhatsach.Rows[i].Cells["Column6"].Value.ToString();
                 txtMasach.Enabled = false;
+                btnSua.Enabled = true;
+                btnXoa.Enabled = true;
+                btnLuu.Enabled = false;
             }
 
         }
@@ -391,6 +395,26 @@ namespace BTLON_NHOMTHUVIEN
             load_Quanlysach();
             Excel(dt1, "DSQuanlysach");
         }
+
+      
+        private void btnReset_Click_1(object sender, EventArgs e)
+        {
+            load_Quanlysach();
+            load_Nhaxuatban();
+            load_theloai();
+            load_tacgia();
+            txtMasach.Text = "";
+            txtTensach.Text = "";
+            dtnamxb.Value = DateTime.Now;
+            cboManxb.SelectedIndex = 0;
+            cboTheloai.SelectedIndex = 0;
+            cboMatg.SelectedIndex = 0;
+            btnLuu.Enabled = false;
+            txtMasach.Enabled = false;
+            btnThem.Focus();
+        }
+
+       
     }
 }
 
