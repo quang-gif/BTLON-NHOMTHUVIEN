@@ -35,6 +35,7 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btRS = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -51,7 +52,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btRS = new System.Windows.Forms.Button();
+            this.brRS = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongTinDocGia)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -82,7 +83,7 @@
             this.Column1.HeaderText = "Mã độc giả";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
+            this.Column1.Width = 90;
             // 
             // Column2
             // 
@@ -90,7 +91,7 @@
             this.Column2.HeaderText = "Họ và tên";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 200;
+            this.Column2.Width = 150;
             // 
             // Column3
             // 
@@ -98,7 +99,7 @@
             this.Column3.HeaderText = "Ngày sinh";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
-            this.Column3.Width = 130;
+            this.Column3.Width = 110;
             // 
             // Column4
             // 
@@ -106,7 +107,7 @@
             this.Column4.HeaderText = "Giới tính";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
+            this.Column4.Width = 90;
             // 
             // Column5
             // 
@@ -118,6 +119,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.brRS);
             this.groupBox1.Controls.Add(this.btRS);
             this.groupBox1.Controls.Add(this.btnLuu);
             this.groupBox1.Controls.Add(this.btnThoat);
@@ -142,6 +144,13 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cập nhật thông tin";
+            // 
+            // btRS
+            // 
+            this.btRS.Location = new System.Drawing.Point(0, 0);
+            this.btRS.Name = "btRS";
+            this.btRS.Size = new System.Drawing.Size(75, 23);
+            this.btRS.TabIndex = 0;
             // 
             // btnLuu
             // 
@@ -310,45 +319,16 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "CẬP NHẬT THÔNG TIN ĐỘC GIẢ";
             // 
-            // Column1
+            // brRS
             // 
-            this.Column1.DataPropertyName = "madg";
-            this.Column1.HeaderText = "Mã độc giả";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 90;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "htdocgia";
-            this.Column2.HeaderText = "Họ và tên";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "ngaysinh";
-            this.Column3.HeaderText = "Ngày sinh";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 110;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "gioitinh";
-            this.Column4.HeaderText = "Giới tính";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 90;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "lop";
-            this.Column5.HeaderText = "Lớp";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 125;
+            this.brRS.Location = new System.Drawing.Point(382, 59);
+            this.brRS.Margin = new System.Windows.Forms.Padding(2);
+            this.brRS.Name = "brRS";
+            this.brRS.Size = new System.Drawing.Size(56, 19);
+            this.brRS.TabIndex = 5;
+            this.brRS.Text = "Reset";
+            this.brRS.UseVisualStyleBackColor = true;
+            this.brRS.Click += new System.EventHandler(this.brRS_Click);
             // 
             // FormDocgia
             // 
@@ -396,5 +376,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button btRS;
+        private System.Windows.Forms.Button brRS;
     }
 }

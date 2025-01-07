@@ -173,9 +173,18 @@ namespace BTLON_NHOMTHUVIEN
             txtMadocgia.Enabled = false;
         }
 
-        private void btRS_Click(object sender, EventArgs e)
+        private void brRS_Click(object sender, EventArgs e)
         {
-
+            load_dg();
+            txtMadocgia.Text = "";
+            txtHoten.Text = "";
+            txtLop.Text = "";
+            dtNgaysinh.Value = DateTime.Now;
+            cboGioitinh.SelectedIndex = 0;
+            btnLuu.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            txtMadocgia.Focus();
         }
     }
 }

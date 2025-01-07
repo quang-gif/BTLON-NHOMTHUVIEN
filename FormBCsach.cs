@@ -39,7 +39,7 @@ namespace BTLON_NHOMTHUVIEN
                 con.Open();
             }
             tb1.Clear();
-            string sql = "Select masach,tensach,namxb,tennxb,tentheloai FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai";
+            string sql = "Select chitietmuontra.masach,tensach,namxb,tennxb,tentheloai,ngaymuon FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai INNER JOIN chitietmuontra ON quanlysach.masach = chitietmuontra.masach";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
@@ -53,7 +53,7 @@ namespace BTLON_NHOMTHUVIEN
                 con.Open();
             }
             tb1.Clear();
-            string sql = "Select masach,tensach,namxb,tennxb,tentheloai FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai WHERE chitietmuontra.ngaytra < GETDATE()";
+            string sql = "Select chitietmuontra.masach,tensach,namxb,tennxb,tentheloai,ngaymuon FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai INNER JOIN chitietmuontra ON quanlysach.masach = chitietmuontra.masach WHERE chitietmuontra.ngaytra < GETDATE()";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
