@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,8 +49,8 @@
             this.báoCáoThốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sáchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.độcGiảToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Tan;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hệThốngToolStripMenuItem,
@@ -77,6 +79,7 @@
             // 
             // hệThốngToolStripMenuItem
             // 
+            this.hệThốngToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.đăngXuấtToolStripMenuItem});
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
@@ -93,6 +96,7 @@
             // 
             // danhMụcToolStripMenuItem
             // 
+            this.danhMụcToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             this.danhMụcToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.độcGiảToolStripMenuItem,
             this.nhânViênToolStripMenuItem,
@@ -159,14 +163,14 @@
             // mượnSáchToolStripMenuItem
             // 
             this.mượnSáchToolStripMenuItem.Name = "mượnSáchToolStripMenuItem";
-            this.mượnSáchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mượnSáchToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.mượnSáchToolStripMenuItem.Text = "Lập phiếu mượn";
             this.mượnSáchToolStripMenuItem.Click += new System.EventHandler(this.mượnSáchToolStripMenuItem_Click);
             // 
             // chiTiếtMượnTrảToolStripMenuItem
             // 
             this.chiTiếtMượnTrảToolStripMenuItem.Name = "chiTiếtMượnTrảToolStripMenuItem";
-            this.chiTiếtMượnTrảToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.chiTiếtMượnTrảToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.chiTiếtMượnTrảToolStripMenuItem.Text = "Chi tiết mượn trả";
             this.chiTiếtMượnTrảToolStripMenuItem.Click += new System.EventHandler(this.chiTiếtMượnTrảToolStripMenuItem_Click);
             // 
@@ -205,16 +209,23 @@
             // sáchToolStripMenuItem
             // 
             this.sáchToolStripMenuItem.Name = "sáchToolStripMenuItem";
-            this.sáchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sáchToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.sáchToolStripMenuItem.Text = "Sách";
             this.sáchToolStripMenuItem.Click += new System.EventHandler(this.sáchToolStripMenuItem_Click);
             // 
             // độcGiảToolStripMenuItem1
             // 
             this.độcGiảToolStripMenuItem1.Name = "độcGiảToolStripMenuItem1";
-            this.độcGiảToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.độcGiảToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
             this.độcGiảToolStripMenuItem1.Text = "Độc giả";
             this.độcGiảToolStripMenuItem1.Click += new System.EventHandler(this.độcGiảToolStripMenuItem1_Click);
+            // 
+            // trợGiúpToolStripMenuItem
+            // 
+            this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
+            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
+            this.trợGiúpToolStripMenuItem.Click += new System.EventHandler(this.trợGiúpToolStripMenuItem_Click);
             // 
             // monthCalendar1
             // 
@@ -224,18 +235,12 @@
             this.monthCalendar1.TabIndex = 2;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
-            // trợGiúpToolStripMenuItem
-            // 
-            this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
-            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
-            this.trợGiúpToolStripMenuItem.Click += new System.EventHandler(this.trợGiúpToolStripMenuItem_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 474);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(877, 500);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
