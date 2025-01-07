@@ -14,7 +14,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormQuanlysach : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-FU9S3VB\\SQLEXPRESS01;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
         public FormQuanlysach()
         {
             InitializeComponent();
@@ -403,6 +403,11 @@ namespace BTLON_NHOMTHUVIEN
             txtTensach.Text = "";
             txtMasach.Enabled = true;
             txtMasach.Focus();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
