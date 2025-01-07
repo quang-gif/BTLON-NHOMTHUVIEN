@@ -36,7 +36,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.brRS = new System.Windows.Forms.Button();
-            this.btRS = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -120,7 +119,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.brRS);
-            this.groupBox1.Controls.Add(this.btRS);
             this.groupBox1.Controls.Add(this.btnLuu);
             this.groupBox1.Controls.Add(this.btnThoat);
             this.groupBox1.Controls.Add(this.btnXoa);
@@ -155,13 +153,6 @@
             this.brRS.Text = "Reset";
             this.brRS.UseVisualStyleBackColor = true;
             this.brRS.Click += new System.EventHandler(this.brRS_Click);
-            // 
-            // btRS
-            // 
-            this.btRS.Location = new System.Drawing.Point(0, 0);
-            this.btRS.Name = "btRS";
-            this.btRS.Size = new System.Drawing.Size(75, 23);
-            this.btRS.TabIndex = 0;
             // 
             // btnLuu
             // 
@@ -371,7 +362,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.Button btRS;
         private System.Windows.Forms.Button brRS;
     }
 }
