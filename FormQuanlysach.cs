@@ -414,10 +414,7 @@ namespace BTLON_NHOMTHUVIEN
             btnThem.Focus();
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
 

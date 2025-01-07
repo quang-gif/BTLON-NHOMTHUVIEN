@@ -208,6 +208,36 @@ namespace BTLON_NHOMTHUVIEN
             btnXoa.Enabled = true;
             txtManhanvien.Focus();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtHoten_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtManhanvien_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
