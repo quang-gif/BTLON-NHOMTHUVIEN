@@ -260,7 +260,10 @@ namespace BTLON_NHOMTHUVIEN
         {
             Form f = new FornLapphieumuon();
             f.Show();
-            this.Hide();
+            this.Close();
+            
+           
+            
         }
 
         private void cbbphieumuon_SelectedIndexChanged(object sender, EventArgs e)
@@ -379,6 +382,8 @@ namespace BTLON_NHOMTHUVIEN
                 con.Close();
 
                 load1();
+                load2();
+                load3();
                 Capnhatsoluong();
             }
         }

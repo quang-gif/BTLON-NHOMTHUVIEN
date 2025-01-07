@@ -13,7 +13,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FornLapphieumuon : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
+        SqlConnection con = new SqlConnection("Data Source=SHIBAINU\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False");
  
         public FornLapphieumuon()
         {
@@ -134,7 +134,8 @@ namespace BTLON_NHOMTHUVIEN
         {
             Form f = new FormMain();
             f.Show();
-            this.Hide();
+            this.Close();
+
         }
 
         private void btnluu_Click(object sender, EventArgs e)
@@ -323,7 +324,7 @@ namespace BTLON_NHOMTHUVIEN
         {
             Form f = new FormChitietmuontra();
             f.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Capnhatsoluong()
@@ -363,6 +364,11 @@ namespace BTLON_NHOMTHUVIEN
             cbbmasach.DataSource = dt;
             cbbmasach.DisplayMember = "masach";
             cbbmasach.ValueMember = "masach";
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

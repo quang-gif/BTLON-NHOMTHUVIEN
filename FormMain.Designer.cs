@@ -49,6 +49,7 @@
             this.sáchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.độcGiảToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +66,8 @@
             this.danhMụcToolStripMenuItem,
             this.mượnTrảSáchToolStripMenuItem,
             this.tìmKiếmToolStripMenuItem,
-            this.báoCáoThốngKêToolStripMenuItem});
+            this.báoCáoThốngKêToolStripMenuItem,
+            this.trợGiúpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -180,14 +182,14 @@
             // tìmSáchToolStripMenuItem
             // 
             this.tìmSáchToolStripMenuItem.Name = "tìmSáchToolStripMenuItem";
-            this.tìmSáchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tìmSáchToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.tìmSáchToolStripMenuItem.Text = "Tìm sách";
             this.tìmSáchToolStripMenuItem.Click += new System.EventHandler(this.tìmSáchToolStripMenuItem_Click);
             // 
             // tìmĐộcGiảToolStripMenuItem
             // 
             this.tìmĐộcGiảToolStripMenuItem.Name = "tìmĐộcGiảToolStripMenuItem";
-            this.tìmĐộcGiảToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tìmĐộcGiảToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.tìmĐộcGiảToolStripMenuItem.Text = "Tìm độc giả";
             this.tìmĐộcGiảToolStripMenuItem.Click += new System.EventHandler(this.tìmĐộcGiảToolStripMenuItem_Click);
             // 
@@ -221,6 +223,13 @@
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 2;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            // 
+            // trợGiúpToolStripMenuItem
+            // 
+            this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
+            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
+            this.trợGiúpToolStripMenuItem.Click += new System.EventHandler(this.trợGiúpToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -266,5 +275,6 @@
         private System.Windows.Forms.ToolStripMenuItem độcGiảToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem chiTiếtMượnTrảToolStripMenuItem;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.ToolStripMenuItem trợGiúpToolStripMenuItem;
     }
 }

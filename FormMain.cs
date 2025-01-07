@@ -88,7 +88,6 @@ namespace BTLON_NHOMTHUVIEN
             Form f = new FornLapphieumuon();
             this.Hide();
             f.ShowDialog();
-            this.Show(); ;
         }
 
         private void tìmSáchToolStripMenuItem_Click(object sender, EventArgs e)
@@ -149,6 +148,13 @@ namespace BTLON_NHOMTHUVIEN
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
 
+        }
+
+        private void trợGiúpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new Formtrogiup();
+            this.Hide();
+            f.ShowDialog();
         }
     }
 }
