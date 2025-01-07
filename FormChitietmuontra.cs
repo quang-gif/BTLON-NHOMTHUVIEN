@@ -428,5 +428,15 @@ namespace BTLON_NHOMTHUVIEN
         {
             
         }
+
+        private void dgv2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

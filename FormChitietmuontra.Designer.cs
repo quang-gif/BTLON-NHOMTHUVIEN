@@ -72,6 +72,7 @@
             this.dgv2.Size = new System.Drawing.Size(697, 154);
             this.dgv2.TabIndex = 4;
             this.dgv2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv2_CellClick);
+            this.dgv2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv2_CellContentClick);
             // 
             // maphieumuon
             // 
@@ -125,6 +126,7 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết mượn trả";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // dtmuon
             // 
@@ -211,9 +213,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(669, 197);
+            this.button1.Location = new System.Drawing.Point(688, 198);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 31);
+            this.button1.Size = new System.Drawing.Size(83, 30);
             this.button1.TabIndex = 20;
             this.button1.Text = "Thoát";
             this.button1.UseVisualStyleBackColor = true;
