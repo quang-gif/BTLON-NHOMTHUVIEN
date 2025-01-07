@@ -42,6 +42,7 @@ namespace BTLON_NHOMTHUVIEN
             con.Close();
             dgvCapNhatNhaXB.DataSource = tb;
             dgvCapNhatNhaXB.Refresh();
+            txtMaNhaXB.Focus();
         }
         private void FormNhaxuatban_Load(object sender, EventArgs e)
         {
@@ -168,6 +169,7 @@ namespace BTLON_NHOMTHUVIEN
             btnXoa.Enabled = true;
             btnSua.Enabled = true;
             btnLuu.Enabled = false;
+            btnThem.Enabled = true;
             load_nhaxb() ;
         }
     }
