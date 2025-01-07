@@ -14,7 +14,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormDocgia : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-F4RS79DJ\\SQLEXPRESS;Initial Catalog = DUANNHOMTHUVIEN; Integrated Security=True;Encrypt=False");
         private void load_dg()
         {
             if (con.State == ConnectionState.Closed)
@@ -31,7 +31,14 @@ namespace BTLON_NHOMTHUVIEN
         private void btnThem_Click(object sender, EventArgs e)
         {
             btnLuu.Enabled = true;
+            btnLuu.Enabled = true;
             txtMadocgia.Enabled = true;
+            txtHoten.Enabled = true;
+            txtLop.Enabled = true;
+            dtNgaysinh.Enabled = true;
+            cboGioitinh.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
         public FormDocgia()
         {
@@ -40,7 +47,17 @@ namespace BTLON_NHOMTHUVIEN
 
         private void FormDocgia_Load(object sender, EventArgs e)
         {
+            cboGioitinh.Items.Add("- Lựa chọn -");
+            cboGioitinh.Items.Add("Nam");
+            cboGioitinh.Items.Add("Nữ");
+            cboGioitinh.Items.Add("Khác");
             btnLuu.Enabled = false;
+            txtMadocgia.Enabled = false;
+            txtHoten.Enabled = false;
+            txtLop.Enabled = false;
+            dtNgaysinh.Enabled = false;
+            cboGioitinh.Enabled = false;
+            cboGioitinh.SelectedIndex = 0;
             load_dg();
         }
         private bool checktrungmadg(string madg)
@@ -86,7 +103,7 @@ namespace BTLON_NHOMTHUVIEN
                 dtNgaysinh.Focus();
                 return;
             }
-            if (gt == "")
+            if (gt == "- Lựa chọn -")
             {
                 MessageBox.Show("Bạn chưa chọn giới tính", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cboGioitinh.Focus();
@@ -98,7 +115,7 @@ namespace BTLON_NHOMTHUVIEN
                 txtLop.Focus();
                 return;
             }
-            // ket noi csdl
+
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
@@ -115,6 +132,8 @@ namespace BTLON_NHOMTHUVIEN
             con.Close();
             MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnLuu.Enabled = false;
+            btnXoa.Enabled = true;
+            btnSua.Enabled = true;
             load_dg();
         }
 
@@ -123,13 +142,38 @@ namespace BTLON_NHOMTHUVIEN
             string madg = txtMadocgia.Text.Trim();
             string htdocgia = txtHoten.Text.Trim();
             DateTime ngaysinh = dtNgaysinh.Value;
-            string gioitinh = cboGioitinh.SelectedItem.ToString();
+            string gt = cboGioitinh.SelectedItem.ToString();
             string lop = txtLop.Text.Trim();
+            if (htdocgia == "")
+            {
+                MessageBox.Show("Bạn chưa nhập họ tên độc giả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtHoten.Focus();
+                return;
+            }
+            if (ngaysinh == null)
+            {
+                MessageBox.Show("Bạn chưa chọn ngày sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtNgaysinh.Focus();
+                return;
+            }
+            if (gt == "- Lựa chọn -")
+            {
+                MessageBox.Show("Bạn chưa chọn giới tính", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cboGioitinh.Focus();
+                return;
+            }
+            if (lop == "")
+            {
+                MessageBox.Show("Bạn chưa nhập lớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtLop.Focus();
+                return;
+            }
+
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
             }
-            string sql = "Update docgia Set htdocgia=N'" + htdocgia + "',ngaysinh=@ngaysinh,gioitinh=N'" + gioitinh + "' Where madg=N'" + madg + "'";
+            string sql = "Update docgia Set htdocgia=N'" + htdocgia + "',ngaysinh=@ngaysinh,gioitinh=N'" + gt + "' Where madg=N'" + madg + "'";
             SqlCommand cmd = new SqlCommand(sql, con);
 
             cmd.Parameters.Add("@ngaysinh", SqlDbType.Date).Value = ngaysinh;
@@ -171,6 +215,13 @@ namespace BTLON_NHOMTHUVIEN
             cboGioitinh.SelectedItem = dgvThongTinDocGia.Rows[i].Cells[3].Value.ToString();
             txtLop.Text = dgvThongTinDocGia.Rows[i].Cells[4].Value.ToString();
             txtMadocgia.Enabled = false;
+            txtHoten.Enabled = true;
+            txtLop.Enabled = true;
+            dtNgaysinh.Enabled = true;
+            cboGioitinh.Enabled = true;
+            btnLuu.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
         }
 
         private void brRS_Click(object sender, EventArgs e)

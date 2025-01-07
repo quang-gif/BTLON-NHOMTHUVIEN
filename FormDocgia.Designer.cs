@@ -35,6 +35,7 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.brRS = new System.Windows.Forms.Button();
             this.btRS = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.brRS = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongTinDocGia)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -145,6 +145,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cập nhật thông tin";
             // 
+            // brRS
+            // 
+            this.brRS.Location = new System.Drawing.Point(382, 59);
+            this.brRS.Margin = new System.Windows.Forms.Padding(2);
+            this.brRS.Name = "brRS";
+            this.brRS.Size = new System.Drawing.Size(56, 19);
+            this.brRS.TabIndex = 5;
+            this.brRS.Text = "Reset";
+            this.brRS.UseVisualStyleBackColor = true;
+            this.brRS.Click += new System.EventHandler(this.brRS_Click);
+            // 
             // btRS
             // 
             this.btRS.Location = new System.Drawing.Point(0, 0);
@@ -219,10 +230,6 @@
             // cboGioitinh
             // 
             this.cboGioitinh.FormattingEnabled = true;
-            this.cboGioitinh.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ",
-            "Khác"});
             this.cboGioitinh.Location = new System.Drawing.Point(123, 136);
             this.cboGioitinh.Margin = new System.Windows.Forms.Padding(2);
             this.cboGioitinh.Name = "cboGioitinh";
@@ -318,17 +325,6 @@
             this.label1.Size = new System.Drawing.Size(245, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "CẬP NHẬT THÔNG TIN ĐỘC GIẢ";
-            // 
-            // brRS
-            // 
-            this.brRS.Location = new System.Drawing.Point(382, 59);
-            this.brRS.Margin = new System.Windows.Forms.Padding(2);
-            this.brRS.Name = "brRS";
-            this.brRS.Size = new System.Drawing.Size(56, 19);
-            this.brRS.TabIndex = 5;
-            this.brRS.Text = "Reset";
-            this.brRS.UseVisualStyleBackColor = true;
-            this.brRS.Click += new System.EventHandler(this.brRS_Click);
             // 
             // FormDocgia
             // 
