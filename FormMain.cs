@@ -156,6 +156,7 @@ namespace BTLON_NHOMTHUVIEN
             Form f = new Formtrogiup();
             this.Hide();
             f.ShowDialog();
+            this.Show();
         }
     }
 }
