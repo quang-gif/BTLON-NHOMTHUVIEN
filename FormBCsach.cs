@@ -14,9 +14,9 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormBCsach : Form
     {
-        //Select masach,tensach,namxb,tennxb,tentheloai FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai
+        
         //Data Source=LAPTOP-F4RS79DJ\\SQLEXPRESS;Initial Catalog = DUANNHOMTHUVIEN; Integrated Security=True;Encrypt=False
-        SqlConnection con = new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-F4RS79DJ\\SQLEXPRESS;Initial Catalog = DUANNHOMTHUVIEN; Integrated Security=True;Encrypt=False");
         public FormBCsach()
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace BTLON_NHOMTHUVIEN
                 con.Open();
             }
             tb1.Clear();
-            string sql = "Select chitietmuontra.masach,tensach,namxb,tennxb,tentheloai,ngaymuon FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai INNER JOIN chitietmuontra ON quanlysach.masach = chitietmuontra.masach";
+            string sql = "Select chitietmuontra.masach,tensach,namxb,tennxb,tentheloai,ngaymuon,ngaytra FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai INNER JOIN chitietmuontra ON quanlysach.masach = chitietmuontra.masach";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
@@ -53,7 +53,21 @@ namespace BTLON_NHOMTHUVIEN
                 con.Open();
             }
             tb1.Clear();
-            string sql = "Select chitietmuontra.masach,tensach,namxb,tennxb,tentheloai,ngaymuon FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai INNER JOIN chitietmuontra ON quanlysach.masach = chitietmuontra.masach WHERE chitietmuontra.ngaytra < GETDATE()";
+            string sql = "Select chitietmuontra.masach,tensach,namxb,tennxb,tentheloai,ngaymuon,ngaytra FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai INNER JOIN chitietmuontra ON quanlysach.masach = chitietmuontra.masach WHERE chitietmuontra.ngaytra < GETDATE()";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            da.Fill(tb1);
+            dataGridView1.DataSource = tb1;
+        }
+        public void HienThiDocGiaDangMuon()
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+            tb1.Clear();
+            string sql = "Select chitietmuontra.masach,tensach,namxb,tennxb,tentheloai,ngaymuon,ngaytra FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai INNER JOIN chitietmuontra ON quanlysach.masach = chitietmuontra.masach WHERE chitietmuontra.ngaytra >= GETDATE()";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
@@ -70,6 +84,10 @@ namespace BTLON_NHOMTHUVIEN
             {
                 HienThiDocGiaTreHan();
             }
+            else if(cbothongke.SelectedItem.ToString() == "Sách đang mượn")
+            {
+                HienThiDocGiaDangMuon();
+            }
         }
 
         private void ExportExcel(DataTable tb, string sheetname)
@@ -79,7 +97,7 @@ namespace BTLON_NHOMTHUVIEN
             e_excel.Sheets oSheets;
             e_excel.Workbook oBook;
             e_excel.Worksheet oSheet;
-            //Tạo mới một Excel WorkBook 
+
             oExcel.Visible = true;
             oExcel.DisplayAlerts = false;
             oExcel.Application.SheetsInNewWorkbook = 1;
@@ -88,7 +106,6 @@ namespace BTLON_NHOMTHUVIEN
             oSheets = oBook.Worksheets;
             oSheet = (e_excel.Worksheet)oSheets.get_Item(1);
             oSheet.Name = sheetname;
-            // Tạo phần đầu nếu muốn
 
             e_excel.Range head = oSheet.get_Range("A1", "E1");
             head.MergeCells = true;
@@ -97,7 +114,7 @@ namespace BTLON_NHOMTHUVIEN
             head.Font.Name = "Tahoma";
             head.Font.Size = "16";
             head.HorizontalAlignment = e_excel.XlHAlign.xlHAlignCenter;
-            // Tạo tiêu đề cột 
+
             e_excel.Range cl1 = oSheet.get_Range("A3", "A3");
             cl1.Value2 = "MÃ SÁCH";
             cl1.ColumnWidth = 15;
@@ -113,23 +130,12 @@ namespace BTLON_NHOMTHUVIEN
             e_excel.Range cl5 = oSheet.get_Range("E3", "E3");
             cl5.Value2 = "THÊ LOẠI";
             cl5.ColumnWidth = 15.0;
-            //Microsoft.Office.Interop.Excel.Range cl6 = oSheet.get_Range("F3", "F3");
-            //cl6.Value2 = "NGÀY THI";
-            //cl6.ColumnWidth = 15.0;
-            //Microsoft.Office.Interop.Excel.Range cl6_1 = oSheet.get_Range("F4", "F1000");
-            //cl6_1.Columns.NumberFormat = "dd/mm/yyyy";
-
             e_excel.Range rowHead = oSheet.get_Range("A3", "E3");
             rowHead.Font.Bold = true;
-            // Kẻ viền
             rowHead.Borders.LineStyle = e_excel.Constants.xlSolid;
-            // Thiết lập màu nền
             rowHead.Interior.ColorIndex = 15;
             rowHead.HorizontalAlignment = e_excel.XlHAlign.xlHAlignCenter;
-            // Tạo mảng đối tượng để lưu dữ toàn bồ dữ liệu trong DataTable,
-            // vì dữ liệu được được gán vào các Cell trong Excel phải thông qua object thuần.
             object[,] arr = new object[tb.Rows.Count, tb.Columns.Count];
-            //Chuyển dữ liệu từ DataTable vào mảng đối tượng
             for (int r = 0; r < tb.Rows.Count; r++)
             {
                 DataRow dr = tb.Rows[r];
@@ -137,35 +143,25 @@ namespace BTLON_NHOMTHUVIEN
 
                 {
                     if (c == 2)
-                        arr[r, c] = "'" + dr[c].ToString(); //chuyen cot C thanh Text
+                        arr[r, c] = "'" + dr[c].ToString();
                     else
                         arr[r, c] = dr[c];
                 }
             }
-            //Thiết lập vùng điền dữ liệu
             int rowStart = 4;
             int columnStart = 1;
             int rowEnd = rowStart + tb.Rows.Count - 1;
             int columnEnd = tb.Columns.Count;
-            // Ô bắt đầu điền dữ liệu
             e_excel.Range c1 = (e_excel.Range)oSheet.Cells[rowStart, columnStart];
-            // Ô kết thúc điền dữ liệu
             e_excel.Range c2 = (e_excel.Range)oSheet.Cells[rowEnd, columnEnd];
-            // Lấy về vùng điền dữ liệu
             e_excel.Range range = oSheet.get_Range(c1, c2);
-            //Điền dữ liệu vào vùng đã thiết lập
             range.Value2 = arr;
-            // Kẻ viền
             range.Borders.LineStyle = e_excel.Constants.xlSolid;
-            // Căn giữa cột STT
             e_excel.Range c3 = (e_excel.Range)oSheet.Cells[rowEnd, columnStart];
             e_excel.Range c4 = oSheet.get_Range(c1, c3);
             oSheet.get_Range(c3, c4).HorizontalAlignment = e_excel.XlHAlign.xlHAlignCenter;
-            //dinh dang ngay thang cot C
             e_excel.Range cotBD = (e_excel.Range)oSheet.Cells[rowStart, columnStart];
             e_excel.Range cotKT = (e_excel.Range)oSheet.Cells[rowEnd, columnEnd];
-            //
-            //
         }
 
         private void btExcel_Click(object sender, EventArgs e)
@@ -178,6 +174,10 @@ namespace BTLON_NHOMTHUVIEN
 
                 }
                 else if (excel == "Sách trễ hạn")
+                {
+                    DataTable tb1 = new DataTable();
+                }
+                else if (excel == "Sách đang mượn")
                 {
                     DataTable tb1 = new DataTable();
                 }
@@ -196,6 +196,7 @@ namespace BTLON_NHOMTHUVIEN
         {
             cbothongke.Items.Add("Tất cả sách");
             cbothongke.Items.Add("Sách trễ hạn");
+            cbothongke.Items.Add("Sách đang mượn");
             cbothongke.SelectedIndex = 0;
         }
     }

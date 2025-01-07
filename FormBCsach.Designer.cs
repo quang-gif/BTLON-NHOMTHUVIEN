@@ -40,6 +40,8 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaymuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaytra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -90,10 +92,6 @@
             // cbothongke
             // 
             this.cbothongke.FormattingEnabled = true;
-            this.cbothongke.Items.AddRange(new object[] {
-            "Tất cả sách",
-            "Sách đang mượn",
-            "Sách trễ hạn"});
             this.cbothongke.Location = new System.Drawing.Point(62, 39);
             this.cbothongke.Name = "cbothongke";
             this.cbothongke.Size = new System.Drawing.Size(174, 21);
@@ -118,7 +116,9 @@
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Column5});
+            this.Column5,
+            this.ngaymuon,
+            this.ngaytra});
             this.dataGridView1.Location = new System.Drawing.Point(38, 195);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -157,6 +157,18 @@
             this.Column5.Name = "Column5";
             this.Column5.Width = 130;
             // 
+            // ngaymuon
+            // 
+            this.ngaymuon.DataPropertyName = "ngaymuon";
+            this.ngaymuon.HeaderText = "Ngày mượn";
+            this.ngaymuon.Name = "ngaymuon";
+            // 
+            // ngaytra
+            // 
+            this.ngaytra.DataPropertyName = "ngaytra";
+            this.ngaytra.HeaderText = "Ngày trả";
+            this.ngaytra.Name = "ngaytra";
+            // 
             // FormBCsach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,5 +202,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ngaymuon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ngaytra;
     }
 }
