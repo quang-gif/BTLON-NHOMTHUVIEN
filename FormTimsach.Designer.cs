@@ -85,6 +85,7 @@
             this.httacgia});
             this.dataGridView1.Location = new System.Drawing.Point(20, 105);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(748, 271);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -145,7 +146,7 @@
             // 
             // btRS
             // 
-            this.btRS.Location = new System.Drawing.Point(688, 396);
+            this.btRS.Location = new System.Drawing.Point(688, 390);
             this.btRS.Name = "btRS";
             this.btRS.Size = new System.Drawing.Size(80, 23);
             this.btRS.TabIndex = 14;
@@ -155,7 +156,7 @@
             // 
             // btThoat
             // 
-            this.btThoat.Location = new System.Drawing.Point(589, 396);
+            this.btThoat.Location = new System.Drawing.Point(587, 390);
             this.btThoat.Name = "btThoat";
             this.btThoat.Size = new System.Drawing.Size(80, 23);
             this.btThoat.TabIndex = 15;

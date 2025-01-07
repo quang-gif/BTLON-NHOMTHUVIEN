@@ -145,11 +145,11 @@
             this.ngaytra,
             this.madocgia,
             this.manhanvien});
-            this.dgv1.Location = new System.Drawing.Point(49, 283);
+            this.dgv1.Location = new System.Drawing.Point(49, 278);
             this.dgv1.Name = "dgv1";
             this.dgv1.RowHeadersVisible = false;
             this.dgv1.RowHeadersWidth = 62;
-            this.dgv1.Size = new System.Drawing.Size(704, 155);
+            this.dgv1.Size = new System.Drawing.Size(704, 204);
             this.dgv1.TabIndex = 4;
             this.dgv1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellClick);
             this.dgv1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellContentClick);
@@ -359,7 +359,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(49, 250);
+            this.label8.Location = new System.Drawing.Point(46, 250);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(126, 13);
             this.label8.TabIndex = 10;
@@ -369,7 +369,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 494);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
