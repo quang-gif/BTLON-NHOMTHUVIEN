@@ -148,7 +148,7 @@ namespace BTLON_NHOMTHUVIEN
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-
+            monthCalendar1.Enabled = false;
         }
 
         private void trợGiúpToolStripMenuItem_Click(object sender, EventArgs e)
