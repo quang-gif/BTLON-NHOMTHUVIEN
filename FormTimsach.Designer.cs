@@ -60,7 +60,7 @@
             // 
             // txtTS
             // 
-            this.txtTS.Location = new System.Drawing.Point(146, 18);
+            this.txtTS.Location = new System.Drawing.Point(146, 25);
             this.txtTS.Name = "txtTS";
             this.txtTS.Size = new System.Drawing.Size(268, 20);
             this.txtTS.TabIndex = 1;
@@ -69,7 +69,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 21);
+            this.label1.Location = new System.Drawing.Point(60, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 5;
