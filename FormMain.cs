@@ -88,6 +88,7 @@ namespace BTLON_NHOMTHUVIEN
             Form f = new FornLapphieumuon();
             this.Hide();
             f.ShowDialog();
+            this.Show();
         }
 
         private void tìmSáchToolStripMenuItem_Click(object sender, EventArgs e)

@@ -258,12 +258,7 @@ namespace BTLON_NHOMTHUVIEN
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Form f = new FornLapphieumuon();
-            f.Show();
-            this.Close();
-            
-           
-            
+            Close();  
         }
 
         private void cbbphieumuon_SelectedIndexChanged(object sender, EventArgs e)
@@ -427,6 +422,11 @@ namespace BTLON_NHOMTHUVIEN
             load2();
             load3();
     
+        }
+
+        private void FormChitietmuontra_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
         }
     }
 }
