@@ -14,7 +14,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormQuanlysach : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-FU9S3VB\\SQLEXPRESS01;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         public FormQuanlysach()
         {
             InitializeComponent();
@@ -128,6 +128,7 @@ namespace BTLON_NHOMTHUVIEN
             con.Close();
             dgvCapnhatsach.DataSource = dt1;
             dgvCapnhatsach.Refresh();
+           
         }
 
         private void btnThem_Click_1(object sender, EventArgs e)
@@ -136,9 +137,7 @@ namespace BTLON_NHOMTHUVIEN
             load_Quanlysach();
             txtMasach.Enabled = true;
             dtnamxb.Value = DateTime.Now;
-            load_Nhaxuatban();
-            load_theloai();
-            load_tacgia();
+            txtMasach.Focus();
         }
 
         private void btnSua_Click_1(object sender, EventArgs e)
@@ -170,6 +169,7 @@ namespace BTLON_NHOMTHUVIEN
             load_Nhaxuatban();
             load_theloai();
             load_tacgia();
+            txtMasach.Focus();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -390,6 +390,19 @@ namespace BTLON_NHOMTHUVIEN
 
             load_Quanlysach();
             Excel(dt1, "DSQuanlysach");
+        }
+
+      
+        private void btnReset_Click_1(object sender, EventArgs e)
+        {
+            load_Quanlysach();
+            load_Nhaxuatban();
+            load_theloai();
+            load_tacgia();
+            txtMasach.Text = "";
+            txtTensach.Text = "";
+            txtMasach.Enabled = true;
+            txtMasach.Focus();
         }
     }
 }

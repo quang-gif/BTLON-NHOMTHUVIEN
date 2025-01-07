@@ -36,6 +36,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
             this.cboMatg = new System.Windows.Forms.ComboBox();
             this.cboTheloai = new System.Windows.Forms.ComboBox();
@@ -128,6 +129,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnReset);
             this.groupBox2.Controls.Add(this.btnExcel);
             this.groupBox2.Controls.Add(this.cboMatg);
             this.groupBox2.Controls.Add(this.cboTheloai);
@@ -155,9 +157,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cập nhật sách";
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(581, 116);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 7;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click_1);
+            // 
             // btnExcel
             // 
-            this.btnExcel.Location = new System.Drawing.Point(586, 116);
+            this.btnExcel.Location = new System.Drawing.Point(693, 117);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(75, 23);
             this.btnExcel.TabIndex = 6;
@@ -369,5 +381,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.Button btnExcel;
+        private System.Windows.Forms.Button btnReset;
     }
 }
