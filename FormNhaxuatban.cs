@@ -13,12 +13,12 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormNhaxuatban : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         public FormNhaxuatban()
         {
             InitializeComponent();
         }
-        private bool checktrungmnv(string mxb)
+        private bool checktrungmanxb(string mxb)
         {
             if (con.State == ConnectionState.Closed)
                 con.Open();
@@ -70,7 +70,7 @@ namespace BTLON_NHOMTHUVIEN
                 txtMaNhaXB.Focus();
                 return;
             }
-            if (checktrungmnv(mxb))
+            if (checktrungmanxb(mxb))
             {
                 MessageBox.Show("Mã nhà xuất bản đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMaNhaXB.Focus();
@@ -124,6 +124,7 @@ namespace BTLON_NHOMTHUVIEN
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             con.Close();
+            MessageBox.Show("Sửa thành công!");
             load_nhaxb() ;
         }
 
@@ -150,7 +151,7 @@ namespace BTLON_NHOMTHUVIEN
                 string mxb = txtMaNhaXB.Text.Trim();
                 if (con.State == ConnectionState.Closed)
                     con.Open();
-                string sql = "Delete nhaxuatban Where manhanvien='" + mxb + "'";
+                string sql = "Delete nhaxuatban Where manxb='" + mxb + "'";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();

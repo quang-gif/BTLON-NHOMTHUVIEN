@@ -150,13 +150,5 @@ namespace BTLON_NHOMTHUVIEN
         {
             monthCalendar1.Enabled = false;
         }
-
-        private void trợGiúpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form f = new Formtrogiup();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
-        }
     }
 }

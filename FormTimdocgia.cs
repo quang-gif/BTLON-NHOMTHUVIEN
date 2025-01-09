@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,7 +14,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormTimdocgia : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         public FormTimdocgia()
         {
             InitializeComponent();
@@ -40,6 +41,7 @@ namespace BTLON_NHOMTHUVIEN
         private void FormTimdocgia_Load(object sender, EventArgs e)
         {
             load_docgia();
+            Capnhatsoluong();
             txtMadocgia.Focus();
         }
 
@@ -91,6 +93,12 @@ namespace BTLON_NHOMTHUVIEN
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Close();
+        }
+        private void Capnhatsoluong()
+        {
+            int sl = dgvdocgia.Rows.Count;
+            a.Text = sl.ToString();
+            a.ForeColor = Color.Red;
         }
     }
 }

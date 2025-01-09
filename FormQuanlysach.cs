@@ -14,7 +14,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormQuanlysach : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-FU9S3VB\\SQLEXPRESS01;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         public FormQuanlysach()
         {
             InitializeComponent();
@@ -139,6 +139,7 @@ namespace BTLON_NHOMTHUVIEN
             load_tacgia();
             txtMasach.Enabled = true;
             btnThem.Focus();
+            Capnhatsoluong();
         }
         private void btnThem_Click_1(object sender, EventArgs e)
         {
@@ -150,18 +151,32 @@ namespace BTLON_NHOMTHUVIEN
             dtnamxb.Value = DateTime.Now;
             txtMasach.Focus();
         }
-
         private void btnSua_Click_1(object sender, EventArgs e)
         {
             string ms = txtMasach.Text.Trim();
             string ts = txtTensach.Text.Trim();
             DateTime nxb = dtnamxb.Value;
-            string manxb = cboManxb.SelectedItem.ToString();
-            string tls = cboTheloai.SelectedItem.ToString();
-            string mtg = cboMatg.SelectedItem.ToString();
+            string manxb = cboManxb.SelectedValue.ToString();
+            string tls = cboTheloai.SelectedValue.ToString();
+            string mtg = cboMatg.SelectedValue.ToString();
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
+            }
+            if(manxb== "---Chọn mã nhà xuất bản---")
+            {
+                MessageBox.Show("Vui lòng chọn lại!");
+                return ;
+            }
+            if (tls == "---Chọn mã thể loại---")
+            {
+                MessageBox.Show("Vui lòng chọn lại!");
+                return;   
+            }
+            if (mtg == "---Chọn mã tác giả---")
+            {
+                MessageBox.Show("Vui lòng chọn lại!");
+                return;  
             }
             string sql = "Update quanlysach Set tensach=N'" + ts + "',namxb=@namxb,manxb=N'" + manxb + "',matheloai=N'" + tls + "',matg=N'" + mtg + "' Where masach=N'" + ms + "'";
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -171,6 +186,13 @@ namespace BTLON_NHOMTHUVIEN
             con.Close();
             MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             load_Quanlysach();
+            Capnhatsoluong();
+        }
+        private void Capnhatsoluong()
+        {
+            int sl = dgvCapnhatsach.Rows.Count;
+            a.Text = sl.ToString();
+            a.ForeColor = Color.Red;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -194,6 +216,7 @@ namespace BTLON_NHOMTHUVIEN
                 load_tacgia();
                 txtMasach.Enabled = true;
                 btnThem.Focus();
+                Capnhatsoluong();
             }
         }
 
@@ -268,6 +291,7 @@ namespace BTLON_NHOMTHUVIEN
             load_Quanlysach();
             btnLuu.Enabled = false;
             btnThem.Focus();
+            Capnhatsoluong();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

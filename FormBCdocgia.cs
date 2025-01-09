@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace BTLON_NHOMTHUVIEN
     {
        
 
-        SqlConnection con=new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
+        SqlConnection con=new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         public FormBCdocgia()
         {
             InitializeComponent();
@@ -65,6 +66,7 @@ namespace BTLON_NHOMTHUVIEN
             {
                 HienThiDocGiaTreHan();
             }
+            Capnhatsoluong();
         }
 
         private void FormBCdocgia_Load(object sender, EventArgs e)
@@ -72,6 +74,7 @@ namespace BTLON_NHOMTHUVIEN
             cbothongkedocgia.Items.Add("Tất cả độc giả");
             cbothongkedocgia.Items.Add("Độc giả trễ hạn");
             cbothongkedocgia.SelectedIndex = 0;
+            Capnhatsoluong();
         }
 
         private void Excel(DataTable tb, string sheetname)
@@ -170,7 +173,12 @@ namespace BTLON_NHOMTHUVIEN
                     MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-
+        }
+        private void Capnhatsoluong()
+        {
+            int sl = dgvTKDG.Rows.Count;
+            a.Text = sl.ToString();
+            a.ForeColor = Color.Red;
         }
     }
 }

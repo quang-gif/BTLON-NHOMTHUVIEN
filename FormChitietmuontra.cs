@@ -14,7 +14,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FormChitietmuontra : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=ShibaInu\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False;TrustServerCertificate=True");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
 
         public FormChitietmuontra()
         {
@@ -40,6 +40,7 @@ namespace BTLON_NHOMTHUVIEN
             load2();
             load3();
             Capnhatsoluong();
+            dgv2.Enabled = false;
         }
 
 
@@ -363,7 +364,7 @@ namespace BTLON_NHOMTHUVIEN
 
         private void btntrasach_Click_1(object sender, EventArgs e)
         {
-            DialogResult tl = MessageBox.Show("Bạn có muốn xoá hay không?", "Detele Box", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult tl = MessageBox.Show("Bạn có muốn trả sách hay không?", "Detele Box", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (tl == DialogResult.Yes)
             {
 

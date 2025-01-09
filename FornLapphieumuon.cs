@@ -13,7 +13,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class FornLapphieumuon : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=SHIBAINU\\SQLEXPRESS01;Initial Catalog=ThuVien;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
  
         public FornLapphieumuon()
         {
@@ -181,6 +181,12 @@ namespace BTLON_NHOMTHUVIEN
                 return;
             }
 
+            if (ntra <= nmuon)
+            {
+                MessageBox.Show("Ngày trả phải sau ngày mượn!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string checkSql = "SELECT COUNT(*) FROM chitietmuontra WHERE mamuon = @mamuon";
             SqlCommand checkCmd = new SqlCommand(checkSql, con);
             checkCmd.Parameters.Add("@mamuon", SqlDbType.NVarChar, 50).Value = pm;
@@ -216,6 +222,7 @@ namespace BTLON_NHOMTHUVIEN
 
         private void btnsua_Click(object sender, EventArgs e)
         {
+            
             string pm = txtphieumuon.Text.Trim();
             string nv = cbbnhanvien.SelectedValue.ToString();
             string dg = cbbdocgia.SelectedValue.ToString();
@@ -231,6 +238,31 @@ namespace BTLON_NHOMTHUVIEN
             if (string.IsNullOrEmpty(pm)) 
             { 
                 MessageBox.Show("Vui lòng chọn thông tin sửa!" , "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dg == "---Chọn mã độc giả---")
+            {
+                MessageBox.Show("Bạn chưa chọn thông tin! ");
+                txtphieumuon.Focus();
+                return;
+            }
+
+            if (nv == "---Chọn mã nhân viên---")
+            {
+                MessageBox.Show("Bạn chưa chọn thông tin! ");
+                txtphieumuon.Focus();
+                return;
+            }
+
+            if (ms == "---Chọn mã sách---")
+            {
+                MessageBox.Show("Bạn chưa chọn thông tin! ");
+                txtphieumuon.Focus();
+                return;
+            }
+            if (ntra <= nmuon)
+            {
+                MessageBox.Show("Ngày trả phải sau ngày mượn!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -285,17 +317,28 @@ namespace BTLON_NHOMTHUVIEN
         private void dgv1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = e.RowIndex;
-           
-            txtphieumuon.Text = dgv1.Rows[i].Cells[0].Value.ToString();
-            cbbmasach.SelectedValue = dgv1.Rows[i].Cells[1].Value.ToString();
-            dtmuon.Value = DateTime.Parse(dgv1.Rows[i].Cells[2].Value.ToString());
-            dttra.Value = DateTime.Parse(dgv1.Rows[i].Cells[3].Value.ToString());
-            cbbdocgia.SelectedValue = dgv1.Rows[i].Cells[4].Value.ToString();
-            cbbnhanvien.SelectedValue = dgv1.Rows[i].Cells[5].Value.ToString();
-            
-            
-        }
+            if (e.RowIndex >= 0 && e.RowIndex < dgv1.Rows.Count)
+            {
+                txtphieumuon.Text = dgv1.Rows[i].Cells[0].Value.ToString();
+                cbbmasach.SelectedValue = dgv1.Rows[i].Cells[1].Value.ToString();
+                dtmuon.Value = DateTime.Parse(dgv1.Rows[i].Cells[2].Value.ToString());
+                dttra.Value = DateTime.Parse(dgv1.Rows[i].Cells[3].Value.ToString());
+                cbbdocgia.SelectedValue = dgv1.Rows[i].Cells[4].Value.ToString();
+                cbbnhanvien.SelectedValue = dgv1.Rows[i].Cells[5].Value.ToString();
+                txtphieumuon.Enabled = false;
 
+                cbbnhanvien.Enabled = true;
+                cbbdocgia.Enabled = true;
+                cbbmasach.Enabled = true;
+                dttra.Enabled = false;
+
+                btnluu.Enabled = true;
+                btnsua.Enabled = true;
+                btnxoa.Enabled = true;
+                btnreset.Enabled = true;
+                return;
+            }
+        }
         private void btnreset_Click(object sender, EventArgs e)
         {
             txtphieumuon.Enabled = false;
@@ -304,6 +347,7 @@ namespace BTLON_NHOMTHUVIEN
             dttra.Enabled = false;
             cbbmasach.Enabled = false;
 
+            txtphieumuon.Clear();
             btnluu.Enabled = false;
             btnsua.Enabled = false;
             btnxoa.Enabled = false;

@@ -16,7 +16,7 @@ namespace BTLON_NHOMTHUVIEN
     {
         
         //Data Source=LAPTOP-F4RS79DJ\\SQLEXPRESS;Initial Catalog = DUANNHOMTHUVIEN; Integrated Security=True;Encrypt=False
-        SqlConnection con = new SqlConnection("Data Source=LAPTOP-F4RS79DJ\\SQLEXPRESS;Initial Catalog = DUANNHOMTHUVIEN; Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-T6775II7\\SQLEXPRESS;Initial Catalog=DUANNHOMTHUVIEN;Integrated Security=True;Encrypt=False");
         public FormBCsach()
         {
             InitializeComponent();
