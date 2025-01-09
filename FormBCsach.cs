@@ -88,6 +88,7 @@ namespace BTLON_NHOMTHUVIEN
             {
                 HienThiDocGiaDangMuon();
             }
+            Capnhatsoluong();
         }
 
         private void ExportExcel(DataTable tb, string sheetname)
@@ -225,6 +226,13 @@ namespace BTLON_NHOMTHUVIEN
             cbothongke.Items.Add("Sách trễ hạn");
             cbothongke.Items.Add("Sách đang mượn");
             cbothongke.SelectedIndex = 0;
+            Capnhatsoluong();
+        }
+        private void Capnhatsoluong()
+        {
+            int sl = dataGridView1.Rows.Count;
+            a.Text = sl.ToString();
+            a.ForeColor = Color.Red;
         }
     }
 }

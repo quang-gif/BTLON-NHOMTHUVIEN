@@ -42,6 +42,8 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngaymuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngaytra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.a = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -127,12 +129,12 @@
             this.Column5,
             this.ngaymuon,
             this.ngaytra});
-            this.dataGridView1.Location = new System.Drawing.Point(51, 240);
+            this.dataGridView1.Location = new System.Drawing.Point(51, 264);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1079, 299);
+            this.dataGridView1.Size = new System.Drawing.Size(1079, 275);
             this.dataGridView1.TabIndex = 2;
             // 
             // Column1
@@ -191,11 +193,30 @@
             this.ngaytra.Name = "ngaytra";
             this.ngaytra.Width = 125;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(48, 232);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Số lượng sách:";
+            // 
+            // a
+            // 
+            this.a.AutoSize = true;
+            this.a.Location = new System.Drawing.Point(149, 232);
+            this.a.Name = "a";
+            this.a.Size = new System.Drawing.Size(0, 16);
+            this.a.TabIndex = 4;
+            // 
             // FormBCsach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1159, 554);
+            this.Controls.Add(this.a);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -227,5 +248,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngaymuon;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngaytra;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label a;
     }
 }
