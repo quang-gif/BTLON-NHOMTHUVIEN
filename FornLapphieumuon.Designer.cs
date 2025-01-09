@@ -73,7 +73,7 @@
             this.btnthem.Text = "Thêm";
             this.btnthem.UseVisualStyleBackColor = false;
             this.btnthem.Click += new System.EventHandler(this.btnthem_Click);
-            this.btnthem.MouseEnter += new System.EventHandler(this.button3_MouseEnter);
+            
             // 
             // btnsua
             // 
@@ -88,7 +88,7 @@
             this.btnsua.Text = "Sửa";
             this.btnsua.UseVisualStyleBackColor = false;
             this.btnsua.Click += new System.EventHandler(this.btnsua_Click);
-            this.btnsua.MouseEnter += new System.EventHandler(this.button3_MouseEnter);
+            
             // 
             // btnluu
             // 
@@ -103,7 +103,7 @@
             this.btnluu.Text = "Lưu";
             this.btnluu.UseVisualStyleBackColor = false;
             this.btnluu.Click += new System.EventHandler(this.btnluu_Click);
-            this.btnluu.MouseEnter += new System.EventHandler(this.button3_MouseEnter);
+         
             // 
             // btnthoat
             // 
@@ -118,7 +118,7 @@
             this.btnthoat.Text = "Thoát";
             this.btnthoat.UseVisualStyleBackColor = false;
             this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
-            this.btnthoat.MouseEnter += new System.EventHandler(this.button3_MouseEnter);
+          
             // 
             // btnxoa
             // 
@@ -132,7 +132,7 @@
             this.btnxoa.Text = "Xóa";
             this.btnxoa.UseVisualStyleBackColor = false;
             this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
-            this.btnxoa.MouseEnter += new System.EventHandler(this.button3_MouseEnter);
+          
             // 
             // dgv1
             // 
@@ -152,7 +152,7 @@
             this.dgv1.Size = new System.Drawing.Size(704, 204);
             this.dgv1.TabIndex = 4;
             this.dgv1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellClick);
-            this.dgv1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellContentClick);
+           
             // 
             // mamuon
             // 
@@ -236,7 +236,7 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lập phiếu mượn";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+          
             // 
             // cbbmasach
             // 
@@ -354,7 +354,7 @@
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "label4";
-            this.label4.Click += new System.EventHandler(this.label4_Click_1);
+           
             // 
             // label8
             // 
@@ -377,7 +377,7 @@
             this.Name = "FornLapphieumuon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lập phiếu mượn";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FornLapphieumuon_FormClosed);
+           
             this.Load += new System.EventHandler(this.FornLapphieumuon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.groupBox1.ResumeLayout(false);

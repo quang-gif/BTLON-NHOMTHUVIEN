@@ -21,17 +21,6 @@ namespace BTLON_NHOMTHUVIEN
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void FormChitietmuontra_Load(object sender, EventArgs e)
         {
             cbbmasach.Enabled = false;
@@ -43,13 +32,6 @@ namespace BTLON_NHOMTHUVIEN
             dgv2.Enabled = false;
         }
 
-
-
-        private void btntrasach_Click(object sender, EventArgs e)
-        {
-
-        }
-        //load chi tiet muon tra
         DataTable dt1;
         private void load1()
         {
@@ -130,35 +112,6 @@ namespace BTLON_NHOMTHUVIEN
             cbbmasach.ValueMember = "masach";
         }
 
-        private void dgv2_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.RowIndex < dgv2.Rows.Count)
-            {
-
-                var cellMamuon = dgv2.Rows[e.RowIndex].Cells[0].Value;
-                var cellNgayTra = dgv2.Rows[e.RowIndex].Cells["ngaytra"].Value;
-
-                if (cellMamuon != null)
-                    cbbphieumuon.SelectedValue = cellMamuon.ToString();
-
-
-
-                if (cellNgayTra != null && DateTime.TryParse(cellNgayTra.ToString(), out DateTime ngayTra))
-                {
-                    dttra.Value = ngayTra;
-                }
-
-                else
-                {
-                    MessageBox.Show("Dữ liệu không hợp lệ hoặc dòng trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn dòng hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
         private void Excel(DataTable tb1, string sheetname)
         {
             e_excel.Application oExcel = new e_excel.Application();
@@ -166,7 +119,7 @@ namespace BTLON_NHOMTHUVIEN
             e_excel.Sheets oSheets;
             e_excel.Workbook oBook;
             e_excel.Worksheet oSheet;
-            //Tạo mới một Excel WorkBook 
+
             oExcel.Visible = true;
             oExcel.DisplayAlerts = false;
             oExcel.Application.SheetsInNewWorkbook = 1;
@@ -175,7 +128,6 @@ namespace BTLON_NHOMTHUVIEN
             oSheets = oBook.Worksheets;
             oSheet = (e_excel.Worksheet)oSheets.get_Item(1);
             oSheet.Name = sheetname;
-            // Tạo phần đầu nếu muốn
 
             e_excel.Range head = oSheet.get_Range("A1", "E1");
             head.MergeCells = true;
@@ -203,19 +155,10 @@ namespace BTLON_NHOMTHUVIEN
             cl5.Value2 = "NHÂN VIÊN";
             cl5.ColumnWidth = 40.0;
 
-            //Microsoft.Office.Interop.Excel.Range cl6 = oSheet.get_Range("F3", "F3");
-            //cl6.Value2 = "NGÀY THI";
-            //cl6.ColumnWidth = 15.0;
-            //Microsoft.Office.Interop.Excel.Range cl6_1 = oSheet.get_Range("F4", "F1000");
-            //cl6_1.Columns.NumberFormat = "dd/mm/yyyy";
-
             e_excel.Range rowHead = oSheet.get_Range("A3", "E3");
-            //
             rowHead.Font.Bold = true;
-
             // Kẻ viền
             rowHead.Borders.LineStyle = e_excel.Constants.xlSolid;
-
             // Thiết lập màu nền
             rowHead.Interior.ColorIndex = 15;
             rowHead.HorizontalAlignment = e_excel.XlHAlign.xlHAlignCenter;
@@ -252,11 +195,6 @@ namespace BTLON_NHOMTHUVIEN
             oSheet.get_Range(c3, c4).HorizontalAlignment = e_excel.XlHAlign.xlHAlignCenter;
 
         }
-
-
-
-
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             Close();  
@@ -282,17 +220,14 @@ namespace BTLON_NHOMTHUVIEN
 
                 if (reader.Read())
                 {
-                    // Gán dữ liệu vào các điều khiển
                     cbbmasach.SelectedValue = reader["masach"].ToString();
                     dtmuon.Value = DateTime.Parse(reader["ngaymuon"].ToString());
                     dttra.Value = DateTime.Parse(reader["ngaytra"].ToString());
                 }
                 else
                 {
-                    // Nếu không có dữ liệu
                     MessageBox.Show("Không tìm thấy thông tin cho mã phiếu mượn này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
                 reader.Close();
                 cmd.Dispose();
                 con.Close();
@@ -309,7 +244,6 @@ namespace BTLON_NHOMTHUVIEN
                 MessageBox.Show("Ngày trả phải sau ngày mượn!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             
             if (con.State != ConnectionState.Open)
             {
@@ -322,9 +256,6 @@ namespace BTLON_NHOMTHUVIEN
             cmd.Parameters.AddWithValue("@ngaytra", ngayTra);
             cmd.Parameters.AddWithValue("@mamuon", cbbphieumuon.SelectedValue.ToString());
 
-            
-
-            
             int rowsAffected = cmd.ExecuteNonQuery();
 
             if (rowsAffected > 0)
@@ -341,8 +272,6 @@ namespace BTLON_NHOMTHUVIEN
             con.Close();
         }
 
-
-
         private void btnexcel_Click_1(object sender, EventArgs e)
         {
             if (dt1 == null || dt1.Rows.Count == 0 || dt1.Columns.Count == 0)
@@ -350,7 +279,6 @@ namespace BTLON_NHOMTHUVIEN
                 MessageBox.Show("Dữ liệu không hợp lệ hoặc trống!");
                 return;
             }
-
             load1();
             Excel(dt1, "DSPhieuMuon");
         }
@@ -367,7 +295,6 @@ namespace BTLON_NHOMTHUVIEN
             DialogResult tl = MessageBox.Show("Bạn có muốn trả sách hay không?", "Detele Box", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (tl == DialogResult.Yes)
             {
-
                 string mm = cbbphieumuon.SelectedValue.ToString();
                 if (con.State == ConnectionState.Closed)
                     con.Open();
@@ -416,28 +343,11 @@ namespace BTLON_NHOMTHUVIEN
                 dgv2.Refresh();
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void btnReset_Click(object sender, EventArgs e)
         {
             load1();
             load2();
             load3();
-    
-        }
-
-        private void FormChitietmuontra_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            
-        }
-
-        private void dgv2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

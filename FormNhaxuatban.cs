@@ -95,7 +95,7 @@ namespace BTLON_NHOMTHUVIEN
                 return;
             }
             if (con.State == ConnectionState.Closed) con.Open();
-            string sql = "Insert nhaxuatban values('"+mxb+"','"+txb+"','"+dc+"','"+dt+"')";
+            string sql = "Insert nhaxuatban values('"+mxb+"',N'"+txb+"',N'"+dc+"','"+dt+"')";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.ExecuteNonQuery();
             cmd.Dispose();
@@ -131,11 +131,14 @@ namespace BTLON_NHOMTHUVIEN
         private void dgvCapNhatNhaXB_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = e.RowIndex;
-            txtMaNhaXB.Text = dgvCapNhatNhaXB.Rows[i].Cells[0].Value.ToString();
-            txtTenNhaXB.Text = dgvCapNhatNhaXB.Rows[i].Cells[1].Value.ToString();
-            txtDiaChi.Text = dgvCapNhatNhaXB.Rows[i].Cells[2].Value.ToString();
-            txtSoDienThoai.Text = dgvCapNhatNhaXB.Rows[i].Cells[3].Value.ToString();
-            txtMaNhaXB.Enabled = false;
+            if (i >= 0)
+            {
+                txtMaNhaXB.Text = dgvCapNhatNhaXB.Rows[i].Cells[0].Value.ToString();
+                txtTenNhaXB.Text = dgvCapNhatNhaXB.Rows[i].Cells[1].Value.ToString();
+                txtDiaChi.Text = dgvCapNhatNhaXB.Rows[i].Cells[2].Value.ToString();
+                txtSoDienThoai.Text = dgvCapNhatNhaXB.Rows[i].Cells[3].Value.ToString();
+                txtMaNhaXB.Enabled = false;
+            }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

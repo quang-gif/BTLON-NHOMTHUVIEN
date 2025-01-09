@@ -103,9 +103,12 @@ namespace BTLON_NHOMTHUVIEN
         private void dgvCapNhatTacGia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = e.RowIndex;
-            txtMaTacGia.Text = dgvCapNhatTacGia.Rows[i].Cells[0].Value.ToString();
-            txtHoTen.Text = dgvCapNhatTacGia.Rows[i].Cells[1].Value.ToString();
-            txtMaTacGia.Enabled = false;
+            if (i >= 0)
+            {
+                txtMaTacGia.Text = dgvCapNhatTacGia.Rows[i].Cells[0].Value.ToString();
+                txtHoTen.Text = dgvCapNhatTacGia.Rows[i].Cells[1].Value.ToString();
+                txtMaTacGia.Enabled = false;
+            }
         }
 
         private void btnLuu_Click(object sender, EventArgs e)

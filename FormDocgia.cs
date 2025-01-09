@@ -209,6 +209,8 @@ namespace BTLON_NHOMTHUVIEN
         private void dgvThongTinDocGia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = e.RowIndex;
+            if (i >= 0) 
+            { 
             txtMadocgia.Text = dgvThongTinDocGia.Rows[i].Cells[0].Value.ToString();
             txtHoten.Text = dgvThongTinDocGia.Rows[i].Cells[1].Value.ToString();
             dtNgaysinh.Value = DateTime.Parse(dgvThongTinDocGia.Rows[i].Cells[2].Value.ToString());
@@ -222,6 +224,7 @@ namespace BTLON_NHOMTHUVIEN
             btnLuu.Enabled = false;
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
+            }
         }
 
         private void brRS_Click(object sender, EventArgs e)

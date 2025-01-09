@@ -27,7 +27,9 @@ namespace BTLON_NHOMTHUVIEN
         {
             Close();
         }
+
         DataTable tb1=new DataTable();
+
         public void HienThiTatCaDocGia()
         {
             if (con.State != ConnectionState.Open)
@@ -35,13 +37,15 @@ namespace BTLON_NHOMTHUVIEN
                 con.Open();
             }
             tb1.Clear();
+
             string sql = "Select *from docgia";
             SqlCommand cmd = new SqlCommand(sql,con);
-            SqlDataAdapter da= new SqlDataAdapter();
-            da.SelectCommand = cmd;
+            SqlDataAdapter da= new SqlDataAdapter(cmd);
+
             da.Fill(tb1);
             dgvTKDG.DataSource = tb1;
         }
+
         public void HienThiDocGiaTreHan()
         {
             if (con.State != ConnectionState.Open)
@@ -49,13 +53,17 @@ namespace BTLON_NHOMTHUVIEN
                 con.Open();
             }
             tb1.Clear();
-            string sql = "Select docgia.* FROM docgia JOIN chitietmuontra ON docgia.madg = chitietmuontra.madg WHERE chitietmuontra.ngaytra < GETDATE()";
+
+            string sql = "Select docgia.* FROM docgia JOIN chitietmuontra ON docgia.madg = chitietmuontra.madg " +
+                "WHERE chitietmuontra.ngaytra < GETDATE()";
+
             SqlCommand cmd = new SqlCommand(sql, con);
-            SqlDataAdapter da = new SqlDataAdapter();
-            da.SelectCommand = cmd;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
             da.Fill(tb1);
             dgvTKDG.DataSource = tb1;
         }
+
         private void btnthongke_Click(object sender, EventArgs e)
         {
             if (cbothongkedocgia.SelectedItem.ToString() == "Tất cả độc giả")
@@ -158,7 +166,6 @@ namespace BTLON_NHOMTHUVIEN
                 if (excel== "Tất cả độc giả")
                 {
                     DataTable tb1 = new DataTable();
-                  
                 }
                 else if (excel == "Độc giả trễ hạn")
                 {

@@ -103,9 +103,12 @@ namespace BTLON_NHOMTHUVIEN
         private void dgvCapNhatTheLoai_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = e.RowIndex;
-            txtMaTheLoai.Text = dgvCapNhatTheLoai.Rows[i].Cells[0].Value.ToString();
-            txtTenTheLoai.Text = dgvCapNhatTheLoai.Rows[i].Cells[1].Value.ToString();
-            txtMaTheLoai.Enabled = false; //để không sửa được mã loại
+            if (i >= 0)
+            {
+                txtMaTheLoai.Text = dgvCapNhatTheLoai.Rows[i].Cells[0].Value.ToString();
+                txtTenTheLoai.Text = dgvCapNhatTheLoai.Rows[i].Cells[1].Value.ToString();
+                txtMaTheLoai.Enabled = false;
+            }
         }
         private void btnLuu_Click(object sender, EventArgs e)
         {
@@ -157,7 +160,6 @@ namespace BTLON_NHOMTHUVIEN
             btnTimkiem.Enabled=false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
-            load_theloai("", "");
         }
 
         private void btnTimkiem_Click(object sender, EventArgs e)

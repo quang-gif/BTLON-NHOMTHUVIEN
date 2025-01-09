@@ -93,22 +93,6 @@ namespace BTLON_NHOMTHUVIEN
             dgv1.Refresh();
             
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
-
         private void FornLapphieumuon_Load(object sender, EventArgs e)
         {
             txtphieumuon.Enabled = false;
@@ -138,7 +122,6 @@ namespace BTLON_NHOMTHUVIEN
 
         private void btnluu_Click(object sender, EventArgs e)
         {
-            //b1: lay du lieu tu cac control dua vao bien
             string pm = txtphieumuon.Text.Trim();
             string nv = cbbnhanvien.SelectedValue.ToString();
             string dg = cbbdocgia.SelectedValue.ToString();
@@ -146,7 +129,6 @@ namespace BTLON_NHOMTHUVIEN
             DateTime ntra = dttra.Value;
             string ms = cbbmasach.SelectedValue.ToString();
 
-            //b2: ket noi db
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
@@ -158,7 +140,6 @@ namespace BTLON_NHOMTHUVIEN
                 txtphieumuon.Focus();
                 return;
             }
-
 
             if (dg == "---Chọn mã độc giả---")
             {
@@ -199,11 +180,9 @@ namespace BTLON_NHOMTHUVIEN
                 return;
             }
 
-            //b3: tao doi tuong command de thuc hien cau lenh sql
             string sql = "insert chitietmuontra values (@mamuon, @masach, @ngaymuon, @ngaytra, @madg, @manhanvien)";
             SqlCommand cmd = new SqlCommand(sql, con);
 
-            //b4
             cmd.Parameters.Add("@mamuon", SqlDbType.NVarChar, 50).Value = pm;
             cmd.Parameters.Add("@manhanvien", SqlDbType.NVarChar, 50).Value = nv;
             cmd.Parameters.Add("@madg", SqlDbType.NVarChar, 50).Value = dg;
@@ -312,8 +291,6 @@ namespace BTLON_NHOMTHUVIEN
             Capnhatsoluong();
         }
 
-
-
         private void dgv1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = e.RowIndex;
@@ -356,19 +333,11 @@ namespace BTLON_NHOMTHUVIEN
             load_nhanvien();
             load_masach();
         }
-
-        private void txtphieumuon_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
-        
                 Form fa = new FormChitietmuontra();
                 fa.Show();
-                this.Close();
-            
+                this.Close();    
         }
 
         private void Capnhatsoluong()
@@ -376,11 +345,6 @@ namespace BTLON_NHOMTHUVIEN
             int sl = dgv1.Rows.Count;
             label4.Text = sl.ToString();
             label4.ForeColor = Color.Red;
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void load_masach()
@@ -408,26 +372,6 @@ namespace BTLON_NHOMTHUVIEN
             cbbmasach.DataSource = dt;
             cbbmasach.DisplayMember = "masach";
             cbbmasach.ValueMember = "masach";
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FornLapphieumuon_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            
-        }
-
-        private void dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label4_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
