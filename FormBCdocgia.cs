@@ -119,10 +119,8 @@ namespace BTLON_NHOMTHUVIEN
             e_excel.Range cl3 = oSheet.get_Range("C3", "C3");
             cl3.Value2 = "NGÀY SINH";
             cl3.ColumnWidth = 15.0;
-            e_excel.Range cl4 = oSheet.get_Range("D3", "D3");
-            cl4.Value2 = "GIỚI TÍNH";
-            cl4.ColumnWidth = 25.0;
-            e_excel.Range cl5 = oSheet.get_Range("E3", "E3");
+          
+            e_excel.Range cl5 = oSheet.get_Range("D3", "D3");
             cl5.Value2 = "LỚP";
             cl5.ColumnWidth = 40.0;
    

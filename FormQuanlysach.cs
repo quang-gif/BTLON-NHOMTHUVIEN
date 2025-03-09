@@ -228,6 +228,7 @@ namespace BTLON_NHOMTHUVIEN
             string manxb = cboManxb.SelectedValue.ToString();
             string tls = cboTheloai.SelectedValue.ToString();
             string mtg = cboMatg.SelectedValue.ToString();
+            string sl = txtSoluong.Text.Trim();
 
             if (checktrung(ms) == true)
             {
@@ -271,12 +272,18 @@ namespace BTLON_NHOMTHUVIEN
                 txtMasach.Focus();
                 return;
             }
+            if(sl== "")
+            {
+                MessageBox.Show("Bạn chưa nhập số đầu sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMasach.Focus();
+                return;
+            }    
             // ket noi csdl
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
             }
-            string sql = "Insert quanlysach Values (@masach,@tensach,@namxb,@manxb,@matheloai,@matg)";
+            string sql = "Insert quanlysach Values (@masach,@tensach,@namxb,@manxb,@matheloai,@matg,@soluong)";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.Add(@"masach", SqlDbType.NVarChar, 50).Value = ms;
             cmd.Parameters.Add(@"tensach", SqlDbType.NVarChar, 50).Value = ts;
@@ -284,6 +291,7 @@ namespace BTLON_NHOMTHUVIEN
             cmd.Parameters.Add(@"manxb", SqlDbType.NVarChar, 50).Value = manxb;
             cmd.Parameters.Add(@"matheloai", SqlDbType.NVarChar, 50).Value = tls;
             cmd.Parameters.Add(@"matg", SqlDbType.NVarChar, 50).Value = mtg;
+            cmd.Parameters.Add("@soluong",SqlDbType.Int).Value = sl;
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             con.Close();

@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.dgv2 = new System.Windows.Forms.DataGridView();
+            this.maphieumuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tensach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tendg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaytra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotennv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtmuon = new System.Windows.Forms.DateTimePicker();
             this.dttra = new System.Windows.Forms.DateTimePicker();
@@ -46,11 +51,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
-            this.maphieumuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tensach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tendg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaytra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotennv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +73,50 @@
             this.dgv2.Size = new System.Drawing.Size(929, 239);
             this.dgv2.TabIndex = 4;
             // 
+            // maphieumuon
+            // 
+            this.maphieumuon.DataPropertyName = "mamuon";
+            this.maphieumuon.FillWeight = 270.9678F;
+            this.maphieumuon.HeaderText = "Mã phiếu ";
+            this.maphieumuon.MinimumWidth = 8;
+            this.maphieumuon.Name = "maphieumuon";
+            this.maphieumuon.Width = 125;
+            // 
+            // tensach
+            // 
+            this.tensach.DataPropertyName = "tensach";
+            this.tensach.FillWeight = 43.01074F;
+            this.tensach.HeaderText = "Tên sách";
+            this.tensach.MinimumWidth = 6;
+            this.tensach.Name = "tensach";
+            this.tensach.Width = 170;
+            // 
+            // tendg
+            // 
+            this.tendg.DataPropertyName = "htdocgia";
+            this.tendg.FillWeight = 43.01074F;
+            this.tendg.HeaderText = "Tên độc giả";
+            this.tendg.MinimumWidth = 6;
+            this.tendg.Name = "tendg";
+            this.tendg.Width = 180;
+            // 
+            // ngaytra
+            // 
+            this.ngaytra.DataPropertyName = "ngaytra";
+            this.ngaytra.FillWeight = 43.01074F;
+            this.ngaytra.HeaderText = "Ngày trả";
+            this.ngaytra.MinimumWidth = 8;
+            this.ngaytra.Name = "ngaytra";
+            this.ngaytra.Width = 90;
+            // 
+            // hotennv
+            // 
+            this.hotennv.DataPropertyName = "hotennv";
+            this.hotennv.HeaderText = "Nhân viên";
+            this.hotennv.MinimumWidth = 6;
+            this.hotennv.Name = "hotennv";
+            this.hotennv.Width = 155;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dtmuon);
@@ -91,6 +135,7 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết mượn trả";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // dtmuon
             // 
@@ -257,49 +302,7 @@
             this.btnReset.TabIndex = 25;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
-            // 
-            // maphieumuon
-            // 
-            this.maphieumuon.DataPropertyName = "mamuon";
-            this.maphieumuon.FillWeight = 270.9678F;
-            this.maphieumuon.HeaderText = "Mã phiếu ";
-            this.maphieumuon.MinimumWidth = 8;
-            this.maphieumuon.Name = "maphieumuon";
-            // 
-            // tensach
-            // 
-            this.tensach.DataPropertyName = "tensach";
-            this.tensach.FillWeight = 43.01074F;
-            this.tensach.HeaderText = "Tên sách";
-            this.tensach.MinimumWidth = 6;
-            this.tensach.Name = "tensach";
-            this.tensach.Width = 170;
-            // 
-            // tendg
-            // 
-            this.tendg.DataPropertyName = "htdocgia";
-            this.tendg.FillWeight = 43.01074F;
-            this.tendg.HeaderText = "Tên độc giả";
-            this.tendg.MinimumWidth = 6;
-            this.tendg.Name = "tendg";
-            this.tendg.Width = 180;
-            // 
-            // ngaytra
-            // 
-            this.ngaytra.DataPropertyName = "ngaytra";
-            this.ngaytra.FillWeight = 43.01074F;
-            this.ngaytra.HeaderText = "Ngày trả";
-            this.ngaytra.MinimumWidth = 8;
-            this.ngaytra.Name = "ngaytra";
-            this.ngaytra.Width = 90;
-            // 
-            // hotennv
-            // 
-            this.hotennv.DataPropertyName = "hotennv";
-            this.hotennv.HeaderText = "Nhân viên";
-            this.hotennv.MinimumWidth = 6;
-            this.hotennv.Name = "hotennv";
-            this.hotennv.Width = 155;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click_1);
             // 
             // FormChitietmuontra
             // 

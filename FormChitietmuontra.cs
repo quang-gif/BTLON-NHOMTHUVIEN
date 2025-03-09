@@ -33,6 +33,7 @@ namespace BTLON_NHOMTHUVIEN
         }
 
         DataTable dt1;
+        //load dgv
         private void load1()
         {
             if (con.State != ConnectionState.Open)
@@ -57,7 +58,7 @@ namespace BTLON_NHOMTHUVIEN
             dgv2.DataSource = dt1;
             dgv2.Refresh();
         }
-        //load muon tra
+        //load cbbphieumuon
         private void load2()
         {
             if (con.State != ConnectionState.Open)
@@ -84,7 +85,7 @@ namespace BTLON_NHOMTHUVIEN
             cbbphieumuon.DisplayMember = "mamuon";
             cbbphieumuon.ValueMember = "mamuon";
         }
-
+        //load cbbmasach
         private void load3()
         {
             if (con.State != ConnectionState.Open)
@@ -211,7 +212,7 @@ namespace BTLON_NHOMTHUVIEN
                     con.Open();
                 }
 
-                string sql = "SELECT masach, ngaymuon, ngaytra FROM chitietmuontra WHERE mamuon = @mamuon";
+                string sql = "SELECT masach, ngaymuon, ngaytra,  FROM chitietmuontra WHERE mamuon = @mamuon";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@mamuon", mp);
 
@@ -348,6 +349,16 @@ namespace BTLON_NHOMTHUVIEN
             load1();
             load2();
             load3();
+        }
+
+        private void btnReset_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -39,7 +39,7 @@ namespace BTLON_NHOMTHUVIEN
                 con.Open();
             }
             tb1.Clear();
-            string sql = "Select chitietmuontra.masach,tensach,namxb,tennxb,tentheloai,ngaymuon,ngaytra FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai INNER JOIN chitietmuontra ON quanlysach.masach = chitietmuontra.masach";
+            string sql = "Select chitietmuontra.masach,tensach,tennxb,tentheloai,ngaymuon,ngaytra FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai INNER JOIN chitietmuontra ON quanlysach.masach = chitietmuontra.masach";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
@@ -53,7 +53,7 @@ namespace BTLON_NHOMTHUVIEN
                 con.Open();
             }
             tb1.Clear();
-            string sql = "Select chitietmuontra.masach,tensach,namxb,tennxb,tentheloai,ngaymuon,ngaytra FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai INNER JOIN chitietmuontra ON quanlysach.masach = chitietmuontra.masach WHERE chitietmuontra.ngaytra < GETDATE()";
+            string sql = "Select chitietmuontra.masach,tensach,tennxb,tentheloai,ngaymuon,ngaytra FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai INNER JOIN chitietmuontra ON quanlysach.masach = chitietmuontra.masach WHERE chitietmuontra.ngaytra < GETDATE()";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
@@ -67,7 +67,7 @@ namespace BTLON_NHOMTHUVIEN
                 con.Open();
             }
             tb1.Clear();
-            string sql = "Select chitietmuontra.masach,tensach,namxb,tennxb,tentheloai,ngaymuon,ngaytra FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai INNER JOIN chitietmuontra ON quanlysach.masach = chitietmuontra.masach WHERE chitietmuontra.ngaytra >= GETDATE()";
+            string sql = "Select chitietmuontra.masach,tensach,tennxb,tentheloai,ngaymuon,ngaytra FROM quanlysach INNER JOIN nhaxuatban ON quanlysach.manxb = nhaxuatban.manxb INNER JOIN tacgia ON tacgia.matg = quanlysach.matg INNER JOIN theloai ON quanlysach.matheloai = theloai.matheloai INNER JOIN chitietmuontra ON quanlysach.masach = chitietmuontra.masach WHERE chitietmuontra.ngaytra >= GETDATE()";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
@@ -111,7 +111,7 @@ namespace BTLON_NHOMTHUVIEN
             oSheet.Name = sheetname;
 
             //Tiêu đề bảng
-            e_excel.Range head = oSheet.get_Range("A1", "G1");
+            e_excel.Range head = oSheet.get_Range("A1", "F1");
             head.MergeCells = true;
             head.Value2 = "BÁO CÁO THỐNG KÊ SÁCH TRONG THƯ VIỆN";
             head.Font.Bold = true;
@@ -126,22 +126,20 @@ namespace BTLON_NHOMTHUVIEN
             e_excel.Range cl2 = oSheet.get_Range("B3", "B3");
             cl2.Value2 = "TÊN SÁCH";
             cl2.ColumnWidth = 25.0;
-            e_excel.Range cl3 = oSheet.get_Range("C3", "C3");
-            cl3.Value2 = "NĂM XB";
-            cl3.ColumnWidth = 25.0;
-            e_excel.Range cl4 = oSheet.get_Range("D3", "D3");
+          
+            e_excel.Range cl4 = oSheet.get_Range("C3", "C3");
             cl4.Value2 = "NXB";
             cl4.ColumnWidth = 15.0;
-            e_excel.Range cl5 = oSheet.get_Range("E3", "E3");
+            e_excel.Range cl5 = oSheet.get_Range("D3", "D3");
             cl5.Value2 = "THÊ LOẠI";
             cl5.ColumnWidth = 15.0;
-            e_excel.Range cl6 = oSheet.get_Range("F3", "F3");
+            e_excel.Range cl6 = oSheet.get_Range("E3", "E3");
             cl6.Value2 = "NGÀY MƯỢN";
             cl6.ColumnWidth = 25.0;
-            e_excel.Range cl7 = oSheet.get_Range("G3", "G3");
+            e_excel.Range cl7 = oSheet.get_Range("F3", "F3");
             cl7.Value2 = "NGÀY TRẢ";
             cl7.ColumnWidth = 25.0;
-            e_excel.Range rowHead = oSheet.get_Range("A3", "G3");
+            e_excel.Range rowHead = oSheet.get_Range("A3", "F3");
             rowHead.Font.Bold = true;
 
             // Kẻ viền
@@ -160,7 +158,7 @@ namespace BTLON_NHOMTHUVIEN
                 for (int c = 0; c < tb.Columns.Count; c++)
 
                 {
-                    if (c == 2 || c == 5 || c == 6)
+                    if (c == 4 || c == 5)
                         arr[r, c] = "'" + dr[c].ToString(); //chuyen cot C thanh Text
                     else
                         arr[r, c] = dr[c];

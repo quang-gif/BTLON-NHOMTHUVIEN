@@ -32,7 +32,7 @@ namespace BTLON_NHOMTHUVIEN
         private void load_nhaxb()
         {
             if (con.State == ConnectionState.Closed) con.Open();
-            string sql = "Select * from nhaxuatban";
+            string sql = "Select * from nhaxuatban where diachi=N'HÀ NỘI'";
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.SelectCommand = cmd;
@@ -105,7 +105,6 @@ namespace BTLON_NHOMTHUVIEN
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
             btnLuu.Enabled = false;
-
             load_nhaxb();
         }
 

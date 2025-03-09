@@ -12,7 +12,7 @@ namespace BTLON_NHOMTHUVIEN
 {
     public partial class Formlogin : Form
     {
-        string tentk = "nhomthuvien";
+        string tentk = "admin";
         string mk = "123456";
         public Formlogin()
         {
@@ -57,6 +57,11 @@ namespace BTLON_NHOMTHUVIEN
             } 
                 
             return false;
+        }
+
+        private void Formlogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
